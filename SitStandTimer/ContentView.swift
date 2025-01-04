@@ -14,8 +14,7 @@ struct LargeClockView: View {
     var body: some View {
         Text(timeString(from: currentTime))
             .font(.system(size: 96, design: .monospaced))
-            .fontWeight(.light)
-            .foregroundColor(.gray)
+            .fontWeight(.regular)
     }
     
     private func timeString(from date: Date) -> String {
@@ -78,7 +77,8 @@ struct ContentView: View {
                 NormalModeView(timerManager: timerManager, sittingTime: $sittingTime, standingTime: $standingTime)
             }
         }
-        .frame(width: isFullScreen ? nil : 450, height: isFullScreen ? nil : 400)
+//        .frame(width: isFullScreen ? nil : 450, height: isFullScreen ? nil : 400)
+//        .background(VisualEffectView(material: .sidebar, blendingMode: .behindWindow))
         .onReceive(timer) { input in
             currentTime = input
         }
@@ -159,7 +159,7 @@ struct IdleModeView: View {
                 LargeClockView(currentTime: currentTime)
                 Spacer()
             }
-            .padding(.bottom, 20)
+            .padding(.bottom, 40)
             .padding(.leading, 40)
         }
         .padding()
