@@ -91,8 +91,10 @@ class TimerManager: ObservableObject {
     }
     
     func switchInterval() {
-        pauseTimer()
-        
+        isRunning = false
+        timer?.invalidate()
+        timer = nil
+
         currentInterval = currentInterval == .sitting ? .standing : .sitting
         remainingTime = currentInterval == .sitting ? sittingTime : standingTime
         
@@ -108,5 +110,6 @@ class TimerManager: ObservableObject {
         notch.show(for: 3)
         
         resumeTimer()
+        pauseNotch.hide()
     }
 }
