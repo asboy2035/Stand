@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import DynamicNotchKit
 
 @main
 struct SitStandTimerApp: App {
@@ -13,5 +14,7 @@ struct SitStandTimerApp: App {
         WindowGroup {
             ContentView()
         }
+        .windowStyle(HiddenTitleBarWindowStyle())
+//        .windowResizability(.contentSize)
     }
 }

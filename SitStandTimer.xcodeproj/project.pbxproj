@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		5E500F652D2953CE00635A51 /* DynamicNotchKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5E500F642D2953CE00635A51 /* DynamicNotchKit */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		5E3EDEC22D089F7100E83C77 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,7 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5E3EDEB02D089F7000E83C77 /* SitStandTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SitStandTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E3EDEB02D089F7000E83C77 /* Stand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E3EDEC12D089F7100E83C77 /* SitStandTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SitStandTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E3EDECB2D089F7100E83C77 /* SitStandTimerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SitStandTimerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -52,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E500F652D2953CE00635A51 /* DynamicNotchKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,7 +90,7 @@
 		5E3EDEB12D089F7000E83C77 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5E3EDEB02D089F7000E83C77 /* SitStandTimer.app */,
+				5E3EDEB02D089F7000E83C77 /* Stand.app */,
 				5E3EDEC12D089F7100E83C77 /* SitStandTimerTests.xctest */,
 				5E3EDECB2D089F7100E83C77 /* SitStandTimerUITests.xctest */,
 			);
@@ -112,9 +117,10 @@
 			);
 			name = SitStandTimer;
 			packageProductDependencies = (
+				5E500F642D2953CE00635A51 /* DynamicNotchKit */,
 			);
 			productName = SitStandTimer;
-			productReference = 5E3EDEB02D089F7000E83C77 /* SitStandTimer.app */;
+			productReference = 5E3EDEB02D089F7000E83C77 /* Stand.app */;
 			productType = "com.apple.product-type.application";
 		};
 		5E3EDEC02D089F7100E83C77 /* SitStandTimerTests */ = {
@@ -195,6 +201,9 @@
 			);
 			mainGroup = 5E3EDEA72D089F7000E83C77;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				5E500F632D2953CE00635A51 /* XCRemoteSwiftPackageReference "DynamicNotchKit" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5E3EDEB12D089F7000E83C77 /* Products */;
 			projectDirPath = "";
@@ -395,20 +404,22 @@
 				CODE_SIGN_ENTITLEMENTS = SitStandTimer/SitStandTimer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"SitStandTimer/Preview Content\"";
 				DEVELOPMENT_TEAM = UCN29PZL3V;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Stand;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ash.SitStandTimer;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = ash.Stand;
+				PRODUCT_NAME = Stand;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -422,20 +433,22 @@
 				CODE_SIGN_ENTITLEMENTS = SitStandTimer/SitStandTimer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"SitStandTimer/Preview Content\"";
 				DEVELOPMENT_TEAM = UCN29PZL3V;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Stand;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ash.SitStandTimer;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = ash.Stand;
+				PRODUCT_NAME = Stand;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -549,6 +562,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5E500F632D2953CE00635A51 /* XCRemoteSwiftPackageReference "DynamicNotchKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MrKai77/DynamicNotchKit";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5E500F642D2953CE00635A51 /* DynamicNotchKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5E500F632D2953CE00635A51 /* XCRemoteSwiftPackageReference "DynamicNotchKit" */;
+			productName = DynamicNotchKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5E3EDEA82D089F7000E83C77 /* Project object */;
 }
