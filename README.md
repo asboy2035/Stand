@@ -1,7 +1,7 @@
 # Stand
 A simple and modern macOS app that reminds you to sit/stand.
 
-![SCR-20241213-qfzm](https://github.com/user-attachments/assets/1bdb6841-351c-4118-a580-0eb43530f3ee)
+![SCR-20241213-qfzm](https://github.com/user-attachments/assets/9d423a22-48f0-40a9-8dfb-3d0ea2372437)
 > Stand UI
 ![SCR-20241213-qgbk](https://github.com/user-attachments/assets/873b4bff-18cd-4560-8cec-21043f45fd2a)
 > Stand notification
