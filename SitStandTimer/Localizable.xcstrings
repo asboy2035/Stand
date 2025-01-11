@@ -324,13 +324,13 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Es hora de"
+            "value" : "Es hora de ser"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "C’est le temps de"
+            "value" : "C’est le temps d’être"
           }
         }
       }
