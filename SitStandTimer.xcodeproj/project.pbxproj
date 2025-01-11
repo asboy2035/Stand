@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E37C1142D32B07C001E2F7A /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 5E37C1132D32B07C001E2F7A /* Localizable.xcstrings */; };
 		5E500F652D2953CE00635A51 /* DynamicNotchKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5E500F642D2953CE00635A51 /* DynamicNotchKit */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5E37C1132D32B07C001E2F7A /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = Localizable.xcstrings; path = SitStandTimer/Localizable.xcstrings; sourceTree = "<group>"; };
 		5E3EDEB02D089F7000E83C77 /* Stand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E3EDEC12D089F7100E83C77 /* SitStandTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SitStandTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E3EDECB2D089F7100E83C77 /* SitStandTimerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SitStandTimerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +82,7 @@
 		5E3EDEA72D089F7000E83C77 = {
 			isa = PBXGroup;
 			children = (
+				5E37C1132D32B07C001E2F7A /* Localizable.xcstrings */,
 				5E3EDEB22D089F7000E83C77 /* SitStandTimer */,
 				5E3EDEC42D089F7100E83C77 /* SitStandTimerTests */,
 				5E3EDECE2D089F7100E83C77 /* SitStandTimerUITests */,
@@ -198,6 +201,8 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
+				es,
 			);
 			mainGroup = 5E3EDEA72D089F7000E83C77;
 			minimizedProjectReferenceProxies = 1;
@@ -221,6 +226,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E37C1142D32B07C001E2F7A /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,13 +337,14 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 15.1;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Debug;
 		};
@@ -388,11 +395,13 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 15.1;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
 		};
@@ -404,7 +413,7 @@
 				CODE_SIGN_ENTITLEMENTS = SitStandTimer/SitStandTimer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"SitStandTimer/Preview Content\"";
 				DEVELOPMENT_TEAM = UCN29PZL3V;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -418,7 +427,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.5;
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = ash.Stand;
 				PRODUCT_NAME = Stand;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -434,7 +443,7 @@
 				CODE_SIGN_ENTITLEMENTS = SitStandTimer/SitStandTimer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"SitStandTimer/Preview Content\"";
 				DEVELOPMENT_TEAM = UCN29PZL3V;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -448,7 +457,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.5;
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = ash.Stand;
 				PRODUCT_NAME = Stand;
 				SWIFT_EMIT_LOC_STRINGS = YES;

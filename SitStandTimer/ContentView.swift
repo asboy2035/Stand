@@ -32,7 +32,7 @@ struct IdleStatusText: View {
     
     private var statusText: String {
         if timerManager.isRunning {
-            return "\(timerManager.currentInterval == .sitting ? "Sitting" : "Standing") - \(timeString(from: timerManager.remainingTime)) remaining"
+            return "\(timerManager.currentInterval == .sitting ? "\(NSLocalizedString("sittingLabel", comment: "sitting"))" : "\(NSLocalizedString("standingLabel", comment: "standing"))") - \(timeString(from: timerManager.remainingTime)) \(NSLocalizedString("remainingLabel", comment: "remaining time"))"
         } else {
             return "Timer Paused"
         }
@@ -77,8 +77,6 @@ struct ContentView: View {
                 NormalModeView(timerManager: timerManager, sittingTime: $sittingTime, standingTime: $standingTime)
             }
         }
-//        .frame(width: isFullScreen ? nil : 450, height: isFullScreen ? nil : 400)
-//        .background(VisualEffectView(material: .sidebar, blendingMode: .behindWindow))
         .onReceive(timer) { input in
             currentTime = input
         }
@@ -100,7 +98,6 @@ struct IdleModeView: View {
         VStack {
             // Status text at top
             IdleStatusText(timerManager: timerManager)
-            
             Spacer()
             
             // Timer controls in middle
@@ -110,7 +107,7 @@ struct IdleModeView: View {
                     Image(systemName: timerManager.currentInterval == .sitting ? "figure.seated.side.left" : "figure.stand")
                         .font(.largeTitle)
                         .foregroundColor(timerManager.currentInterval == .sitting ? .indigo : .yellow)
-                    Text(timerManager.currentInterval == .sitting ? "Sitting" : "Standing")
+                    Text(timerManager.currentInterval == .sitting ? "sittingLabel" : "standingLabel")
                         .font(.title)
                         .foregroundColor(timerManager.currentInterval == .sitting ? .indigo : .yellow)
                 }
@@ -153,8 +150,6 @@ struct IdleModeView: View {
             }
             
             Spacer()
-            
-            // Clock at bottom left
             HStack {
                 LargeClockView(currentTime: currentTime)
                 Spacer()
@@ -182,7 +177,7 @@ struct NormalModeView: View {
     var body: some View {
         VStack(spacing: 20) {
             // Title
-            Text("Stand")
+            Text("appName")
                 .font(.largeTitle)
                 .fontWeight(.medium)
             
@@ -191,7 +186,7 @@ struct NormalModeView: View {
                 Image(systemName: timerManager.currentInterval == .sitting ? "figure.seated.side.left" : "figure.stand")
                     .font(.largeTitle)
                     .foregroundColor(timerManager.currentInterval == .sitting ? .indigo : .yellow)
-                Text(timerManager.currentInterval == .sitting ? "Sitting" : "Standing")
+                Text(timerManager.currentInterval == .sitting ? "sittingLabel" : "standingLabel")
                     .font(.title)
                     .foregroundColor(timerManager.currentInterval == .sitting ? .indigo : .yellow)
             }
@@ -204,23 +199,31 @@ struct NormalModeView: View {
             // Interval Configuration
             HStack {
                 VStack {
-                    Text("Sitting Time")
+                    Text("sittingTimeLabel")
                     Slider(value: $sittingTime, in: 5...60, step: 5)
                         .onChange(of: sittingTime) { newValue in
                             timerManager.updateIntervalTime(type: .sitting, time: newValue)
                         }
                         .frame(width: 150)
-                    Text("\(Int(sittingTime)) min")
+                    HStack(spacing: 3) {
+                        Text("\(Int(sittingTime))")
+                            .font(.system(size: 12, weight: .bold))
+                        Text("minutesAbbr")
+                    }
                 }
                 
                 VStack {
-                    Text("Standing Time")
+                    Text("standingTimeLabel")
                     Slider(value: $standingTime, in: 5...60, step: 5)
                         .onChange(of: standingTime) { newValue in
                             timerManager.updateIntervalTime(type: .standing, time: newValue)
                         }
                         .frame(width: 150)
-                    Text("\(Int(standingTime)) min")
+                    HStack(spacing: 3) {
+                        Text("\(Int(standingTime))")
+                            .font(.system(size: 12, weight: .bold))
+                        Text("minutesAbbr")
+                    }
                 }
             }
             .padding()

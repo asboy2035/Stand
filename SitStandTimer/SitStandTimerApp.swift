@@ -15,6 +15,5 @@ struct SitStandTimerApp: App {
             ContentView()
         }
         .windowStyle(HiddenTitleBarWindowStyle())
-//        .windowResizability(.contentSize)
     }
 }
