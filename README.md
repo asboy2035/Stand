@@ -1,12 +1,14 @@
 # Stand
 A simple and modern macOS app that reminds you to sit/stand.
 
-![SCR-20241213-qfzm](https://github.com/user-attachments/assets/9d423a22-48f0-40a9-8dfb-3d0ea2372437)
-> Stand UI
+<img width="797" alt="SCR-20250117-qeep" src="https://github.com/user-attachments/assets/eabaea3c-47f6-4ccc-bf3e-791461d94d1b" />
+Stand UI 2.0
+
 ![SCR-20241213-qgbk](https://github.com/user-attachments/assets/873b4bff-18cd-4560-8cec-21043f45fd2a)
-> Stand notification
+Stand notification
+
 <img width="2048" alt="SCR-20250104-mmdm" src="https://github.com/user-attachments/assets/8d31f0c7-2359-494a-aa7d-78d9ece97326" />
-> NEW: Idle mode is great for non-computer desk activities!
+NEW: Idle mode is great for non-computer desk activities!
 
 ### Running the app
 As I don't have a paid developer account, this app is not notarized.
