@@ -334,6 +334,9 @@
           }
         }
       }
+    },
+    "Toggle Left Sidebar" : {
+
     }
   },
   "version" : "1.0"

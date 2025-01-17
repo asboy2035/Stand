@@ -14,7 +14,7 @@ struct LargeClockView: View {
     var body: some View {
         Text(timeString(from: currentTime))
             .font(.system(size: 96, design: .monospaced))
-            .fontWeight(.regular)
+            .fontWeight(.light)
     }
     
     private func timeString(from date: Date) -> String {
@@ -56,7 +56,6 @@ struct IdleStatusText: View {
 }
 
 
-// Updated ContentView with idle mode
 struct ContentView: View {
     @StateObject private var timerManager = TimerManager()
     @AppStorage("sittingTime") private var sittingTime: Double = 30
@@ -67,10 +66,7 @@ struct ContentView: View {
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
-        ZStack {
-            VisualEffectView(material: .sidebar, blendingMode: .behindWindow)
-                .edgesIgnoringSafeArea(.all)
-            
+        HStack {
             if isFullScreen {
                 IdleModeView(timerManager: timerManager, currentTime: currentTime)
             } else {
@@ -168,98 +164,112 @@ struct IdleModeView: View {
 }
 
 
-// Normal mode layout (existing view)
 struct NormalModeView: View {
     @ObservedObject var timerManager: TimerManager
     @Binding var sittingTime: Double
     @Binding var standingTime: Double
+    @State var sideBarIsPresented: Bool = false
     
     var body: some View {
-        VStack(spacing: 20) {
-            // Title
-            Text("appName")
-                .font(.largeTitle)
-                .fontWeight(.medium)
-            
-            // Interval Display
-            HStack(spacing: 15) {
-                Image(systemName: timerManager.currentInterval == .sitting ? "figure.seated.side.left" : "figure.stand")
-                    .font(.largeTitle)
-                    .foregroundColor(timerManager.currentInterval == .sitting ? .indigo : .yellow)
-                Text(timerManager.currentInterval == .sitting ? "sittingLabel" : "standingLabel")
-                    .font(.title)
-                    .foregroundColor(timerManager.currentInterval == .sitting ? .indigo : .yellow)
-            }
-            
-            // Time Display
-            Text(timeString(from: timerManager.remainingTime))
-                .font(.system(size: 48, design: .monospaced))
-                .fontWeight(.bold)
-            
-            // Interval Configuration
-            HStack {
-                VStack {
-                    Text("sittingTimeLabel")
-                    Slider(value: $sittingTime, in: 5...60, step: 5)
-                        .onChange(of: sittingTime) { newValue in
-                            timerManager.updateIntervalTime(type: .sitting, time: newValue)
+        HStack {
+            if sideBarIsPresented {
+                VStack(spacing: 20) {
+                    // Title
+                    Text("appName")
+                        .font(.largeTitle)
+                        .fontWeight(.medium)
+                        .padding(.bottom, 20)
+                    
+                    VStack {
+                        Text("sittingTimeLabel")
+                        Slider(value: $sittingTime, in: 5...60, step: 5)
+                            .onChange(of: sittingTime) { newValue in
+                                timerManager.updateIntervalTime(type: .sitting, time: newValue)
+                            }
+                            .frame(width: 150)
+                        HStack(spacing: 3) {
+                            Text("\(Int(sittingTime))")
+                                .font(.system(size: 12, weight: .bold))
+                            Text("minutesAbbr")
                         }
-                        .frame(width: 150)
-                    HStack(spacing: 3) {
-                        Text("\(Int(sittingTime))")
-                            .font(.system(size: 12, weight: .bold))
-                        Text("minutesAbbr")
+                    }
+                    
+                    VStack {
+                        Text("standingTimeLabel")
+                        Slider(value: $standingTime, in: 5...60, step: 5)
+                            .onChange(of: standingTime) { newValue in
+                                timerManager.updateIntervalTime(type: .standing, time: newValue)
+                            }
+                            .frame(width: 150)
+                        HStack(spacing: 3) {
+                            Text("\(Int(standingTime))")
+                                .font(.system(size: 12, weight: .bold))
+                            Text("minutesAbbr")
+                        }
                     }
                 }
+                .frame(minWidth: 250, idealWidth: 250, maxWidth: 250, minHeight: 250, idealHeight: 275, maxHeight: .infinity)
+                .background(VisualEffectView(material: .sidebar, blendingMode: .behindWindow).edgesIgnoringSafeArea(.all))
+                .frame(alignment: .top)
+            }
+
+            VStack(spacing: 20) {
+                // Interval Display
+                HStack(spacing: 15) {
+                    Image(systemName: timerManager.currentInterval == .sitting ? "figure.seated.side.left" : "figure.stand")
+                        .font(.largeTitle)
+                        .foregroundColor(timerManager.currentInterval == .sitting ? .indigo : .yellow)
+                    Text(timerManager.currentInterval == .sitting ? "sittingLabel" : "standingLabel")
+                        .font(.title)
+                        .foregroundColor(timerManager.currentInterval == .sitting ? .indigo : .yellow)
+                }
                 
-                VStack {
-                    Text("standingTimeLabel")
-                    Slider(value: $standingTime, in: 5...60, step: 5)
-                        .onChange(of: standingTime) { newValue in
-                            timerManager.updateIntervalTime(type: .standing, time: newValue)
+                // Time Display
+                Text(timeString(from: timerManager.remainingTime))
+                    .font(.system(size: 48, design: .monospaced))
+                    .fontWeight(.medium)
+                                
+                // Control Buttons
+                HStack(spacing: 15) {
+                    Button(action: {
+                        timerManager.resetTimer()
+                    }) {
+                        Image(systemName: "arrow.clockwise")
+                            .foregroundColor(.white)
+                            .frame(width: 10, height: 25)
+                    }
+                    
+                    Button(action: {
+                        if timerManager.isRunning {
+                            timerManager.pauseTimer()
+                        } else {
+                            timerManager.resumeTimer()
                         }
-                        .frame(width: 150)
-                    HStack(spacing: 3) {
-                        Text("\(Int(standingTime))")
-                            .font(.system(size: 12, weight: .bold))
-                        Text("minutesAbbr")
+                    }) {
+                        Image(systemName: timerManager.isRunning ? "pause.fill" : "play.fill")
+                            .foregroundColor(.white)
+                            .frame(width: 20, height: 35)
+                    }
+                    
+                    Button(action: {
+                        timerManager.switchInterval()
+                    }) {
+                        Image(systemName: "repeat")
+                            .foregroundColor(.white)
+                            .frame(width: 10, height: 25)
                     }
                 }
             }
-            .padding()
-            
-            // Control Buttons
-            HStack(spacing: 15) {
-                Button(action: {
-                    timerManager.resetTimer()
-                }) {
-                    Image(systemName: "arrow.clockwise")
-                        .foregroundColor(.white)
-                        .frame(width: 10, height: 25)
-                }
-                
-                Button(action: {
-                    if timerManager.isRunning {
-                        timerManager.pauseTimer()
-                    } else {
-                        timerManager.resumeTimer()
+            .frame(minWidth: 400, idealWidth: nil, maxWidth: .infinity, minHeight: 350, idealHeight: nil, maxHeight: .infinity)
+            .toolbar {
+                ToolbarItemGroup(placement: .automatic) {
+                    Button(action: { sideBarIsPresented.toggle() }) {
+                        Label("Toggle Left Sidebar", systemImage: "sidebar.left")
                     }
-                }) {
-                    Image(systemName: timerManager.isRunning ? "pause.fill" : "play.fill")
-                        .foregroundColor(.white)
-                        .frame(width: 20, height: 35)
-                }
-                
-                Button(action: {
-                    timerManager.switchInterval()
-                }) {
-                    Image(systemName: "repeat")
-                        .foregroundColor(.white)
-                        .frame(width: 10, height: 25)
                 }
             }
         }
-        .padding()
+        .background(VisualEffectView(material: .headerView, blendingMode: .behindWindow).edgesIgnoringSafeArea(.all))
         .onAppear {
             timerManager.initializeWithStoredTimes(sitting: sittingTime, standing: standingTime)
         }
