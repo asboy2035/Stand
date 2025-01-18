@@ -5,7 +5,7 @@ A simple and modern macOS app that reminds you to sit/stand.
 Stand UI 2.1
 
 <img width="186" alt="SCR-20250118-ltse" src="https://github.com/user-attachments/assets/8a5a099b-1248-40d1-8c4f-9e74f101ad30" />
-Stand notification (via [DynamicNotchKit](https://github.com/MrKai77/DynamicNotchKit))
+Stand notification (via DynamicNotchKit)
 
 <img width="2048" alt="New Idle mode UI" src="https://github.com/user-attachments/assets/1feebfb4-db03-4b97-8cd6-c1a1fe599865" />
 UPDATED: Idle mode is great for non-computer desk activities!
