@@ -1,9 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    " " : {
-
-    },
     "%lld %@" : {
       "localizations" : {
         "en" : {
@@ -22,6 +19,30 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$lld %2$@"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "aboutMenuLabel" : {
+      "comment" : "The title for the about menu item.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About Stand"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Acerca de Stand"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "À Propos de Stand"
           }
         }
       }
@@ -70,6 +91,29 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Basculer la barre latérale gauche"
+          }
+        }
+      }
+    },
+    "madeWithLove" : {
+      "comment" : "Made with love (about window)",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Made with <3 by ash."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hecho con <3 por ash."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fabriqué avec <3 par ash."
           }
         }
       }
@@ -314,6 +358,29 @@
         }
       }
     },
+    "thanksText" : {
+      "comment" : "Thanks message (about window)",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Thanks for using Stand!"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gracias por usar Stand!"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Merci d'avoir utilisé Stand!"
+          }
+        }
+      }
+    },
     "timePresenterPrefix" : {
       "comment" : "Prefix to the time (e.g it's 9:00).",
       "extractionState" : "manual",
@@ -406,6 +473,121 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "C’est le temps d’être"
+          }
+        }
+      }
+    },
+    "updateAvailableContent" : {
+      "comment" : "Content of update available alert.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Don’t forget to quit this version before updating."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No olvides salir de esta versión antes de actualizar."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "N’oublie pas de quitter cette version avant de mettre à jour."
+          }
+        }
+      }
+    },
+    "updateAvailableDismissButton" : {
+      "comment" : "Button to dismiss update available alert.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Later"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Más Tarde"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plus Tard"
+          }
+        }
+      }
+    },
+    "updateAvailableTitle" : {
+      "comment" : "Title for update available alert.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Update is Available!"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Actualización Disponible!"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mise à Jour est Disponible!"
+          }
+        }
+      }
+    },
+    "updateAvailableVisitButton" : {
+      "comment" : "Button to visit update page.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Update Page"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pagina de Actualización"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Page de Mise à Jour"
+          }
+        }
+      }
+    },
+    "websiteLabel" : {
+      "comment" : "Label for the button to go to website.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Website"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sitio web"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Site Web"
           }
         }
       }

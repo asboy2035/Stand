@@ -16,9 +16,8 @@ struct IdleModeView: View {
     var body: some View {
         VStack {
             Spacer()
-            VStack {
+            VStack(spacing: 15) {
                 LargeClockView(currentTime: currentTime)
-                Text(" ")
                 HStack(spacing: 15) {
                     Image(systemName: timerManager.currentInterval == .sitting ? "figure.seated.side.left" : "figure.stand")
                         .font(.largeTitle)
