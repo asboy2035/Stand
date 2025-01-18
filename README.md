@@ -1,8 +1,8 @@
 # Stand
 A simple and modern macOS app that reminds you to sit/stand.
 
-<img width="797" alt="SCR-20250117-qeep" src="https://github.com/user-attachments/assets/eabaea3c-47f6-4ccc-bf3e-791461d94d1b" />
-Stand UI 2.0
+<img width="752" alt="Stand 2.1 UI" src="https://github.com/user-attachments/assets/ba7ba902-3f62-497e-a501-276485f77c93" />
+Stand UI 2.1
 
 ![SCR-20241213-qgbk](https://github.com/user-attachments/assets/873b4bff-18cd-4560-8cec-21043f45fd2a)
 Stand notification
