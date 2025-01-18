@@ -7,8 +7,8 @@ Stand UI 2.1
 ![SCR-20241213-qgbk](https://github.com/user-attachments/assets/873b4bff-18cd-4560-8cec-21043f45fd2a)
 Stand notification
 
-<img width="2048" alt="SCR-20250104-mmdm" src="https://github.com/user-attachments/assets/8d31f0c7-2359-494a-aa7d-78d9ece97326" />
-NEW: Idle mode is great for non-computer desk activities!
+<img width="2048" alt="New Idle mode UI" src="https://github.com/user-attachments/assets/1feebfb4-db03-4b97-8cd6-c1a1fe599865" />
+UPDATED: Idle mode is great for non-computer desk activities!
 
 ### Running the app
 As I don't have a paid developer account, this app is not notarized.
