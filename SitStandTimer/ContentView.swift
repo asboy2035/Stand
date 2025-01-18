@@ -8,54 +8,6 @@
 import SwiftUI
 import DynamicNotchKit
 
-struct LargeClockView: View {
-    let currentTime: Date
-    
-    var body: some View {
-        Text(timeString(from: currentTime))
-            .font(.system(size: 96, design: .monospaced))
-            .fontWeight(.light)
-    }
-    
-    private func timeString(from date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm:ss"
-        return formatter.string(from: date)
-    }
-}
-
-// Status text for idle mode
-struct IdleStatusText: View {
-    @ObservedObject var timerManager: TimerManager
-    @State private var currentTime = Date()
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    
-    private var statusText: String {
-        if timerManager.isRunning {
-            return "\(timerManager.currentInterval == .sitting ? "\(NSLocalizedString("sittingLabel", comment: "sitting"))" : "\(NSLocalizedString("standingLabel", comment: "standing"))") - \(timeString(from: timerManager.remainingTime)) \(NSLocalizedString("remainingLabel", comment: "remaining time"))"
-        } else {
-            return "Timer Paused"
-        }
-    }
-    
-    var body: some View {
-        Text(statusText)
-            .font(.title2)
-            .foregroundColor(.gray)
-            .padding(.top, 20)
-            .onReceive(timer) { input in
-                currentTime = input
-            }
-    }
-    
-    private func timeString(from timeInterval: TimeInterval) -> String {
-        let minutes = Int(timeInterval) / 60
-        let seconds = Int(timeInterval) % 60
-        return String(format: "%02d:%02d", minutes, seconds)
-    }
-}
-
-
 struct ContentView: View {
     @StateObject private var timerManager = TimerManager()
     @AppStorage("sittingTime") private var sittingTime: Double = 30

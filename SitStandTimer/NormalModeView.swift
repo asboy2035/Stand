@@ -79,7 +79,6 @@ struct DetailView: View {
                     timerManager.resetTimer()
                 }) {
                     Image(systemName: "arrow.clockwise")
-                        .foregroundColor(.white)
                         .frame(width: 10, height: 25)
                 }
                 
@@ -91,7 +90,6 @@ struct DetailView: View {
                     }
                 }) {
                     Image(systemName: timerManager.isRunning ? "pause.fill" : "play.fill")
-                        .foregroundColor(.white)
                         .frame(width: 20, height: 35)
                 }
                 
@@ -99,7 +97,6 @@ struct DetailView: View {
                     timerManager.switchInterval()
                 }) {
                     Image(systemName: "repeat")
-                        .foregroundColor(.white)
                         .frame(width: 10, height: 25)
                 }
             }

@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    " " : {
+
+    },
     "%lld %@" : {
       "localizations" : {
         "en" : {
@@ -307,6 +310,30 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Changez-le !"
+          }
+        }
+      }
+    },
+    "timePresenterPrefix" : {
+      "comment" : "Prefix to the time (e.g it's 9:00).",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "It’s"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Son las"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il est"
           }
         }
       }
