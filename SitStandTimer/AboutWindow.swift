@@ -85,8 +85,7 @@ struct AboutView: View {
                 Button(action: {
                     checkForUpdates()
                 }) {
-                    Image(systemName: "arrow.triangle.2.circlepath")
-                        .imageScale(.large)
+                    Label("updateLabel", systemImage: "arrow.triangle.2.circlepath")
                 }
             }
         }
@@ -126,7 +125,7 @@ struct AboutView: View {
                 let latestVersion = releaseData.tag_name
                 DispatchQueue.main.async {
                     // Compare the latest version from GitHub with the app's version
-                    if latestVersion >= appVersion {
+                    if latestVersion > appVersion {
                         isLatestVersion = false
                         showUpdateAlert = true
                     }

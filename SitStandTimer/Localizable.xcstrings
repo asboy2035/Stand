@@ -569,6 +569,28 @@
         }
       }
     },
+    "updateLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Update"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actualización"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mise à Jour"
+          }
+        }
+      }
+    },
     "websiteLabel" : {
       "comment" : "Label for the button to go to website.",
       "localizations" : {
