@@ -1,24 +1,24 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "%lld" : {
+    "%lld %@" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld"
+            "state" : "new",
+            "value" : "%1$lld %2$@"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%lld"
+            "value" : "%1$lld %2$@"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%lld"
+            "value" : "%1$lld %2$@"
           }
         }
       }
@@ -47,6 +47,30 @@
         }
       }
     },
+    "leftSidebarToggleTooltip" : {
+      "comment" : "Tooltip of the sidebar toggle.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toggle Left Sidebar"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Basculer la barre latérale gauche"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Basculer la barre latérale gauche"
+          }
+        }
+      }
+    },
     "minutesAbbr" : {
       "comment" : "The abbreviated form of minutes.",
       "extractionState" : "manual",
@@ -67,6 +91,30 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "min"
+          }
+        }
+      }
+    },
+    "optionsLabel" : {
+      "comment" : "Title for the options sidebar",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Options"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opciones"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choix"
           }
         }
       }
@@ -334,9 +382,6 @@
           }
         }
       }
-    },
-    "Toggle Left Sidebar" : {
-
     }
   },
   "version" : "1.0"

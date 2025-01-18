@@ -89,6 +89,7 @@ class TimerManager: ObservableObject {
     
     func resetTimer() {
         quietPauseTimer()
+        pauseNotch.hide()
         currentInterval = .sitting
         remainingTime = sittingTime
     }

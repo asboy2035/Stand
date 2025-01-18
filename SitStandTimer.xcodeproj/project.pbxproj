@@ -413,7 +413,7 @@
 				CODE_SIGN_ENTITLEMENTS = SitStandTimer/SitStandTimer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"SitStandTimer/Preview Content\"";
 				DEVELOPMENT_TEAM = UCN29PZL3V;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -427,7 +427,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.5;
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = ash.Stand;
 				PRODUCT_NAME = Stand;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -443,7 +443,7 @@
 				CODE_SIGN_ENTITLEMENTS = SitStandTimer/SitStandTimer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"SitStandTimer/Preview Content\"";
 				DEVELOPMENT_TEAM = UCN29PZL3V;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -457,7 +457,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.5;
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = ash.Stand;
 				PRODUCT_NAME = Stand;
 				SWIFT_EMIT_LOC_STRINGS = YES;

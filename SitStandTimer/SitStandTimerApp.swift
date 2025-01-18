@@ -14,6 +14,5 @@ struct SitStandTimerApp: App {
         WindowGroup {
             ContentView()
         }
-        .windowStyle(HiddenTitleBarWindowStyle())
     }
 }
