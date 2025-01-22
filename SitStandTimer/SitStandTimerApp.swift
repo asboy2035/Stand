@@ -30,18 +30,20 @@ struct SitStandTimerApp: App {
         MenuBarExtra("appName", systemImage: timerManager.currentInterval == .sitting ? "figure.seated.side.right" : "figure.stand") {
             VStack {
                 Text(timerManager.currentInterval == .sitting ? "sittingLabel" : "standingLabel")
-                    .font(.headline)
-                    .padding(.bottom, 5)
+                    .font(.title2)
                 
                 Text(formatTime(timerManager.remainingTime))
                     .font(.system(.body, design: .monospaced))
-                    .padding(.bottom, 10)
                 
-                Button(timerManager.isRunning ? "Pause Timer" : "Resume Timer") {
+                Button(timerManager.isRunning ? "pauseTimerLabel" : "resumeTimerLabel") {
                     toggleTimer()
                 }
                 
-                Button("Quit") {
+                Divider()
+                Button("aboutMenuLabel") {
+                    AboutWindowController.shared.showAboutView()
+                }
+                Button("quitApp") {
                     NSApp.terminate(nil)
                 }
             }

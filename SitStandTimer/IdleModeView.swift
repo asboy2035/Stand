@@ -12,6 +12,7 @@ struct IdleModeView: View {
     @EnvironmentObject private var timerManager: TimerManager
     let currentTime: Date
     @Environment(\.colorScheme) var colorScheme // Get the current color scheme
+    @State private var currentChallenge: Challenge = challenges.randomElement()!
 
     var body: some View {
         VStack {
@@ -29,8 +30,7 @@ struct IdleModeView: View {
             }
             Spacer()
             
-            // Timer controls in the middle
-            VStack(spacing: 20) {
+            VStack(spacing: 15) {
                 // Time Display
                 Text(timeString(from: timerManager.remainingTime))
                     .font(.system(size: 48, design: .monospaced))
@@ -64,6 +64,9 @@ struct IdleModeView: View {
                     }
                 }
             }
+            
+            ChallengeCard()
+            .padding(.top, 25)
         }
         .padding(20)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -99,8 +102,4 @@ struct LargeClockView: View {
         formatter.dateFormat = "HH:mm"
         return formatter.string(from: date)
     }
-}
-
-#Preview {
-//    IdleModeView(timerManager: .init(), currentTime: .init())
 }

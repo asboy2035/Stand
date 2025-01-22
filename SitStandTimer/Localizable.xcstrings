@@ -12,6 +12,17 @@
       },
       "shouldTranslate" : false
     },
+    "%@: %@!" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@: %2$@!"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
     "%lld %@" : {
       "localizations" : {
         "en" : {
@@ -88,65 +99,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Stand Beta"
+            "value" : "Stand"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Stand Beta (🇪🇸)"
+            "value" : "Stand (🇪🇸)"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Stand Beta (🇫🇷)"
-          }
-        }
-      }
-    },
-    "betaLabel" : {
-      "comment" : "Label for something in beta.",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Beta"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Beta"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bêta"
-          }
-        }
-      }
-    },
-    "challengesLabel" : {
-      "comment" : "Label for Challenges window.",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Challenges"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Desafíos"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Défis"
+            "value" : "Stand (🇫🇷)"
           }
         }
       }
@@ -290,6 +255,28 @@
         }
       }
     },
+    "loadingUpdate" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loading Update Data…"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cargando datos de actualización..."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chargement des données de mise à jour…"
+          }
+        }
+      }
+    },
     "madeWithLove" : {
       "comment" : "Made with love (about window)",
       "localizations" : {
@@ -361,29 +348,31 @@
         }
       }
     },
-    "Pause Timer" : {
+    "pauseTimerLabel" : {
+      "comment" : "Button to pause timer.",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pause Timer"
+            "value" : "Pause"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pausar el temporizador"
+            "value" : "Pausa"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mettre en Pause"
+            "value" : "Pause"
           }
         }
       }
     },
-    "Quit" : {
+    "quitApp" : {
+      "comment" : "Button to quit app.",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -394,7 +383,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Abandonar"
+            "value" : "Salir"
           }
         },
         "fr" : {
@@ -429,18 +418,19 @@
         }
       }
     },
-    "Resume Timer" : {
+    "resumeTimerLabel" : {
+      "comment" : "Button to start/resume timer.",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Resume Timer"
+            "value" : "Resume"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Reanudar el temporizador"
+            "value" : "Reanudar"
           }
         },
         "fr" : {
@@ -784,48 +774,25 @@
         }
       }
     },
-    "updateAvailableDismissButton" : {
-      "comment" : "Button to dismiss update available alert.",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Later"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Más Tarde"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Plus Tard"
-          }
-        }
-      }
-    },
     "updateAvailableTitle" : {
       "comment" : "Title for update available alert.",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Update is Available!"
+            "value" : "Update is Available"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "¡Actualización Disponible!"
+            "value" : "Actualización Disponible"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mise à Jour est Disponible!"
+            "value" : "Mise à Jour est Disponible"
           }
         }
       }
@@ -964,29 +931,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bienvenue à Stand!"
-          }
-        }
-      }
-    },
-    "yourChallengeLabel" : {
-      "comment" : "Label for user's current challenge.",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Your Challenge:"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tus Desafíos:"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Votre Défi:"
           }
         }
       }

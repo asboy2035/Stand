@@ -12,7 +12,6 @@
 		5E500F652D2953CE00635A51 /* DynamicNotchKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5E500F642D2953CE00635A51 /* DynamicNotchKit */; };
 		5EA878E92D3EB64C000C2B96 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EA878E82D3EB64C000C2B96 /* WidgetKit.framework */; };
 		5EA878EB2D3EB64C000C2B96 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EA878EA2D3EB64C000C2B96 /* SwiftUI.framework */; };
-		5EA878F92D3EB64E000C2B96 /* WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5EA878E72D3EB64C000C2B96 /* WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5EA879052D3EB9C3000C2B96 /* UserDefaults+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA879042D3EB9C3000C2B96 /* UserDefaults+Shared.swift */; };
 		5EA879062D3EBA50000C2B96 /* UserDefaults+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA879042D3EB9C3000C2B96 /* UserDefaults+Shared.swift */; };
 /* End PBXBuildFile section */
@@ -32,28 +31,7 @@
 			remoteGlobalIDString = 5E3EDEAF2D089F7000E83C77;
 			remoteInfo = SitStandTimer;
 		};
-		5EA878F72D3EB64E000C2B96 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5E3EDEA82D089F7000E83C77 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5EA878E62D3EB64C000C2B96;
-			remoteInfo = WidgetExtension;
-		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		5EA878DE2D3EB5EE000C2B96 /* Embed Foundation Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				5EA878F92D3EB64E000C2B96 /* WidgetExtension.appex in Embed Foundation Extensions */,
-			);
-			name = "Embed Foundation Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5E37C1132D32B07C001E2F7A /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = Localizable.xcstrings; path = SitStandTimer/Localizable.xcstrings; sourceTree = "<group>"; };
@@ -171,12 +149,10 @@
 				5E3EDEAC2D089F7000E83C77 /* Sources */,
 				5E3EDEAD2D089F7000E83C77 /* Frameworks */,
 				5E3EDEAE2D089F7000E83C77 /* Resources */,
-				5EA878DE2D3EB5EE000C2B96 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				5EA878F82D3EB64E000C2B96 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				5E3EDEB22D089F7000E83C77 /* SitStandTimer */,
@@ -388,11 +364,6 @@
 			target = 5E3EDEAF2D089F7000E83C77 /* SitStandTimer */;
 			targetProxy = 5E3EDECC2D089F7100E83C77 /* PBXContainerItemProxy */;
 		};
-		5EA878F82D3EB64E000C2B96 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5EA878E62D3EB64C000C2B96 /* WidgetExtension */;
-			targetProxy = 5EA878F72D3EB64E000C2B96 /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -536,14 +507,14 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_ASSET_PATHS = "\"SitStandTimer/Preview Content\"";
 				DEVELOPMENT_TEAM = UCN29PZL3V;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SitStandTimer/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Stand Beta";
+				INFOPLIST_KEY_CFBundleDisplayName = Stand;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSHumanReadableCopyright = ash;
 				INFOPLIST_KEY_NSMainNibFile = MainMenu.xib;
@@ -554,7 +525,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.5;
-				MARKETING_VERSION = 2.4;
+				MARKETING_VERSION = 2.5;
 				PRODUCT_BUNDLE_IDENTIFIER = ash.Stand;
 				PRODUCT_NAME = Stand;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -574,14 +545,14 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_ASSET_PATHS = "\"SitStandTimer/Preview Content\"";
 				DEVELOPMENT_TEAM = UCN29PZL3V;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SitStandTimer/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Stand Beta";
+				INFOPLIST_KEY_CFBundleDisplayName = Stand;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSHumanReadableCopyright = ash;
 				INFOPLIST_KEY_NSMainNibFile = MainMenu.xib;
@@ -592,7 +563,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.5;
-				MARKETING_VERSION = 2.4;
+				MARKETING_VERSION = 2.5;
 				PRODUCT_BUNDLE_IDENTIFIER = ash.Stand;
 				PRODUCT_NAME = Stand;
 				SWIFT_EMIT_LOC_STRINGS = YES;

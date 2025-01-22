@@ -63,7 +63,3 @@ struct VisualEffectView: NSViewRepresentable {
     }
 }
 
-#Preview {
-    ContentView()
-}
-

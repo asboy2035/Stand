@@ -48,7 +48,6 @@ struct AboutView: View {
     }
     
     @State private var isLatestVersion: Bool = true
-    @State private var showUpdateAlert: Bool = false
     @State private var releaseUrl: String? = "https://github.com/asboy2035/Stand/releases/latest"
 
     var body: some View {
@@ -99,18 +98,6 @@ struct AboutView: View {
         }
         .padding(30)
         .frame(width: 400, height: 250)
-        .alert(isPresented: $showUpdateAlert) {
-            Alert(
-                title: Text("updateAvailableTitle"),
-                message: Text("updateAvailableContent"),
-                primaryButton: .default(Text("updateAvailableVisitButton")) {
-                    if let url = releaseUrl, let releasePageURL = URL(string: url) {
-                        NSWorkspace.shared.open(releasePageURL)
-                    }
-                },
-                secondaryButton: .default(Text("updateAvailableDismissButton"))
-            )
-        }
         .onAppear {
             checkForUpdates() // Automatically check when the view appears
         }
@@ -135,8 +122,9 @@ struct AboutView: View {
                     // Compare the latest version from GitHub with the app's version
                     if latestVersion > appVersion {
                         isLatestVersion = false
-                        showUpdateAlert = true
+                        UpdateWindowController.shared.showUpdateView()
                     }
+//                    UpdateWindowController.shared.showUpdateView() // Debug
                 }
             }
         }
