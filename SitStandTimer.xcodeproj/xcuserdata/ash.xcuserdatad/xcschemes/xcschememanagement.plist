@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>FR.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>Release.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -14,10 +19,15 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>Unsupported Lang.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 		<key>WidgetExtension.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -38,6 +48,11 @@
 			<true/>
 		</dict>
 		<key>5EA878D12D3EB5EE000C2B96</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5EA878E62D3EB64C000C2B96</key>
 		<dict>
 			<key>primary</key>
 			<true/>

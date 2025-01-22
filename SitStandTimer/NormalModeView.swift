@@ -87,9 +87,10 @@ struct SidebarView: View {
 
 struct DetailView: View {
     @EnvironmentObject private var timerManager: TimerManager
+    @State private var currentChallenge: Challenge = challenges.randomElement()!
     
     var body: some View {
-        VStack(spacing: 20) {
+        VStack(spacing: 15) {
             HStack(spacing: 15) {
                 Image(systemName: timerManager.currentInterval == .sitting ? "figure.seated.side.right" : "figure.stand")
                     .font(.largeTitle)
@@ -130,6 +131,10 @@ struct DetailView: View {
                         .frame(width: 10, height: 25)
                 }
             }
+            
+            ChallengeCard()
+            .padding(.top, 25)
+
         }
         .navigationTitle(NSLocalizedString("appName", comment: "App name for main content title"))
         .toolbar {
@@ -138,14 +143,6 @@ struct DetailView: View {
                     AboutWindowController.shared.showAboutView()
                 }) {
                     Label("aboutMenuLabel", systemImage: "info.circle")
-                }
-            }
-            
-            ToolbarItem(placement: .automatic) {
-                Button(action: {
-                    ChallengesWindowController.shared.showAboutView()
-                }) {
-                    Label("challengesLabel", systemImage: "bolt.fill")
                 }
             }
             
