@@ -73,6 +73,14 @@ struct AboutView: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 Button(action: {
+                    WelcomeWindowController.shared.showWelcomeView()
+                }) {
+                    Label("welcome", systemImage: "figure.wave")
+                }
+            }
+
+            ToolbarItem(placement: .automatic) {
+                Button(action: {
                     if let url = URL(string: "https://github.com/asboy2035/Stand") {
                         NSWorkspace.shared.open(url)
                     }
@@ -90,7 +98,7 @@ struct AboutView: View {
             }
         }
         .padding(30)
-        .frame(width: 350, height: 250)
+        .frame(width: 400, height: 250)
         .alert(isPresented: $showUpdateAlert) {
             Alert(
                 title: Text("updateAvailableTitle"),

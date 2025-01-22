@@ -7,8 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E0677BD2D3D4DFD00D04ACA /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 5E0677BC2D3D4DFD00D04ACA /* LaunchAtLogin */; };
 		5E37C1142D32B07C001E2F7A /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 5E37C1132D32B07C001E2F7A /* Localizable.xcstrings */; };
 		5E500F652D2953CE00635A51 /* DynamicNotchKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5E500F642D2953CE00635A51 /* DynamicNotchKit */; };
+		5EA878E92D3EB64C000C2B96 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EA878E82D3EB64C000C2B96 /* WidgetKit.framework */; };
+		5EA878EB2D3EB64C000C2B96 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EA878EA2D3EB64C000C2B96 /* SwiftUI.framework */; };
+		5EA878F92D3EB64E000C2B96 /* WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5EA878E72D3EB64C000C2B96 /* WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5EA879052D3EB9C3000C2B96 /* UserDefaults+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA879042D3EB9C3000C2B96 /* UserDefaults+Shared.swift */; };
+		5EA879062D3EBA50000C2B96 /* UserDefaults+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA879042D3EB9C3000C2B96 /* UserDefaults+Shared.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,14 +32,50 @@
 			remoteGlobalIDString = 5E3EDEAF2D089F7000E83C77;
 			remoteInfo = SitStandTimer;
 		};
+		5EA878F72D3EB64E000C2B96 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E3EDEA82D089F7000E83C77 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5EA878E62D3EB64C000C2B96;
+			remoteInfo = WidgetExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5EA878DE2D3EB5EE000C2B96 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				5EA878F92D3EB64E000C2B96 /* WidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5E37C1132D32B07C001E2F7A /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = Localizable.xcstrings; path = SitStandTimer/Localizable.xcstrings; sourceTree = "<group>"; };
 		5E3EDEB02D089F7000E83C77 /* Stand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E3EDEC12D089F7100E83C77 /* SitStandTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SitStandTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E3EDECB2D089F7100E83C77 /* SitStandTimerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SitStandTimerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EA878D42D3EB5EE000C2B96 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
+		5EA878E72D3EB64C000C2B96 /* WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EA878E82D3EB64C000C2B96 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		5EA878EA2D3EB64C000C2B96 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		5EA879042D3EB9C3000C2B96 /* UserDefaults+Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Shared.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		5EA878FA2D3EB64E000C2B96 /* Exceptions for "Widget" folder in "WidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 5EA878E62D3EB64C000C2B96 /* WidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		5E3EDEB22D089F7000E83C77 /* SitStandTimer */ = {
@@ -51,6 +93,14 @@
 			path = SitStandTimerUITests;
 			sourceTree = "<group>";
 		};
+		5EA878EC2D3EB64C000C2B96 /* Widget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				5EA878FA2D3EB64E000C2B96 /* Exceptions for "Widget" folder in "WidgetExtension" target */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E0677BD2D3D4DFD00D04ACA /* LaunchAtLogin in Frameworks */,
 				5E500F652D2953CE00635A51 /* DynamicNotchKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -76,6 +127,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5EA878E42D3EB64C000C2B96 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EA878EB2D3EB64C000C2B96 /* SwiftUI.framework in Frameworks */,
+				5EA878E92D3EB64C000C2B96 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -86,7 +146,10 @@
 				5E3EDEB22D089F7000E83C77 /* SitStandTimer */,
 				5E3EDEC42D089F7100E83C77 /* SitStandTimerTests */,
 				5E3EDECE2D089F7100E83C77 /* SitStandTimerUITests */,
+				5EA878EC2D3EB64C000C2B96 /* Widget */,
+				5EA878D32D3EB5EE000C2B96 /* Frameworks */,
 				5E3EDEB12D089F7000E83C77 /* Products */,
+				5EA879042D3EB9C3000C2B96 /* UserDefaults+Shared.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,8 +159,19 @@
 				5E3EDEB02D089F7000E83C77 /* Stand.app */,
 				5E3EDEC12D089F7100E83C77 /* SitStandTimerTests.xctest */,
 				5E3EDECB2D089F7100E83C77 /* SitStandTimerUITests.xctest */,
+				5EA878E72D3EB64C000C2B96 /* WidgetExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		5EA878D32D3EB5EE000C2B96 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5EA878D42D3EB5EE000C2B96 /* Intents.framework */,
+				5EA878E82D3EB64C000C2B96 /* WidgetKit.framework */,
+				5EA878EA2D3EB64C000C2B96 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -110,10 +184,12 @@
 				5E3EDEAC2D089F7000E83C77 /* Sources */,
 				5E3EDEAD2D089F7000E83C77 /* Frameworks */,
 				5E3EDEAE2D089F7000E83C77 /* Resources */,
+				5EA878DE2D3EB5EE000C2B96 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5EA878F82D3EB64E000C2B96 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				5E3EDEB22D089F7000E83C77 /* SitStandTimer */,
@@ -121,6 +197,7 @@
 			name = SitStandTimer;
 			packageProductDependencies = (
 				5E500F642D2953CE00635A51 /* DynamicNotchKit */,
+				5E0677BC2D3D4DFD00D04ACA /* LaunchAtLogin */,
 			);
 			productName = SitStandTimer;
 			productReference = 5E3EDEB02D089F7000E83C77 /* Stand.app */;
@@ -172,6 +249,28 @@
 			productReference = 5E3EDECB2D089F7100E83C77 /* SitStandTimerUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		5EA878E62D3EB64C000C2B96 /* WidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5EA878FB2D3EB64E000C2B96 /* Build configuration list for PBXNativeTarget "WidgetExtension" */;
+			buildPhases = (
+				5EA878E32D3EB64C000C2B96 /* Sources */,
+				5EA878E42D3EB64C000C2B96 /* Frameworks */,
+				5EA878E52D3EB64C000C2B96 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				5EA878EC2D3EB64C000C2B96 /* Widget */,
+			);
+			name = WidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = WidgetExtension;
+			productReference = 5EA878E72D3EB64C000C2B96 /* WidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -179,7 +278,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1610;
+				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1610;
 				TargetAttributes = {
 					5E3EDEAF2D089F7000E83C77 = {
@@ -192,6 +291,9 @@
 					5E3EDECA2D089F7100E83C77 = {
 						CreatedOnToolsVersion = 16.1;
 						TestTargetID = 5E3EDEAF2D089F7000E83C77;
+					};
+					5EA878E62D3EB64C000C2B96 = {
+						CreatedOnToolsVersion = 16.2;
 					};
 				};
 			};
@@ -208,6 +310,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				5E500F632D2953CE00635A51 /* XCRemoteSwiftPackageReference "DynamicNotchKit" */,
+				5E0677BB2D3D4DFD00D04ACA /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5E3EDEB12D089F7000E83C77 /* Products */;
@@ -217,6 +320,7 @@
 				5E3EDEAF2D089F7000E83C77 /* SitStandTimer */,
 				5E3EDEC02D089F7100E83C77 /* SitStandTimerTests */,
 				5E3EDECA2D089F7100E83C77 /* SitStandTimerUITests */,
+				5EA878E62D3EB64C000C2B96 /* WidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -244,6 +348,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5EA878E52D3EB64C000C2B96 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -251,6 +362,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EA879052D3EB9C3000C2B96 /* UserDefaults+Shared.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +380,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5EA878E32D3EB64C000C2B96 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EA879062D3EBA50000C2B96 /* UserDefaults+Shared.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -280,6 +400,11 @@
 			isa = PBXTargetDependency;
 			target = 5E3EDEAF2D089F7000E83C77 /* SitStandTimer */;
 			targetProxy = 5E3EDECC2D089F7100E83C77 /* PBXContainerItemProxy */;
+		};
+		5EA878F82D3EB64E000C2B96 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5EA878E62D3EB64C000C2B96 /* WidgetExtension */;
+			targetProxy = 5EA878F72D3EB64E000C2B96 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -317,6 +442,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -384,6 +510,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -416,28 +543,36 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = SitStandTimer/SitStandTimer.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_ASSET_PATHS = "\"SitStandTimer/Preview Content\"";
 				DEVELOPMENT_TEAM = UCN29PZL3V;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Stand;
+				INFOPLIST_FILE = SitStandTimer/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Stand Beta";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = ash;
+				INFOPLIST_KEY_NSMainNibFile = MainMenu.xib;
+				INFOPLIST_KEY_NSMainStoryboardFile = MainMenu.xib;
+				INFOPLIST_KEY_UIMainStoryboardFile = MainMenu.xib;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.5;
-				MARKETING_VERSION = 2.3.1;
+				MARKETING_VERSION = 2.4;
 				PRODUCT_BUNDLE_IDENTIFIER = ash.Stand;
 				PRODUCT_NAME = Stand;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				VERSION_INFO_SUFFIX = Beta;
 			};
 			name = Debug;
 		};
@@ -446,28 +581,36 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = SitStandTimer/SitStandTimer.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_ASSET_PATHS = "\"SitStandTimer/Preview Content\"";
 				DEVELOPMENT_TEAM = UCN29PZL3V;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Stand;
+				INFOPLIST_FILE = SitStandTimer/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Stand Beta";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = ash;
+				INFOPLIST_KEY_NSMainNibFile = MainMenu.xib;
+				INFOPLIST_KEY_NSMainStoryboardFile = MainMenu.xib;
+				INFOPLIST_KEY_UIMainStoryboardFile = MainMenu.xib;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.5;
-				MARKETING_VERSION = 2.3.1;
+				MARKETING_VERSION = 2.4;
 				PRODUCT_BUNDLE_IDENTIFIER = ash.Stand;
 				PRODUCT_NAME = Stand;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				VERSION_INFO_SUFFIX = Beta;
 			};
 			name = Release;
 		};
@@ -539,6 +682,65 @@
 			};
 			name = Release;
 		};
+		5EA878FC2D3EB64E000C2B96 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = Widget/Widget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UCN29PZL3V;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Widget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Widget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ash.Stand.Widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		5EA878FD2D3EB64E000C2B96 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = Widget/Widget.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UCN29PZL3V;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Widget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Widget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ash.Stand.Widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -578,9 +780,26 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		5EA878FB2D3EB64E000C2B96 /* Build configuration list for PBXNativeTarget "WidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5EA878FC2D3EB64E000C2B96 /* Debug */,
+				5EA878FD2D3EB64E000C2B96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5E0677BB2D3D4DFD00D04ACA /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin-Modern";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		5E500F632D2953CE00635A51 /* XCRemoteSwiftPackageReference "DynamicNotchKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/MrKai77/DynamicNotchKit";
@@ -592,6 +811,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5E0677BC2D3D4DFD00D04ACA /* LaunchAtLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5E0677BB2D3D4DFD00D04ACA /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */;
+			productName = LaunchAtLogin;
+		};
 		5E500F642D2953CE00635A51 /* DynamicNotchKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5E500F632D2953CE00635A51 /* XCRemoteSwiftPackageReference "DynamicNotchKit" */;

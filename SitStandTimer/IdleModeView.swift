@@ -9,7 +9,7 @@ import SwiftUI
 
 // Idle mode layout
 struct IdleModeView: View {
-    @ObservedObject var timerManager: TimerManager
+    @EnvironmentObject private var timerManager: TimerManager
     let currentTime: Date
     @Environment(\.colorScheme) var colorScheme // Get the current color scheme
 
@@ -68,7 +68,7 @@ struct IdleModeView: View {
         .padding(20)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(colorScheme == .dark ? Color.black : Color.white) // Set background color based on color scheme
-        .edgesIgnoringSafeArea(.all) // Make the background fill the screen
+        .edgesIgnoringSafeArea(.all)
     }
     
     private func timeString(from timeInterval: TimeInterval) -> String {
@@ -101,36 +101,6 @@ struct LargeClockView: View {
     }
 }
 
-// Status text for idle mode
-struct IdleStatusText: View {
-    @ObservedObject var timerManager: TimerManager
-    @State private var currentTime = Date()
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    
-    private var statusText: String {
-        if timerManager.isRunning {
-            return "\(timerManager.currentInterval == .sitting ? "\(NSLocalizedString("sittingLabel", comment: "sitting"))" : "\(NSLocalizedString("standingLabel", comment: "standing"))") - \(timeString(from: timerManager.remainingTime)) \(NSLocalizedString("remainingLabel", comment: "remaining time"))"
-        } else {
-            return "Timer Paused"
-        }
-    }
-    
-    var body: some View {
-        Text(statusText)
-            .font(.title2)
-            .foregroundColor(.gray)
-            .onReceive(timer) { input in
-                currentTime = input
-            }
-    }
-    
-    private func timeString(from timeInterval: TimeInterval) -> String {
-        let minutes = Int(timeInterval) / 60
-        let seconds = Int(timeInterval) % 60
-        return String(format: "%02d:%02d", minutes, seconds)
-    }
-}
-
 #Preview {
-    IdleModeView(timerManager: .init(), currentTime: .init())
+//    IdleModeView(timerManager: .init(), currentTime: .init())
 }

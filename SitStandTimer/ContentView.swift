@@ -9,20 +9,28 @@ import SwiftUI
 import DynamicNotchKit
 
 struct ContentView: View {
-    @StateObject private var timerManager = TimerManager()
+    @EnvironmentObject private var timerManager: TimerManager
     @AppStorage("sittingTime") private var sittingTime: Double = 30
     @AppStorage("standingTime") private var standingTime: Double = 10
+    @AppStorage("showWelcome") private var showWelcome: Bool = true
     @State private var isFullScreen = false
     @State private var currentTime = Date()
-    
+
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
         HStack {
             if isFullScreen {
-                IdleModeView(timerManager: timerManager, currentTime: currentTime)
+                IdleModeView(currentTime: currentTime)
+                        .environmentObject(timerManager)
             } else {
-                NormalModeView(timerManager: timerManager, sittingTime: $sittingTime, standingTime: $standingTime)
+                NormalModeView(sittingTime: $sittingTime, standingTime: $standingTime)
+                        .environmentObject(timerManager)
+            }
+        }
+        .onAppear() {
+            if showWelcome {
+                WelcomeWindowController.shared.showWelcomeView()
             }
         }
         .onReceive(timer) { input in

@@ -9,6 +9,7 @@ import Foundation
 import DynamicNotchKit
 import SwiftUI
 import AppKit
+import WidgetKit
 
 enum IntervalType {
     case sitting
@@ -19,6 +20,13 @@ class TimerManager: ObservableObject {
     @Published var currentInterval: IntervalType = .sitting
     @Published var remainingTime: TimeInterval = 0
     @Published var isRunning: Bool = false
+    @Published var isPauseNotchVisible: Bool = false
+    @Published var isPaused: Bool = false
+    @Published var selectedSound: String = "Funk" {
+        didSet {
+            UserDefaults.standard.set(selectedSound, forKey: "selectedAlertSound")
+        }
+    }
     
     private var timer: Timer?
     private var sittingTime: TimeInterval = 30 * 60  // 30 minutes in seconds
@@ -33,8 +41,49 @@ class TimerManager: ObservableObject {
         )
     }()
     
+    init() {
+        // Load settings with default values
+        selectedSound = UserDefaults.standard.string(forKey: "selectedAlertSound") ?? "Funk"
+        
+        // Load shared state with safe defaults
+        currentInterval = UserDefaults.shared.bool(forKey: "isStanding") ? .standing : .sitting
+        remainingTime = UserDefaults.shared.double(forKey: "remainingTime")
+        isRunning = false  // Always start paused for safety
+        
+        // Initialize with defaults if not set
+        if remainingTime == 0 {
+            remainingTime = 30 * 60  // Default to 30 minutes
+        }
+    }
+    
+    private func updateAppIcon() {
+        let iconName = currentInterval == .sitting ? "SittingIcon" : "StandingIcon"
+        if let icon = NSImage(named: iconName) {
+            NSApplication.shared.applicationIconImage = icon
+        }
+    }
+    
+    private func saveState() {
+        UserDefaults.shared.set(currentInterval == .standing, forKey: "isStanding")
+        UserDefaults.shared.set(remainingTime, forKey: "remainingTime")
+        UserDefaults.shared.set(isRunning, forKey: "isRunning")
+        WidgetCenter.shared.reloadAllTimelines() // This refreshes the widget
+    }
+    
     // System sound for interval changes
-    private let switchSound = NSSound(named: "Funk")
+    private var switchSound: NSSound? {
+        return NSSound(named: selectedSound)
+    }
+    
+    func hidePauseNotch() {
+        pauseNotch.hide()
+        isPauseNotchVisible = false
+    }
+    
+    func showPauseNotch() {
+        pauseNotch.show()
+        isPauseNotchVisible = true
+    }
     
     func initializeWithStoredTimes(sitting: Double, standing: Double) {
         sittingTime = sitting * 60
@@ -59,10 +108,13 @@ class TimerManager: ObservableObject {
     }
     
     func resumeTimer() {
+        updateAppIcon()
+        saveState()
         guard !isRunning else { return }
         
-        pauseNotch.hide()
+        hidePauseNotch()
         isRunning = true
+        isPaused = false
         
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
             guard let self = self else { return }
@@ -77,27 +129,41 @@ class TimerManager: ObservableObject {
     
     func pauseTimer() {
         quietPauseTimer()
-        // Show the pause notification indefinitely
-        pauseNotch.show()
+        showPauseNotch()
     }
     
     func quietPauseTimer() { // pause without notification
         isRunning = false
+        isPaused = true
         timer?.invalidate()
         timer = nil
+        saveState()
     }
     
     func resetTimer() {
+        saveState()
         quietPauseTimer()
-        pauseNotch.hide()
+        hidePauseNotch()
+        isPaused = false
         currentInterval = .sitting
         remainingTime = sittingTime
+        
+        if let icon = NSImage(named: "AppIcon") {
+            NSApplication.shared.applicationIconImage = icon
+        }
+    }
+    
+    func playSound() {
+        switchSound?.play()
     }
     
     func switchInterval() {
         quietPauseTimer()
         currentInterval = currentInterval == .sitting ? .standing : .sitting
         remainingTime = currentInterval == .sitting ? sittingTime : standingTime
+        
+        // Change app icon based on the current interval
+        updateAppIcon()
         
         // Play the switch sound
         switchSound?.play()
@@ -111,6 +177,6 @@ class TimerManager: ObservableObject {
         notch.show(for: 3)
         
         resumeTimer()
-        pauseNotch.hide()
+        hidePauseNotch()
     }
 }
