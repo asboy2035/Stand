@@ -67,16 +67,6 @@
 		5EA879042D3EB9C3000C2B96 /* UserDefaults+Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Shared.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		5EA878FA2D3EB64E000C2B96 /* Exceptions for "Widget" folder in "WidgetExtension" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 5EA878E62D3EB64C000C2B96 /* WidgetExtension */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		5E3EDEB22D089F7000E83C77 /* SitStandTimer */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
@@ -95,9 +85,6 @@
 		};
 		5EA878EC2D3EB64C000C2B96 /* Widget */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				5EA878FA2D3EB64E000C2B96 /* Exceptions for "Widget" folder in "WidgetExtension" target */,
-			);
 			path = Widget;
 			sourceTree = "<group>";
 		};
