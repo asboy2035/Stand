@@ -140,6 +140,13 @@ struct DetailView: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 Button(action: {
+                    timerManager.toggleFloatingWindow()
+                }) {
+                    Label("toggleWidgetLabel", systemImage: "widget.small")
+                }
+            }
+            ToolbarItem(placement: .automatic) {
+                Button(action: {
                     AboutWindowController.shared.showAboutView()
                 }) {
                     Label("aboutMenuLabel", systemImage: "info.circle")
