@@ -39,7 +39,7 @@
 		5E3EDEC12D089F7100E83C77 /* SitStandTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SitStandTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E3EDECB2D089F7100E83C77 /* SitStandTimerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SitStandTimerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EA878D42D3EB5EE000C2B96 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
-		5EA878E72D3EB64C000C2B96 /* WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EA878E72D3EB64C000C2B96 /* WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; name = WidgetExtension.appex; path = "/Users/ash/Documents/ash's Folder/Projects/Xcode/Stand/build/Debug/WidgetExtension.appex"; sourceTree = "<absolute>"; };
 		5EA878E82D3EB64C000C2B96 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		5EA878EA2D3EB64C000C2B96 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		5EA879042D3EB9C3000C2B96 /* UserDefaults+Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Shared.swift"; sourceTree = "<group>"; };
@@ -59,11 +59,6 @@
 		5E3EDECE2D089F7100E83C77 /* SitStandTimerUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = SitStandTimerUITests;
-			sourceTree = "<group>";
-		};
-		5EA878EC2D3EB64C000C2B96 /* Widget */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Widget;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -111,7 +106,6 @@
 				5E3EDEB22D089F7000E83C77 /* SitStandTimer */,
 				5E3EDEC42D089F7100E83C77 /* SitStandTimerTests */,
 				5E3EDECE2D089F7100E83C77 /* SitStandTimerUITests */,
-				5EA878EC2D3EB64C000C2B96 /* Widget */,
 				5EA878D32D3EB5EE000C2B96 /* Frameworks */,
 				5E3EDEB12D089F7000E83C77 /* Products */,
 				5EA879042D3EB9C3000C2B96 /* UserDefaults+Shared.swift */,
@@ -124,7 +118,6 @@
 				5E3EDEB02D089F7000E83C77 /* Stand.app */,
 				5E3EDEC12D089F7100E83C77 /* SitStandTimerTests.xctest */,
 				5E3EDECB2D089F7100E83C77 /* SitStandTimerUITests.xctest */,
-				5EA878E72D3EB64C000C2B96 /* WidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -223,9 +216,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				5EA878EC2D3EB64C000C2B96 /* Widget */,
 			);
 			name = WidgetExtension;
 			packageProductDependencies = (
@@ -507,7 +497,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_ASSET_PATHS = "\"SitStandTimer/Preview Content\"";
 				DEVELOPMENT_TEAM = UCN29PZL3V;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -525,7 +515,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.5;
-				MARKETING_VERSION = 2.5;
+				MARKETING_VERSION = 2.5.1;
 				PRODUCT_BUNDLE_IDENTIFIER = ash.Stand;
 				PRODUCT_NAME = Stand;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -545,7 +535,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_ASSET_PATHS = "\"SitStandTimer/Preview Content\"";
 				DEVELOPMENT_TEAM = UCN29PZL3V;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -563,7 +553,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.5;
-				MARKETING_VERSION = 2.5;
+				MARKETING_VERSION = 2.5.1;
 				PRODUCT_BUNDLE_IDENTIFIER = ash.Stand;
 				PRODUCT_NAME = Stand;
 				SWIFT_EMIT_LOC_STRINGS = YES;

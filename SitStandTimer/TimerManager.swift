@@ -56,6 +56,25 @@ class TimerManager: ObservableObject {
         }
     }
     
+    private var floatingWindowController: NSWindowController? {
+        willSet { floatingWindowController?.close() }
+    }
+
+    func toggleFloatingWindow() {
+        if floatingWindowController == nil {
+            let contentView = FloatingWindowView()
+                .environmentObject(self)
+            let hostingController = NSHostingController(rootView: contentView)
+            let floatingWindow = FloatingWindow(contentView: hostingController.view)
+            
+            floatingWindowController = NSWindowController(window: floatingWindow)
+            floatingWindowController?.showWindow(self)
+        } else {
+            floatingWindowController?.close()
+            floatingWindowController = nil
+        }
+    }
+    
     private func updateAppIcon() {
         let iconName = currentInterval == .sitting ? "SittingIcon" : "StandingIcon"
         if let icon = NSImage(named: iconName) {

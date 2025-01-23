@@ -751,6 +751,29 @@
         }
       }
     },
+    "toggleWidgetLabel" : {
+      "comment" : "Button to toggle the Stand widget.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toggle Widget"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alternar Widget"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Basculer le Widget"
+          }
+        }
+      }
+    },
     "updateAvailableContent" : {
       "comment" : "Content of update available alert.",
       "localizations" : {
