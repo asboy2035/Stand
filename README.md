@@ -1,15 +1,19 @@
 # Stand
 A simple and modern macOS app that reminds you to sit/stand.
 
-<img width="752" alt="Stand 2.1 UI" src="https://github.com/user-attachments/assets/ba7ba902-3f62-497e-a501-276485f77c93" />
+<img width="765" alt="SCR-20250122-pzjv" src="https://github.com/user-attachments/assets/854f89db-4f57-4b00-beb4-4d982b8357bd" />
 
-Stand UI 2.1
+Stand UI 2.5
 
 <img width="186" alt="SCR-20250118-ltse" src="https://github.com/user-attachments/assets/8a5a099b-1248-40d1-8c4f-9e74f101ad30" />
 
 Stand notification (via DynamicNotchKit)
 
-<img width="2048" alt="New Idle mode UI" src="https://github.com/user-attachments/assets/1feebfb4-db03-4b97-8cd6-c1a1fe599865" />
+<img width="146" alt="SCR-20250122-pzri" src="https://github.com/user-attachments/assets/be970e92-24a1-4e38-8e7c-f059de57c2e7" />
+
+Stand Menu item
+
+<img width="2048" alt="SCR-20250122-pzyk" src="https://github.com/user-attachments/assets/96ced490-1eb9-4d4d-afe3-11fd0f96f6da" />
 
 UPDATED: Idle mode is great for non-computer desk activities!
 
@@ -25,3 +29,4 @@ Stand supports multiple languages:
 
 ### Thanks to:
 - [DynamicNotchKit](https://github.com/MrKai77/DynamicNotchKit) - Notifications that work seamlessly with the notch.
+- [LaunchAtLogin](https://github.com/sindresorhus/LaunchAtLogin-Modern) - Launch at login functionality within seconds.
