@@ -9,6 +9,10 @@ Stand UI 2.5
 
 Stand notification (via DynamicNotchKit)
 
+<img width="213" alt="SCR-20250123-phkt" src="https://github.com/user-attachments/assets/4836b388-351d-434a-a38c-794e217ceebf" />
+
+NEW: Stand Widget
+
 <img width="146" alt="SCR-20250122-pzri" src="https://github.com/user-attachments/assets/be970e92-24a1-4e38-8e7c-f059de57c2e7" />
 
 Stand Menu item
