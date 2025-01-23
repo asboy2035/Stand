@@ -85,7 +85,7 @@ struct UpdateView: View {
                 DispatchQueue.main.async {
                     self.updateTag = updateData.tag_name
                     self.updateBody = updateData.body
-                    self.updateURL = updateData.url
+                    self.updateURL = updateData.html_url
                 }
             } else {
                 print("Failed to decode update data")
@@ -135,5 +135,5 @@ class UpdateWindowController: NSObject {
 struct GitHubReleaseData: Codable {
     var tag_name: String
     var body: String
-    var url: String
+    var html_url: String
 }

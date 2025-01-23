@@ -48,7 +48,6 @@ struct AboutView: View {
     }
     
     @State private var isLatestVersion: Bool = true
-    @State private var releaseUrl: String? = "https://github.com/asboy2035/Stand/releases/latest"
 
     var body: some View {
         VStack {
