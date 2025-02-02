@@ -52,7 +52,7 @@ struct FloatingWindowView: View {
                 }
                 
                 Button(action: {
-                    timerManager.isRunning ? timerManager.pauseTimer() : timerManager.resumeTimer()
+                    timerManager.isRunning ? timerManager.quietPauseTimer() : timerManager.resumeTimer()
                 }) {
                     Image(systemName: timerManager.isRunning ? "pause.fill" : "play.fill")
                         .padding(.vertical, 5)

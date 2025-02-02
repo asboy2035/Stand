@@ -16,9 +16,11 @@ struct NormalModeView: View {
     var body: some View {
         NavigationSplitView {
             SidebarView(sittingTime: $sittingTime, standingTime: $standingTime)
-                .frame(minWidth: 225, maxWidth: 250)
-        } detail: {
+        } content: {
             DetailView()
+                .layoutPriority(1)
+        } detail: {
+            RightSidebarView()
         }
         .onAppear {
             timerManager.initializeWithStoredTimes(sitting: sittingTime, standing: standingTime)
@@ -31,6 +33,8 @@ struct SidebarView: View {
     @Binding var standingTime: Double
     @EnvironmentObject private var timerManager: TimerManager
     let availableSounds = ["Funk", "Ping", "Tink", "Glass", "Basso"]
+    @AppStorage("startTimerAtLaunch") private var startTimerAtLaunch = false
+    @AppStorage("showWidgetAtLaunch") private var showWidgetAtLaunch = false
     
     var body: some View {
         List {
@@ -43,6 +47,7 @@ struct SidebarView: View {
                                 timerManager.updateIntervalTime(type: .sitting, time: newValue)
                             }
                         Text("\(Int(sittingTime)) \(NSLocalizedString("minutesAbbr", comment: "Minutes abbreviation"))")
+                            .font(.caption)
                     }
                     
                     VStack(alignment: .leading) {
@@ -52,36 +57,37 @@ struct SidebarView: View {
                                 timerManager.updateIntervalTime(type: .standing, time: newValue)
                             }
                         Text("\(Int(standingTime)) \(NSLocalizedString("minutesAbbr", comment: "Minutes abbreviation"))")
+                            .font(.caption)
                     }
                 }
-                .padding(8)
-                .background(.foreground.opacity(0.1))
-                .mask(RoundedRectangle(cornerRadius: 10))
-                .overlay(RoundedRectangle(cornerRadius: 10).stroke(.foreground.opacity(0.2), lineWidth: 1))
+            }
+            
+            Section(header: Text(NSLocalizedString("appOptionsLabel", comment: "App options header in sidebar"))) {
+                LaunchAtLogin.Toggle("\(NSLocalizedString("launchAtLoginLabel", comment: "Launch at login label"))")
+                
+                Picker("alertSoundSettingLabel", selection: $timerManager.selectedSound) {
+                    ForEach(availableSounds, id: \.self) { sound in
+                        Text(sound).tag(sound)
+                    }
+                }
+                .pickerStyle(MenuPickerStyle())
+                .onChange(of: timerManager.selectedSound) { _ in
+                    timerManager.playSound()
+                }
             }
                 
                 
-            Section(header: Text(NSLocalizedString("optionsLabel", comment: "Options header in sidebar"))) {
-                VStack(alignment: .leading) {
-                    Picker("alertSoundSettingLabel", selection: $timerManager.selectedSound) {
-                        ForEach(availableSounds, id: \.self) { sound in
-                            Text(sound).tag(sound)
-                        }
-                    }
-                    .pickerStyle(MenuPickerStyle())
-                    .onChange(of: timerManager.selectedSound) { _ in
-                        timerManager.playSound()
-                    }
-                    LaunchAtLogin.Toggle("\(NSLocalizedString("launchAtLoginLabel", comment: "Launch at login label"))")
+            Section(header: Text(NSLocalizedString("atLaunchOptionsLabel", comment: "At launch header in sidebar"))) {
+                Toggle(isOn: $startTimerAtLaunch) {
+                    Text(NSLocalizedString("startTimerAtLaunchLabel", comment: "Start timer at launch label"))
                 }
-                .padding(8)
-                .background(.foreground.opacity(0.1))
-                .mask(RoundedRectangle(cornerRadius: 10))
-                .overlay(RoundedRectangle(cornerRadius: 10).stroke(.foreground.opacity(0.2), lineWidth: 1))
+                
+                Toggle(isOn: $showWidgetAtLaunch) {
+                    Text(NSLocalizedString("showWidgetAtLaunchLabel", comment: "Show widget at launch label"))
+                }
             }
         }
-        .background(VisualEffectView(material: .sidebar, blendingMode: .behindWindow).edgesIgnoringSafeArea(.all))
-        .frame(minWidth: 225, maxWidth: 250)
+        .frame(minWidth: 230)
     }
 }
 
@@ -133,7 +139,7 @@ struct DetailView: View {
             }
             
             ChallengeCard()
-            .padding(.top, 25)
+            .padding(.top, 20)
 
         }
         .navigationTitle(NSLocalizedString("appName", comment: "App name for main content title"))
@@ -167,7 +173,7 @@ struct DetailView: View {
                 }
             }
         }
-        .frame(minWidth: 500, idealWidth: nil, maxWidth: .infinity, minHeight: 350, idealHeight: nil, maxHeight: .infinity)
+        .frame(minWidth: 500, idealWidth: nil, maxWidth: .infinity, minHeight: 470, idealHeight: nil, maxHeight: .infinity)
         .background(VisualEffectView(material: .headerView, blendingMode: .behindWindow).edgesIgnoringSafeArea(.all))
     }
     
@@ -176,4 +182,69 @@ struct DetailView: View {
         let seconds = Int(timeInterval) % 60
         return String(format: "%02d:%02d", minutes, seconds)
     }
+}
+
+struct RightSidebarView: View {
+    @EnvironmentObject private var timerManager: TimerManager
+    
+    private func formatTime(minutes: Int) -> String {
+        let hours = minutes / 60
+        let remainingMinutes = minutes % 60
+        return "\(hours)h \(remainingMinutes)m"
+    }
+    
+    var body: some View {
+        List {
+            Section(header: Text(NSLocalizedString("totalTimeLabel", comment: "Total time header"))) {
+                VStack(alignment: .leading, spacing: 16) {
+                    VStack(alignment: .leading, spacing: 8) {
+                        HStack {
+                            Image(systemName: "clock.fill")
+                                .frame(width: 10, height: 10)
+                            Text(NSLocalizedString("totalLabel", comment: "Total label"))
+                        }
+                        .foregroundStyle(
+                            LinearGradient(
+                                gradient: Gradient(colors: [.yellow, .indigo]),
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                        )
+                        Text(formatTime(minutes: timerManager.timeHistory.standingMinutes + timerManager.timeHistory.sittingMinutes))
+                            .font(.system(.title, design: .monospaced))
+                    }
+                    .padding(.bottom, 16)
+                    
+                    VStack(alignment: .leading, spacing: 8) {
+                        HStack {
+                            Image(systemName: "figure.seated.side.right")
+                                .frame(width: 10, height: 10)
+                            Text(NSLocalizedString("sittingLabel", comment: "Sitting label"))
+                        }
+                        .foregroundColor(.indigo)
+                        Text(formatTime(minutes: timerManager.timeHistory.sittingMinutes))
+                            .font(.system(.title, design: .monospaced))
+                    }
+                    
+                    VStack(alignment: .leading, spacing: 8) {
+                        HStack {
+                            Image(systemName: "figure.stand")
+                                .frame(width: 10, height: 10)
+                            Text(NSLocalizedString("standingLabel", comment: "Standing label"))
+                        }
+                        .foregroundColor(.yellow)
+                        Text(formatTime(minutes: timerManager.timeHistory.standingMinutes))
+                            .font(.system(.title, design: .monospaced))
+                    }
+                }
+            }
+        }
+        .listStyle(.sidebar)
+        .frame(minWidth: 230)
+    }
+}
+
+#Preview {
+    NormalModeView(sittingTime: .constant(30), standingTime: .constant(30))
+        .environmentObject(TimerManager())
 }

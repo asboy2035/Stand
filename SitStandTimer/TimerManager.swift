@@ -9,7 +9,7 @@ import Foundation
 import DynamicNotchKit
 import SwiftUI
 import AppKit
-import WidgetKit
+import LaunchAtLogin
 
 enum IntervalType {
     case sitting
@@ -27,10 +27,13 @@ class TimerManager: ObservableObject {
             UserDefaults.standard.set(selectedSound, forKey: "selectedAlertSound")
         }
     }
+    @Published var timeHistory: TimeHistory
     
     private var timer: Timer?
+    private var historyTimer: Timer?
     private var sittingTime: TimeInterval = 30 * 60  // 30 minutes in seconds
     private var standingTime: TimeInterval = 10 * 60  // 10 minutes in seconds
+    private var lastHistoryUpdateTime: Date = Date()
     
     // Initialize the pauseNotch as a property
     private lazy var pauseNotch: DynamicNotchInfo = {
@@ -42,6 +45,8 @@ class TimerManager: ObservableObject {
     }()
     
     init() {
+        self.timeHistory = TimeHistory.load()
+
         // Load settings with default values
         selectedSound = UserDefaults.standard.string(forKey: "selectedAlertSound") ?? "Funk"
         
@@ -53,6 +58,23 @@ class TimerManager: ObservableObject {
         // Initialize with defaults if not set
         if remainingTime == 0 {
             remainingTime = 30 * 60  // Default to 30 minutes
+        }
+        
+        // Handle automation settings
+        if LaunchAtLogin.isEnabled {
+            if UserDefaults.standard.bool(forKey: "startTimerAtLaunch") {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
+                    self?.resumeTimer()
+                }
+            }
+            
+            if UserDefaults.standard.bool(forKey: "showWidgetAtLaunch") {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+                    if self?.floatingWindowController == nil {
+                        self?.toggleFloatingWindow()
+                    }
+                }
+            }
         }
     }
     
@@ -86,7 +108,6 @@ class TimerManager: ObservableObject {
         UserDefaults.shared.set(currentInterval == .standing, forKey: "isStanding")
         UserDefaults.shared.set(remainingTime, forKey: "remainingTime")
         UserDefaults.shared.set(isRunning, forKey: "isRunning")
-        WidgetCenter.shared.reloadAllTimelines() // This refreshes the widget
     }
     
     // System sound for interval changes
@@ -126,6 +147,30 @@ class TimerManager: ObservableObject {
         }
     }
     
+    private func updateTimeHistory() {
+        guard isRunning else { return }
+        
+        let now = Date()
+        let elapsedMinutes = Int(now.timeIntervalSince(lastHistoryUpdateTime) / 60)
+        
+        if elapsedMinutes > 0 {
+            if currentInterval == .sitting {
+                timeHistory.sittingMinutes += elapsedMinutes
+            } else {
+                timeHistory.standingMinutes += elapsedMinutes
+            }
+            timeHistory.save()
+            lastHistoryUpdateTime = now
+        }
+    }
+    
+    private func setupHistoryTracker() {
+        historyTimer?.invalidate()
+        historyTimer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { [weak self] _ in
+            self?.updateTimeHistory()
+        }
+    }
+    
     func resumeTimer() {
         updateAppIcon()
         saveState()
@@ -134,6 +179,8 @@ class TimerManager: ObservableObject {
         hidePauseNotch()
         isRunning = true
         isPaused = false
+        lastHistoryUpdateTime = Date()
+        setupHistoryTracker()
         
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
             guard let self = self else { return }
@@ -156,6 +203,8 @@ class TimerManager: ObservableObject {
         isPaused = true
         timer?.invalidate()
         timer = nil
+        historyTimer?.invalidate()
+        historyTimer = nil
         saveState()
     }
     

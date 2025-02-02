@@ -116,6 +116,28 @@
         }
       }
     },
+    "appOptionsLabel" : {
+      "comment" : "App options header in sidebar",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App"
+          }
+        }
+      }
+    },
+    "atLaunchOptionsLabel" : {
+      "comment" : "At launch header in sidebar",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "At launch"
+          }
+        }
+      }
+    },
     "doneLabel" : {
       "comment" : "Button that says \"done\".",
       "localizations" : {
@@ -464,6 +486,17 @@
         }
       }
     },
+    "showWidgetAtLaunchLabel" : {
+      "comment" : "Show widget at launch label",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show Widget"
+          }
+        }
+      }
+    },
     "sitLabel" : {
       "comment" : "Infinitive form of the verb sit.",
       "extractionState" : "manual",
@@ -604,6 +637,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Debout"
+          }
+        }
+      }
+    },
+    "startTimerAtLaunchLabel" : {
+      "comment" : "Start timer at launch label",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start Timer"
           }
         }
       }
@@ -770,6 +814,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Basculer le Widget"
+          }
+        }
+      }
+    },
+    "totalLabel" : {
+      "comment" : "Total label",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Total"
+          }
+        }
+      }
+    },
+    "totalTimeLabel" : {
+      "comment" : "Total time header",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Total Times"
           }
         }
       }
