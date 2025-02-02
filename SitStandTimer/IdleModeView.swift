@@ -70,7 +70,7 @@ struct IdleModeView: View {
         }
         .padding(20)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(colorScheme == .dark ? Color.black : Color.white) // Set background color based on color scheme
+        .background(colorScheme == .dark ? Color.black : Color.white) // Set background color based on color scheme)
         .edgesIgnoringSafeArea(.all)
     }
     

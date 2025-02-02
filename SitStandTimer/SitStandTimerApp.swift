@@ -10,8 +10,6 @@ import SwiftUI
 
 @main
 struct SitStandTimerApp: App {
-    @State private var showingAbout = false
-    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @ObservedObject private var timerManager = TimerManager()
     
     var body: some Scene {
@@ -22,7 +20,7 @@ struct SitStandTimerApp: App {
         .commands {
             CommandGroup(replacing: .appInfo) {
                 Button("aboutMenuLabel") {
-                    showingAbout.toggle()
+                    AboutWindowController.shared.showAboutView()
                 }
             }
         }

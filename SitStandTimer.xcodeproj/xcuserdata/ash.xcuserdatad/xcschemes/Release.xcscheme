@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1610"
+   LastUpgradeVersion = "1620"
    version = "2.0">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -11,7 +11,7 @@
             buildForTesting = "NO"
             buildForRunning = "YES"
             buildForProfiling = "NO"
-            buildForArchiving = "NO"
+            buildForArchiving = "YES"
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
@@ -90,15 +90,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5E3EDEAF2D089F7000E83C77"
-            BuildableName = "Stand.app"
-            BlueprintName = "SitStandTimer"
-            ReferencedContainer = "container:SitStandTimer.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
