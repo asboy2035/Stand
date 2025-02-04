@@ -43,6 +43,12 @@
             "state" : "translated",
             "value" : "À Propos de Stand"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "关于 Stand"
+          }
         }
       }
     },
@@ -65,6 +71,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Son d’Alerte"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "警报声音"
           }
         }
       }
@@ -90,6 +102,12 @@
             "state" : "translated",
             "value" : "Stand (🇫🇷)"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stand (🇨🇳)"
+          }
         }
       }
     },
@@ -102,10 +120,22 @@
             "value" : "App"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aplicación"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Application"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "应用"
           }
         }
       }
@@ -119,10 +149,22 @@
             "value" : "At launch"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "En el lanzamiento"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Au lancement"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在发射中"
           }
         }
       }
@@ -136,10 +178,22 @@
             "value" : "Close"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cerca"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fermer"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "关闭"
           }
         }
       }
@@ -153,10 +207,22 @@
             "value" : "Credits"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Créditos"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Crédits"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "学分"
           }
         }
       }
@@ -181,6 +247,12 @@
             "state" : "translated",
             "value" : "Fait"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "完毕"
+          }
         }
       }
     },
@@ -203,6 +275,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ne plus montrer"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "不要再显示"
           }
         }
       }
@@ -227,6 +305,12 @@
             "state" : "translated",
             "value" : "Cacher l’Encoche"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "隐藏缺口"
+          }
         }
       }
     },
@@ -239,10 +323,22 @@
             "value" : "Info"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Información"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Infos"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "信息"
           }
         }
       }
@@ -267,6 +363,12 @@
             "state" : "translated",
             "value" : "Intervalles"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "间隔"
+          }
         }
       }
     },
@@ -289,6 +391,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Lancer à la connexion"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在登录处启动"
           }
         }
       }
@@ -314,6 +422,12 @@
             "state" : "translated",
             "value" : "Basculer la barre latérale gauche"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "切换左侧栏"
+          }
         }
       }
     },
@@ -335,6 +449,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Chargement des données de mise à jour…"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "加载更新数据..."
           }
         }
       }
@@ -358,6 +478,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fabriqué avec <3 par ash."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "由ash制成<3"
           }
         }
       }
@@ -383,6 +509,12 @@
             "state" : "translated",
             "value" : "min"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "分钟"
+          }
         }
       }
     },
@@ -395,10 +527,22 @@
             "value" : "Up to date."
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A hoy."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "À jour."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最新。"
           }
         }
       }
@@ -424,6 +568,12 @@
             "state" : "translated",
             "value" : "Choix"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选项"
+          }
         }
       }
     },
@@ -447,6 +597,12 @@
             "state" : "translated",
             "value" : "Pause"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暂停"
+          }
         }
       }
     },
@@ -469,6 +625,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Quitter"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "辞职"
           }
         }
       }
@@ -494,6 +656,12 @@
             "state" : "translated",
             "value" : "qui reste"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "其余"
+          }
         }
       }
     },
@@ -516,6 +684,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Continuer"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "恢复"
           }
         }
       }
@@ -540,6 +714,12 @@
             "state" : "translated",
             "value" : "Afficher l’Encoche"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "展示槽口"
+          }
         }
       }
     },
@@ -552,10 +732,22 @@
             "value" : "Show Stats"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar estadísticas"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Afficher les Statistiques"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示统计数据"
           }
         }
       }
@@ -569,10 +761,22 @@
             "value" : "Show Widget"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar widget"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Montrer le Widget"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示小部件"
           }
         }
       }
@@ -586,10 +790,22 @@
             "value" : "Toggle Sidebar"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Barra lateral de palanca"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Barre de Basculement"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "切换侧边栏"
           }
         }
       }
@@ -615,6 +831,12 @@
             "state" : "translated",
             "value" : "Asseoir"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "坐"
+          }
         }
       }
     },
@@ -638,6 +860,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Assis"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "站立"
           }
         }
       }
@@ -663,6 +891,12 @@
             "state" : "translated",
             "value" : "Temps Assis"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "坐着"
+          }
         }
       }
     },
@@ -686,6 +920,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Debout"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "常设"
           }
         }
       }
@@ -711,6 +951,12 @@
             "state" : "translated",
             "value" : "Temps Debout"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "站立时间"
+          }
         }
       }
     },
@@ -735,6 +981,12 @@
             "state" : "translated",
             "value" : "Debout"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "站立"
+          }
         }
       }
     },
@@ -747,10 +999,22 @@
             "value" : "Start Timer"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Temporizador de inicio"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Démarrer la minuterie"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "启动计时器"
           }
         }
       }
@@ -776,6 +1040,12 @@
             "state" : "translated",
             "value" : "Changez-le !"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "切换！"
+          }
         }
       }
     },
@@ -798,6 +1068,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Merci d'avoir utilisé Stand!"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "谢谢您的使用 Stand!"
           }
         }
       }
@@ -823,6 +1099,12 @@
             "state" : "translated",
             "value" : "Il est"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "是"
+          }
         }
       }
     },
@@ -846,6 +1128,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "N’oublie pas de recommencer !"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "记得按播放！"
           }
         }
       }
@@ -871,6 +1159,12 @@
             "state" : "translated",
             "value" : "Minuterie est en pause"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "计时器暂停"
+          }
         }
       }
     },
@@ -895,6 +1189,12 @@
             "state" : "translated",
             "value" : "C’est le temps d’être"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "时间了"
+          }
         }
       }
     },
@@ -918,6 +1218,12 @@
             "state" : "translated",
             "value" : "Basculer le Widget"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "切换小部件"
+          }
         }
       }
     },
@@ -930,10 +1236,22 @@
             "value" : "Total"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Total"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Totale"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全部的"
           }
         }
       }
@@ -958,6 +1276,12 @@
             "state" : "translated",
             "value" : "N’oublie pas de quitter cette version avant de mettre à jour."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "不要忘记在更新之前退出此版本。"
+          }
         }
       }
     },
@@ -980,6 +1304,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mise à Jour est Disponible"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更新可用"
           }
         }
       }
@@ -1004,6 +1334,12 @@
             "state" : "translated",
             "value" : "Page de Mise à Jour"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "页面以进行更新"
+          }
         }
       }
     },
@@ -1026,6 +1362,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mise à Jour"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更新"
           }
         }
       }
@@ -1050,6 +1392,12 @@
             "state" : "translated",
             "value" : "Site Web"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "网站"
+          }
         }
       }
     },
@@ -1072,6 +1420,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bienvenue"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "欢迎"
           }
         }
       }
@@ -1096,6 +1450,12 @@
             "state" : "translated",
             "value" : "Merci pour le téléchargement. J'espère que cela améliorera vos habitudes debout !"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "感谢您的下载，希望这可以帮助您的常识！"
+          }
         }
       }
     },
@@ -1118,6 +1478,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bienvenue à Stand!"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "欢迎来 Stand!"
           }
         }
       }
