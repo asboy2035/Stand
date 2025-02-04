@@ -10,6 +10,7 @@
 		5E0677BD2D3D4DFD00D04ACA /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 5E0677BC2D3D4DFD00D04ACA /* LaunchAtLogin */; };
 		5E500F652D2953CE00635A51 /* DynamicNotchKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5E500F642D2953CE00635A51 /* DynamicNotchKit */; };
 		5EA879052D3EB9C3000C2B96 /* UserDefaults+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA879042D3EB9C3000C2B96 /* UserDefaults+Shared.swift */; };
+		5EFBF41C2D5124C80092088F /* Luminare in Frameworks */ = {isa = PBXBuildFile; productRef = 5EFBF41B2D5124C80092088F /* Luminare */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E0677BD2D3D4DFD00D04ACA /* LaunchAtLogin in Frameworks */,
+				5EFBF41C2D5124C80092088F /* Luminare in Frameworks */,
 				5E500F652D2953CE00635A51 /* DynamicNotchKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,6 +140,7 @@
 			packageProductDependencies = (
 				5E500F642D2953CE00635A51 /* DynamicNotchKit */,
 				5E0677BC2D3D4DFD00D04ACA /* LaunchAtLogin */,
+				5EFBF41B2D5124C80092088F /* Luminare */,
 			);
 			productName = SitStandTimer;
 			productReference = 5E3EDEB02D089F7000E83C77 /* Stand.app */;
@@ -226,6 +229,7 @@
 			packageReferences = (
 				5E500F632D2953CE00635A51 /* XCRemoteSwiftPackageReference "DynamicNotchKit" */,
 				5E0677BB2D3D4DFD00D04ACA /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */,
+				5EFBF41A2D5124C80092088F /* XCRemoteSwiftPackageReference "Luminare" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5E3EDEB12D089F7000E83C77 /* Products */;
@@ -464,7 +468,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.5;
-				MARKETING_VERSION = 2.6;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ash.Stand;
 				PRODUCT_NAME = Stand;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -503,7 +507,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.5;
-				MARKETING_VERSION = 2.6;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ash.Stand;
 				PRODUCT_NAME = Stand;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -644,6 +648,14 @@
 				kind = branch;
 			};
 		};
+		5EFBF41A2D5124C80092088F /* XCRemoteSwiftPackageReference "Luminare" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MrKai77/Luminare?tab=readme-ov-file";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -656,6 +668,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5E500F632D2953CE00635A51 /* XCRemoteSwiftPackageReference "DynamicNotchKit" */;
 			productName = DynamicNotchKit;
+		};
+		5EFBF41B2D5124C80092088F /* Luminare */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5EFBF41A2D5124C80092088F /* XCRemoteSwiftPackageReference "Luminare" */;
+			productName = Luminare;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

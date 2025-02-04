@@ -8,6 +8,7 @@
 
 import SwiftUI
 import AppKit
+import Luminare
 
 class FloatingWindow: NSPanel {
     init(contentView: NSView) {
@@ -37,37 +38,52 @@ struct FloatingWindowView: View {
     
     var body: some View {
         VStack(spacing: 10) {
-            Text(timerManager.currentInterval == .sitting ? "sittingLabel" : "standingLabel")
-                .font(.system(size: 18))
-                .foregroundColor(timerManager.currentInterval == .sitting ? .indigo : .yellow)
+            VStack(spacing: 2) {
+                Text(timerManager.currentInterval == .sitting ? "sittingLabel" : "standingLabel")
+                    .font(.system(size: 18))
+                    .foregroundStyle(.secondary)
+                
+                Text(timerManager.remainingTimeString)
+                    .font(.system(size: 32, weight: .light, design: .monospaced))
+            }
+            Spacer()
             
-            Text(timerManager.remainingTimeString)
-                .font(.system(size: 32, weight: .light, design: .monospaced))
-            
-            HStack(spacing: 10) {
+            // Control buttons (compact)
+            HStack(spacing: 16) {
                 Button(action: {
                     timerManager.resetTimer()
                 }) {
                     Image(systemName: "arrow.clockwise")
+                        .frame(width: 10)
                 }
+                .frame(width: 20, height: 20)
                 
                 Button(action: {
-                    timerManager.isRunning ? timerManager.quietPauseTimer() : timerManager.resumeTimer()
+                    if timerManager.isRunning {
+                        timerManager.pauseTimer()
+                    } else {
+                        timerManager.resumeTimer()
+                    }
                 }) {
                     Image(systemName: timerManager.isRunning ? "pause.fill" : "play.fill")
-                        .padding(.vertical, 5)
                 }
+                .frame(width: 40, height: 40)
                 
                 Button(action: {
                     timerManager.switchInterval()
                 }) {
                     Image(systemName: "repeat")
+                        .frame(width: 10)
                 }
+                .frame(width: 20, height: 20)
             }
+            .frame(width: 110, height: 20)
+            .buttonStyle(LuminareCompactButtonStyle())
         }
         .padding(20)
+        .frame(width: 150, height: 150)
         .background(VisualEffectView(material: .hudWindow, blendingMode: .behindWindow).edgesIgnoringSafeArea(.all))
-        .mask(RoundedRectangle(cornerRadius: 20))
+        .mask(RoundedRectangle(cornerRadius: 18))
     }
 }
 

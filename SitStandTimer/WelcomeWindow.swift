@@ -8,6 +8,7 @@
 import SwiftUI
 import Combine
 import LaunchAtLogin
+import Luminare
 
 class WelcomeWindowController: NSObject {
     private var window: NSWindow?
@@ -37,6 +38,8 @@ class WelcomeWindowController: NSObject {
             window.center()
             window.contentViewController = hostingController
             window.isReleasedWhenClosed = false
+            window.titlebarAppearsTransparent = true
+            window.styleMask.insert(.fullSizeContentView)
 
             self.window = window
         }
@@ -55,7 +58,7 @@ struct WelcomeView: View {
                 .scaledToFit()
                 .frame(width: 100, height: 100)
 
-            VStack (spacing: 5){
+            VStack (spacing: 2) {
                 Text("welcomeTitle")
                     .font(.title)
                 Text("\(NSLocalizedString("appName", comment:"app name")) \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0.0.0")")
@@ -74,7 +77,8 @@ struct WelcomeView: View {
                     Text("doneLabel")
                         .padding(5)
                 }
-                .buttonStyle(.borderedProminent)
+                .buttonStyle(LuminareCompactButtonStyle())
+                .frame(width: 100)
                 
                 if showWelcome {
                     Button(action: {
@@ -84,9 +88,12 @@ struct WelcomeView: View {
                         Text("dontShowAgainLabel")
                             .padding(5)
                     }
-                    .buttonStyle(.bordered)
+                    .buttonStyle(LuminareDestructiveButtonStyle())
+                    .cornerRadius(8)
                 }
             }
+            .frame(height: 35)
+            .padding(.top)
         }
         .navigationTitle("welcome")
         .toolbar {

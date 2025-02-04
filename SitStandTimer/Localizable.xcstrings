@@ -23,29 +23,6 @@
       },
       "shouldTranslate" : false
     },
-    "%lld %@" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$lld %2$@"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1$lld %2$@"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1$lld %2$@"
-          }
-        }
-      },
-      "shouldTranslate" : false
-    },
     "aboutMenuLabel" : {
       "comment" : "The title for the about menu item.",
       "localizations" : {
@@ -124,6 +101,12 @@
             "state" : "translated",
             "value" : "App"
           }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Application"
+          }
         }
       }
     },
@@ -134,6 +117,46 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "At launch"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Au lancement"
+          }
+        }
+      }
+    },
+    "closeLabel" : {
+      "comment" : "Button to close a view.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Close"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fermer"
+          }
+        }
+      }
+    },
+    "creditsLabel" : {
+      "comment" : "Label for \"Credits\" in the about view.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Credits"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crédits"
           }
         }
       }
@@ -203,6 +226,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cacher l’Encoche"
+          }
+        }
+      }
+    },
+    "infoTitle" : {
+      "comment" : "Title for info section of updater.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Info"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Infos"
           }
         }
       }
@@ -342,6 +382,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "min"
+          }
+        }
+      }
+    },
+    "noUpdatesLabel" : {
+      "comment" : "Label for button when app is up to date.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Up to date."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "À jour."
           }
         }
       }
@@ -486,6 +543,23 @@
         }
       }
     },
+    "showStatsLabel" : {
+      "comment" : "Button to show Stand stats.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show Stats"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher les Statistiques"
+          }
+        }
+      }
+    },
     "showWidgetAtLaunchLabel" : {
       "comment" : "Show widget at launch label",
       "localizations" : {
@@ -493,6 +567,29 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Show Widget"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Montrer le Widget"
+          }
+        }
+      }
+    },
+    "sidebarToggleLabel" : {
+      "comment" : "Button to toggle the stand sidebar.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toggle Sidebar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Barre de Basculement"
           }
         }
       }
@@ -648,6 +745,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Start Timer"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Démarrer la minuterie"
           }
         }
       }
@@ -826,16 +929,11 @@
             "state" : "translated",
             "value" : "Total"
           }
-        }
-      }
-    },
-    "totalTimeLabel" : {
-      "comment" : "Total time header",
-      "localizations" : {
-        "en" : {
+        },
+        "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Total Times"
+            "value" : "Totale"
           }
         }
       }

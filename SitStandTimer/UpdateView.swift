@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Luminare
 
 struct UpdateView: View {
     @State private var updateTag: String = ""
@@ -17,7 +18,7 @@ struct UpdateView: View {
             Image(nsImage: NSApplication.shared.applicationIconImage)
                 .resizable()
                 .scaledToFit()
-                .frame(width: 50, height: 50)
+                .frame(width: 75, height: 75)
 
             if !updateTag.isEmpty {
                 Text("\(NSLocalizedString("updateAvailableTitle", comment: "")): \(updateTag)!")
@@ -27,12 +28,10 @@ struct UpdateView: View {
 
             if !updateBody.isEmpty {
                 ScrollView {
-                    Text(updateBody)
-                        .font(.body)
-                        .padding()
-                        .background(.foreground.opacity(0.2))
-                        .overlay(RoundedRectangle(cornerRadius: 12).stroke(.foreground.opacity(0.2), lineWidth: 1))
-                        .cornerRadius(12)
+                    LuminareSection("infoTitle") {
+                        Text(updateBody)
+                    }
+                    .padding()
                 }
             }
 
@@ -45,11 +44,14 @@ struct UpdateView: View {
                     Text("updateAvailableVisitButton")
                         .padding(5)
                 }
+                .buttonStyle(LuminareCompactButtonStyle())
+                .frame(width: 200, height: 35)
             } else {
                 Text("loadingUpdate")
             }
             Text("updateAvailableContent")
                 .font(.caption)
+                .foregroundStyle(.secondary)
         }
         .padding(30)
         .frame(width: 400, height: 400)
@@ -120,6 +122,8 @@ class UpdateWindowController: NSObject {
             window.center()
             window.contentViewController = hostingController
             window.isReleasedWhenClosed = false
+            window.titlebarAppearsTransparent = true
+            window.styleMask.insert(.fullSizeContentView)
 
             self.window = window
         }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Luminare
 
 // Idle mode layout
 struct IdleModeView: View {
@@ -55,6 +56,7 @@ struct IdleModeView: View {
                         Image(systemName: timerManager.isRunning ? "pause.fill" : "play.fill")
                             .frame(width: 20, height: 35)
                     }
+                    .frame(height: 45)
                     
                     Button(action: {
                         timerManager.switchInterval()
@@ -63,6 +65,8 @@ struct IdleModeView: View {
                             .frame(width: 10, height: 25)
                     }
                 }
+                .frame(width: 100, height: 35)
+                .buttonStyle(LuminareCompactButtonStyle())
             }
             
             ChallengeCard()

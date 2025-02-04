@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import Luminare
 
 struct ChallengeCard: View {
     @State private var currentChallenge: Challenge = challenges.randomElement()!
     
     var body: some View {
-        HStack() {
+        HStack {
             Image(systemName: currentChallenge.symbol)
                 .imageScale(.large)
                 .padding(.horizontal, 6)
@@ -21,6 +22,7 @@ struct ChallengeCard: View {
                     .font(.title2)
                 Text(currentChallenge.description)
                     .font(.body)
+                    .foregroundStyle(.secondary)
             }
             
             Button(action: {
@@ -29,8 +31,10 @@ struct ChallengeCard: View {
                 Image(systemName: "arrow.clockwise")
                     .frame(height: 25)
             }
+            .buttonStyle(LuminareCompactButtonStyle())
+            .frame(width: 35, height: 40)
         }
-        .padding(.horizontal, 12)
+        .padding(.horizontal, 10)
         .padding(.vertical, 8)
         .background(Color.primary.opacity(0.1))
         .mask(RoundedRectangle(cornerRadius: 13))
@@ -60,3 +64,7 @@ let challenges: [Challenge] = [
     Challenge(titleKey: "jjTitle", descriptionKey: "jjDescription", symbol: "figure.run"),
     Challenge(titleKey: "pushupsTitle", descriptionKey: "pushupsDescription", symbol: "hands.sparkles")
 ]
+
+#Preview {
+    ChallengeCard()
+}
