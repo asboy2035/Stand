@@ -83,6 +83,17 @@ struct AboutView: View {
             .padding(30)
             .frame(width: 350, height: 350)
         }
+        .toolbar {
+            ToolbarItem(placement: .automatic) {
+                Button(action: {
+                    if let url = URL(string: "https://asboy2035.pages.dev/apps/stand") {
+                        NSWorkspace.shared.open(url)
+                    }
+                }) {
+                    Label("websiteLabel", systemImage: "globe")
+                }
+            }
+        }
         .background(VisualEffectView(material: .sidebar, blendingMode: .behindWindow).edgesIgnoringSafeArea(.all))
     }
 }
@@ -129,17 +140,6 @@ struct CreditsView: View {
                 Spacer()
             }
             .navigationTitle("creditsLabel")
-            .toolbar {
-                ToolbarItem(placement: .automatic) {
-                    Button(action: {
-                        if let url = URL(string: "https://asboy2035.pages.dev/apps/stand") {
-                            NSWorkspace.shared.open(url)
-                        }
-                    }) {
-                        Label("websiteLabel", systemImage: "globe")
-                    }
-                }
-            }
         }
     }
 }
@@ -184,16 +184,6 @@ struct AboutContentView: View {
                     WelcomeWindowController.shared.showWelcomeView()
                 }) {
                     Label("welcome", systemImage: "figure.wave")
-                }
-            }
-            
-            ToolbarItem(placement: .automatic) {
-                Button(action: {
-                    if let url = URL(string: "https://asboy2035.pages.dev/apps/stand") {
-                        NSWorkspace.shared.open(url)
-                    }
-                }) {
-                    Label("websiteLabel", systemImage: "globe")
                 }
             }
         }

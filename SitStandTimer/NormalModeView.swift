@@ -64,11 +64,17 @@ struct SidebarView: View {
     var body: some View {
         List {
             LuminareSection {
-                Button(action: { showStats.toggle() }) {
-                    Text("showStatsLabel")
+                Button(action: {
+                    timerManager.toggleFloatingWindow()
+                }) {
+                    Label("toggleWidgetLabel", systemImage: "widget.small")
                 }
-                .buttonStyle(LuminareButtonStyle())
+                
+                Button(action: { showStats.toggle() }) {
+                    Label("showStatsLabel", systemImage: "chart.bar")
+                }
             }
+            .buttonStyle(LuminareButtonStyle())
             Divider()
             
             LuminareSection("intervalsLabel") {
@@ -165,13 +171,6 @@ struct DetailView: View {
         }
         .navigationTitle(NSLocalizedString("appName", comment: "App name for main content title"))
         .toolbar {
-            ToolbarItem(placement: .automatic) {
-                Button(action: {
-                    timerManager.toggleFloatingWindow()
-                }) {
-                    Label("toggleWidgetLabel", systemImage: "widget.small")
-                }
-            }
             ToolbarItem(placement: .automatic) {
                 Button(action: {
                     AboutWindowController.shared.showAboutView()

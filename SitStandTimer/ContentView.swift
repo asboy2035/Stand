@@ -8,6 +8,40 @@
 import SwiftUI
 import DynamicNotchKit
 
+class ContentWindowController: NSObject {
+    private var window: NSWindow?
+
+    static let shared = ContentWindowController()
+    
+    private override init() {
+        super.init()
+    }
+
+    func showContentView() {
+        if window == nil {
+            let View = ContentView()
+            let hostingController = NSHostingController(rootView: View)
+
+            let window = NSWindow(
+                contentRect: NSRect(x: 0, y: 0, width: 700, height: 400),
+                styleMask: [.titled, .closable, .miniaturizable, .resizable],
+                backing: .buffered,
+                defer: false
+            )
+            
+            window.center()
+            window.contentViewController = hostingController
+            window.isReleasedWhenClosed = false
+            window.titlebarAppearsTransparent = true
+            window.styleMask.insert(.fullSizeContentView)
+
+            self.window = window
+        }
+
+        window?.makeKeyAndOrderFront(nil)
+    }
+}
+
 struct ContentView: View {
     @EnvironmentObject private var timerManager: TimerManager
     @AppStorage("sittingTime") private var sittingTime: Double = 30
