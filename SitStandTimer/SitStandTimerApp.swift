@@ -16,11 +16,7 @@ struct SitStandTimerApp: App {
         WindowGroup("appName") {
             ContentView()
                 .environmentObject(timerManager)
-                .onAppear {
-                    if let window = NSApplication.shared.windows.first {
-                        configureWindow(window)
-                    }
-                }
+
         }
         .commands {
             CommandGroup(replacing: .appInfo) {
@@ -67,11 +63,4 @@ struct SitStandTimerApp: App {
             timerManager.resumeTimer()
         }
     }
-}
-
-func configureWindow(_ window: NSWindow) {
-    window.titlebarAppearsTransparent = true  // Makes the title bar blend in
-    window.isMovableByWindowBackground = true // Allows dragging from any part
-    window.backgroundColor = .clear           // Makes it transparent
-    window.styleMask.insert(.fullSizeContentView) // Extends content into title bar
 }

@@ -35,17 +35,21 @@ struct NormalModeView: View {
         .background(VisualEffectView(material: .sidebar, blendingMode: .behindWindow).edgesIgnoringSafeArea(.all))
         .onAppear {
             timerManager.initializeWithStoredTimes(sitting: sittingTime, standing: standingTime)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                if let window = NSApplication.shared.windows.first {
-                    window.titlebarAppearsTransparent = true
-                    window.backgroundColor = .clear
-                }
+            if let window = NSApplication.shared.windows.first {
+                window.titlebarAppearsTransparent = true
+                window.isOpaque = false
+                window.backgroundColor = .clear // Set the background color to clear
+                
+                window.styleMask.insert(.fullSizeContentView)
             }
         }
         .onReceive(NotificationCenter.default.publisher(for: NSWindow.didExitFullScreenNotification)) { _ in
             if let window = NSApplication.shared.windows.first {
                 window.titlebarAppearsTransparent = true
-                window.backgroundColor = .clear
+                window.isOpaque = false
+                window.backgroundColor = .clear // Set the background color to clear
+                
+                window.styleMask.insert(.fullSizeContentView)
             }
         }
     }
