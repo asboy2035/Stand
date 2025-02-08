@@ -30,7 +30,7 @@ struct NormalModeView: View {
                 }
                 .layoutPriority(1)
         }
-        .frame(minWidth: showSidebar ? 725 : 500)
+        .frame(minWidth: showSidebar ? 660 : 450)
         
         .background(VisualEffectView(material: .sidebar, blendingMode: .behindWindow).edgesIgnoringSafeArea(.all))
         .onAppear {
@@ -60,9 +60,6 @@ struct SidebarView: View {
     @Binding var standingTime: Double
     @EnvironmentObject private var timerManager: TimerManager
     let availableSounds = ["Funk", "Ping", "Tink", "Glass", "Basso"]
-    @AppStorage("startTimerAtLaunch") private var startTimerAtLaunch = false
-    @AppStorage("showWidgetAtLaunch") private var showWidgetAtLaunch = false
-    @State var launchAtLogin = LaunchAtLogin.isEnabled
     @State var showStats = false
     
     var body: some View {
@@ -79,34 +76,10 @@ struct SidebarView: View {
                 }
             }
             .buttonStyle(LuminareButtonStyle())
-            Divider()
             
             LuminareSection("intervalsLabel") {
                 LuminareValueAdjuster("sittingTimeLabel", value: $sittingTime, sliderRange: 5...60, suffix: "minutesAbbr")
                 LuminareValueAdjuster("standingTimeLabel", value: $standingTime, sliderRange: 5...60, suffix: "minutesAbbr")
-            }
-            
-            LuminareSection("appOptionsLabel") {
-                LuminareToggle("launchAtLoginLabel", isOn: $launchAtLogin)
-                    .onChange(of: launchAtLogin) { newValue in
-                        LaunchAtLogin.isEnabled = newValue
-                    }
-                
-                Picker("alertSoundSettingLabel", selection: $timerManager.selectedSound) {
-                    ForEach(availableSounds, id: \.self) { sound in
-                        Text(sound).tag(sound)
-                    }
-                }
-                .padding(8)
-                .pickerStyle(MenuPickerStyle())
-                .onChange(of: timerManager.selectedSound) { _ in
-                    timerManager.playSound()
-                }
-            }
-                
-            LuminareSection("atLaunchOptionsLabel") {
-                LuminareToggle("startTimerAtLaunchLabel", isOn: $startTimerAtLaunch)
-                LuminareToggle("showWidgetAtLaunchLabel", isOn: $showWidgetAtLaunch)
             }
         }
         .luminareModal(isPresented: $showStats) {
@@ -197,7 +170,7 @@ struct DetailView: View {
                 }
             }
         }
-        .frame(minWidth: 475, idealWidth: nil, maxWidth: .infinity, minHeight: 450, idealHeight: nil, maxHeight: .infinity)
+        .frame(minWidth: 375, idealWidth: nil, maxWidth: .infinity, minHeight: 375, idealHeight: nil, maxHeight: .infinity)
     }
     
     private func timeString(from timeInterval: TimeInterval) -> String {

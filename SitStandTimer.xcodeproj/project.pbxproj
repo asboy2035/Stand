@@ -32,8 +32,8 @@
 
 /* Begin PBXFileReference section */
 		5E3EDEB02D089F7000E83C77 /* Stand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stand.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E3EDEC12D089F7100E83C77 /* SitStandTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = SitStandTimerTests.xctest; path = "/Users/ash/Documents/ash's Folder/Projects/Xcode/Stand/build/Debug/SitStandTimer.app/Contents/PlugIns/SitStandTimerTests.xctest"; sourceTree = "<absolute>"; };
-		5E3EDECB2D089F7100E83C77 /* SitStandTimerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = SitStandTimerUITests.xctest; path = "/Users/ash/Documents/ash's Folder/Projects/Xcode/Stand/build/Debug/SitStandTimerUITests-Runner.app/Contents/PlugIns/SitStandTimerUITests.xctest"; sourceTree = "<absolute>"; };
+		5E770CA22D57520C007D7401 /* SitStandTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SitStandTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E770CA32D57520C007D7401 /* SitStandTimerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SitStandTimerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EA878D42D3EB5EE000C2B96 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		5EA878E82D3EB64C000C2B96 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		5EA878EA2D3EB64C000C2B96 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -90,6 +90,8 @@
 			isa = PBXGroup;
 			children = (
 				5E3EDEB02D089F7000E83C77 /* Stand.app */,
+				5E770CA22D57520C007D7401 /* SitStandTimerTests.xctest */,
+				5E770CA32D57520C007D7401 /* SitStandTimerUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -149,7 +151,7 @@
 			packageProductDependencies = (
 			);
 			productName = SitStandTimerTests;
-			productReference = 5E3EDEC12D089F7100E83C77 /* SitStandTimerTests.xctest */;
+			productReference = 5E770CA22D57520C007D7401 /* SitStandTimerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		5E3EDECA2D089F7100E83C77 /* SitStandTimerUITests */ = {
@@ -169,7 +171,7 @@
 			packageProductDependencies = (
 			);
 			productName = SitStandTimerUITests;
-			productReference = 5E3EDECB2D089F7100E83C77 /* SitStandTimerUITests.xctest */;
+			productReference = 5E770CA32D57520C007D7401 /* SitStandTimerUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -430,7 +432,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 18;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = UCN29PZL3V;
@@ -469,7 +471,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 18;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = UCN29PZL3V;

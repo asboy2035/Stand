@@ -990,6 +990,17 @@
         }
       }
     },
+    "standSettingsTitle" : {
+      "comment" : "Title for the settings window",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stand Settings"
+          }
+        }
+      }
+    },
     "startTimerAtLaunchLabel" : {
       "comment" : "Start timer at launch label",
       "localizations" : {

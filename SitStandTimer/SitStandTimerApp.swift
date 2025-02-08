@@ -11,6 +11,9 @@ import SwiftUI
 @main
 struct SitStandTimerApp: App {
     @ObservedObject private var timerManager = TimerManager()
+    @AppStorage("sittingTime") private var sittingTime: Double = 30
+    @AppStorage("standingTime") private var standingTime: Double = 10
+    @AppStorage("showWelcome") private var showWelcome: Bool = true
     
     var body: some Scene {
         WindowGroup("appName") {
@@ -24,6 +27,11 @@ struct SitStandTimerApp: App {
                     AboutWindowController.shared.showAboutView()
                 }
             }
+        }
+        
+        Settings {
+            SettingsView(sittingTime: $sittingTime, standingTime: $standingTime)
+                .environmentObject(timerManager)
         }
         
         MenuBarExtra("appName", systemImage: timerManager.currentInterval == .sitting ? "figure.seated.side.right" : "figure.stand") {
