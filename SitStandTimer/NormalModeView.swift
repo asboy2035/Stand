@@ -30,7 +30,7 @@ struct NormalModeView: View {
                 }
                 .layoutPriority(1)
         }
-        .frame(minWidth: showSidebar ? 660 : 450)
+        .frame(minWidth: showSidebar ? 635 : 450)
         
         .background(VisualEffectView(material: .sidebar, blendingMode: .behindWindow).edgesIgnoringSafeArea(.all))
         .onAppear {
@@ -88,7 +88,7 @@ struct SidebarView: View {
         }
         .listStyle(.sidebar)
         .scrollContentBackground(.hidden)
-        .frame(minWidth: 250)
+        .frame(minWidth: 225)
     }
 }
 
