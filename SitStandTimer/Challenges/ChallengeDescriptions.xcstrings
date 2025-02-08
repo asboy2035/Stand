@@ -21,74 +21,69 @@
             "state" : "translated",
             "value" : "Tenez-vous debout sur un pied pendant 15 secondes."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "站在一只脚上15秒钟。"
+          }
         }
       }
     },
-    "jjDescription" : {
+    "jumpRopeDescription" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Do 15 jumping jacks."
+            "value" : "Jump rope for as long as possible!"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Haz 15 saltos de tijera."
+            "value" : "¡Salta la cuerda el mayor tiempo posible!"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Faites 15 sauts avec écart."
+            "value" : "Sautez la corde aussi longtemps que possible!"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "跳绳尽可能长！"
           }
         }
       }
     },
-    "pushupsDescription" : {
+    "plankDescription" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Do 10 pushups against your desk."
+            "value" : "Plank for 30 secs."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Haz 10 flexiones contra tu escritorio."
+            "value" : "Tabla para 30 segundos."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Faites 10 pompes contre votre bureau."
-          }
-        }
-      }
-    },
-    "squatsDescription" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Perform 10 squats."
+            "value" : "Planche pendant 30 secondes."
           }
         },
-        "es" : {
+        "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Realiza 10 sentadillas."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Effectuez 10 squats."
+            "value" : "木板30秒。"
           }
         }
       }
@@ -112,6 +107,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Faites un étirement de tout le corps pendant 30 secondes."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "进行30秒的全身伸展运动。"
           }
         }
       }

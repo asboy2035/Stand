@@ -25,7 +25,7 @@ struct ChallengeCard: View {
                     .foregroundStyle(.secondary)
             }
             
-            Button(action: {
+            Button(action: { // Reload
                 currentChallenge = challenges.randomElement()!
             }) {
                 Image(systemName: "arrow.clockwise")
@@ -45,7 +45,8 @@ struct ChallengeCard: View {
 struct Challenge: Identifiable {
     let id = UUID()
     let titleKey: String
-    let descriptionKey: String
+    let descriptionKey: String // Optional full description
+    let amount: String // If no description, simple value instead
     let symbol: String
     
     var title: String {
@@ -53,16 +54,26 @@ struct Challenge: Identifiable {
     }
 
     var description: String {
-        NSLocalizedString(descriptionKey, tableName: "ChallengeDescriptions", comment: "")
+        if !descriptionKey.isEmpty {
+            NSLocalizedString(descriptionKey, tableName: "ChallengeDescriptions", comment: "")
+        } else {
+            amount
+        }
     }
 }
 
 let challenges: [Challenge] = [
-    Challenge(titleKey: "stretchTitle", descriptionKey: "stretchDescription", symbol: "figure.walk"),
-    Challenge(titleKey: "balanceTitle", descriptionKey: "balanceDescription", symbol: "person.circle"),
-    Challenge(titleKey: "squatsTitle", descriptionKey: "squatsDescription", symbol: "figure.stand"),
-    Challenge(titleKey: "jjTitle", descriptionKey: "jjDescription", symbol: "figure.run"),
-    Challenge(titleKey: "pushupsTitle", descriptionKey: "pushupsDescription", symbol: "hands.sparkles")
+    Challenge(titleKey: "stretchTitle", descriptionKey: "stretchDescription", amount: "", symbol: "figure.cooldown"),
+    Challenge(titleKey: "balanceTitle", descriptionKey: "balanceDescription", amount: "", symbol: "figure"),
+    Challenge(titleKey: "squatsTitle", descriptionKey: "", amount: "10", symbol: "figure.cross.training"),
+    Challenge(titleKey: "jjTitle", descriptionKey: "", amount: "25", symbol: "figure.arms.open"),
+    Challenge(titleKey: "pushupsTitle", descriptionKey: "", amount: "10", symbol: "hands.sparkles"),
+    Challenge(titleKey: "plankTitle", descriptionKey: "plankDescription", amount: "", symbol: "hands.sparkles"),
+    Challenge(titleKey: "lungesTitle", descriptionKey: "", amount: "10", symbol: "figure.strengthtraining.functional"),
+    Challenge(titleKey: "highKneesTitle", descriptionKey: "", amount: "20", symbol: "figure.run"),
+    Challenge(titleKey: "mountainClimbersTitle", descriptionKey: "", amount: "20", symbol: "figure.run"),
+    Challenge(titleKey: "situpsTitle", descriptionKey: "", amount: "10", symbol: "figure.core.training"),
+    Challenge(titleKey: "jumpRopeTitle", descriptionKey: "jumpRopeDescription", amount: "", symbol: "figure.jumprope")
 ]
 
 #Preview {
