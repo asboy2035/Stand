@@ -62,7 +62,7 @@ struct FloatingWindowView: View {
                 }
                 Spacer()
                 
-                // Control buttons (compact)
+                // Control buttons
                 HStack(spacing: 16) {
                     Button(action: {
                         timerManager.resetTimer()

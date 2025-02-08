@@ -33,29 +33,58 @@ struct SitStandTimerApp: App {
             SettingsView(sittingTime: $sittingTime, standingTime: $standingTime)
                 .environmentObject(timerManager)
         }
+        .windowToolbarStyle(.unified)
         
         MenuBarExtra("appName", systemImage: timerManager.currentInterval == .sitting ? "figure.seated.side.right" : "figure.stand") {
             VStack {
+                HStack {
+                    Spacer()
+                    Button(action: { NSApplication.shared.terminate(nil) }) {
+                        Image(systemName: "power")
+                            .imageScale(.medium)
+                    }
+                    .padding(6)
+                    .background(.tertiary)
+                    .cornerRadius(50)
+                }
+                Spacer()
+            
                 Text(timerManager.currentInterval == .sitting ? "sittingLabel" : "standingLabel")
                     .font(.title2)
-                
                 Text(formatTime(timerManager.remainingTime))
-                    .font(.system(.body, design: .monospaced))
+                    .font(.system(.title3, design: .monospaced))
+                Spacer()
                 
-                Button(timerManager.isRunning ? "pauseTimerLabel" : "resumeTimerLabel") {
-                    toggleTimer()
-                }
-                
-                Divider()
-                Button("aboutMenuLabel") {
-                    AboutWindowController.shared.showAboutView()
-                }
-                Button("quitApp") {
-                    NSApp.terminate(nil)
+                HStack(spacing: 16) { // Controls
+                    Button(action: {
+                        timerManager.resetTimer()
+                    }) {
+                        Image(systemName: "arrow.clockwise")
+                    }
+                    
+                    Button(action: {
+                        if timerManager.isRunning {
+                            timerManager.pauseTimer()
+                        } else {
+                            timerManager.resumeTimer()
+                        }
+                    }) {
+                        Image(systemName: timerManager.isRunning ? "pause.fill" : "play.fill")
+                    }
+                    
+                    Button(action: {
+                        timerManager.switchInterval()
+                    }) {
+                        Image(systemName: "repeat")
+                    }
                 }
             }
+            .buttonStyle(.borderless)
+            .imageScale(.large)
+            .frame(width: 150, height: 150)
             .padding()
         }
+        .menuBarExtraStyle(.window)
     }
     
     private func formatTime(_ time: TimeInterval) -> String {
