@@ -159,7 +159,7 @@ struct AboutContentView: View {
                 Text("appName")
                     .font(.title)
                 Text(appVersion)
-                    .foregroundStyle(.foreground.opacity(0.8))
+                    .foregroundStyle(.secondary)
             }
             
             Spacer()

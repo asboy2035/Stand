@@ -93,7 +93,7 @@ struct LargeClockView: View {
             Text(NSLocalizedString("timePresenterPrefix", comment: "time declare label"))
                 .font(.system(size: 56))
                 .fontWeight(.light)
-                .foregroundStyle(.foreground.opacity(0.8))
+                .foregroundStyle(.secondary)
             
             Text(timeString(from: currentTime))
                 .font(.system(size: 72))

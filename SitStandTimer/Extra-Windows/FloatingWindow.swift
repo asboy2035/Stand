@@ -26,6 +26,7 @@ class FloatingWindow: NSPanel {
         self.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
         self.contentView = contentView
         self.isReleasedWhenClosed = false
+        self.title = "\(NSLocalizedString("appName", comment: "App name in widget title"))"
     }
 }
 
@@ -33,34 +34,38 @@ struct FloatingWindowView: View {
     @EnvironmentObject var timerManager: TimerManager
     
     var body: some View {
-        ZStack {
-            VStack { // Close/Quit actions
-                HStack {
-                    Button(action: { timerManager.toggleFloatingWindow() }) {
-                        Image(systemName: "xmark.circle.fill")
-                    }
-                    Spacer()
-                    
-                    Button(action: { NSApplication.shared.terminate(nil) }) {
-                        Image(systemName: "power.circle.fill")
-                    }
+        VStack {
+            HStack {
+                Button(action: { timerManager.toggleFloatingWindow() }) {
+                    Image(systemName: "xmark.circle.fill")
                 }
-                .foregroundStyle(.tertiary)
-                .padding(8)
-                .buttonStyle(.borderless)
                 Spacer()
+                VStack {
+                    RoundedRectangle(cornerRadius: 4)
+                        .frame(width: 20, height: 3)
+                        .foregroundStyle(.tertiary)
+                }
+                Spacer()
+                
+                Button(action: { NSApplication.shared.terminate(nil) }) {
+                    Image(systemName: "power.circle.fill")
+                }
             }
+            .padding(.horizontal, 10)
+            .padding(.bottom, 6)
+            .foregroundStyle(.tertiary)
+            .buttonStyle(.borderless)
             
             VStack(spacing: 10) {
                 VStack(spacing: 2) {
                     Text(timerManager.currentInterval == .sitting ? "sittingLabel" : "standingLabel")
-                        .font(.system(size: 18))
+                        .font(.system(size: 14))
                         .foregroundStyle(.secondary)
                     
                     Text(timerManager.remainingTimeString)
                         .font(.system(size: 32, weight: .light, design: .monospaced))
                 }
-                Spacer()
+                .padding(.bottom, 8)
                 
                 // Control buttons
                 HStack(spacing: 16) {
@@ -94,10 +99,11 @@ struct FloatingWindowView: View {
                 .frame(width: 110, height: 20)
                 .buttonStyle(LuminareCompactButtonStyle())
             }
-            .padding(20)
+            .padding(.bottom, 8)
         }
         .frame(width: 150, height: 150)
         .background(VisualEffectView(material: .hudWindow, blendingMode: .behindWindow).edgesIgnoringSafeArea(.all))
+        .overlay(RoundedRectangle(cornerRadius: 18).stroke(.tertiary, lineWidth: 1))
         .mask(RoundedRectangle(cornerRadius: 18))
     }
 }

@@ -36,9 +36,9 @@ struct ChallengeCard: View {
         }
         .padding(.horizontal, 10)
         .padding(.vertical, 8)
-        .background(Color.primary.opacity(0.1))
+        .background(.tertiary.opacity(0.2))
         .mask(RoundedRectangle(cornerRadius: 13))
-        .overlay(RoundedRectangle(cornerRadius: 13).stroke(Color.primary.opacity(0.2), lineWidth: 1))
+        .overlay(RoundedRectangle(cornerRadius: 13).stroke(.tertiary.opacity(0.5), lineWidth: 1))
     }
 }
 
