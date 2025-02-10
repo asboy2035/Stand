@@ -43,29 +43,9 @@ struct SettingsView: View {
                 LuminareToggle("showWidgetAtLaunchLabel", isOn: $showWidgetAtLaunch)
             }
         }
-        .navigationTitle("standSettingsTitle")
-        .toolbar {
-            ToolbarItem(placement: .principal) {
-                Button(action: {
-                    AboutWindowController.shared.showAboutView()
-                }) {
-                    Label("aboutMenuLabel", systemImage: "info.circle")
-                }
-            }
-        }
         .listStyle(.sidebar)
         .scrollContentBackground(.hidden)
-        .frame(width: 350)
-        .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                if let window = NSApp.keyWindow {
-                    window.titlebarAppearsTransparent = true
-                    window.isOpaque = false
-                    window.backgroundColor = .clear
-                    window.styleMask.insert(.fullSizeContentView)
-                }
-            }
-        }
+        .frame(width: 350, height: 300)
         .background(VisualEffectView(material: .sidebar, blendingMode: .behindWindow).edgesIgnoringSafeArea(.all))
     }
 }

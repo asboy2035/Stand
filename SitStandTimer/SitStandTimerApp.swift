@@ -19,7 +19,6 @@ struct SitStandTimerApp: App {
         WindowGroup("appName") {
             ContentView()
                 .environmentObject(timerManager)
-
         }
         .commands {
             CommandGroup(replacing: .appInfo) {
@@ -33,7 +32,6 @@ struct SitStandTimerApp: App {
             SettingsView(sittingTime: $sittingTime, standingTime: $standingTime)
                 .environmentObject(timerManager)
         }
-        .windowToolbarStyle(.unified)
         
         MenuBarExtra("appName", systemImage: timerManager.currentInterval == .sitting ? "figure.seated.side.right" : "figure.stand") {
             VStack {
