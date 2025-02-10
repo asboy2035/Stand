@@ -46,22 +46,34 @@ class TimerManager: ObservableObject {
     
     init() {
         self.timeHistory = TimeHistory.load()
-        
-        selectedSound = UserDefaults.standard.string(forKey: "selectedAlertSound") ?? "Funk"
-        currentInterval = UserDefaults.standard.bool(forKey: "isStanding") ? .standing : .sitting
-        remainingTime = UserDefaults.standard.double(forKey: "remainingTime")
-        
-        if remainingTime == 0 {
-            remainingTime = 30 * 60
+
+        // Load sitting and standing time from UserDefaults or set to default values if not found
+        sittingTime = UserDefaults.standard.double(forKey: "sittingTime") // Loaded from UserDefaults
+        standingTime = UserDefaults.standard.double(forKey: "standingTime") // Loaded from UserDefaults
+
+        if sittingTime == 0 {
+            sittingTime = 45 * 60 // Default sitting time of 45 minutes in seconds
         }
-        
+
+        if standingTime == 0 {
+            standingTime = 30 * 60 // Default standing time of 30 minutes in seconds
+        }
+
+        remainingTime = UserDefaults.standard.double(forKey: "remainingTime")
+
+        if remainingTime == 0 {
+            remainingTime = sittingTime // Default remaining time to sitting time if nothing is set
+        }
+
+        currentInterval = UserDefaults.standard.bool(forKey: "isStanding") ? .standing : .sitting
+
         if LaunchAtLogin.isEnabled {
             if UserDefaults.standard.bool(forKey: "startTimerAtLaunch") {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
                     self?.resumeTimer()
                 }
             }
-            
+
             if UserDefaults.standard.bool(forKey: "showWidgetAtLaunch") {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
                     if self?.floatingWindowController == nil {
@@ -122,6 +134,7 @@ class TimerManager: ObservableObject {
         sittingTime = round(sitting) * 60
         standingTime = round(standing) * 60
         remainingTime = sittingTime
+        currentInterval = .sitting // always init with sitting
     }
 
     func updateIntervalTime(type: IntervalType, time: Double) {
