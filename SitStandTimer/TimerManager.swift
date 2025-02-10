@@ -31,36 +31,30 @@ class TimerManager: ObservableObject {
     
     private var timer: Timer?
     private var historyTimer: Timer?
-    private var sittingTime: TimeInterval = 30 * 60  // 30 minutes in seconds
-    private var standingTime: TimeInterval = 10 * 60  // 10 minutes in seconds
+    private var sittingTime: TimeInterval = 30 * 60
+    private var standingTime: TimeInterval = 10 * 60
     private var lastHistoryUpdateTime: Date = Date()
+    private var startTime: Date?
     
-    // Initialize the pauseNotch as a property
     private lazy var pauseNotch: DynamicNotchInfo = {
         DynamicNotchInfo(
             icon: Image(systemName: "pause.circle.fill"),
-            title: "\(NSLocalizedString("timerPausedTitle", comment: "timer paused title"))",
-            description: "\(NSLocalizedString("timerPausedContent", comment: "timer paused content"))"
+            title: NSLocalizedString("timerPausedTitle", comment: "timer paused title"),
+            description: NSLocalizedString("timerPausedContent", comment: "timer paused content")
         )
     }()
     
     init() {
         self.timeHistory = TimeHistory.load()
-
-        // Load settings with default values
+        
         selectedSound = UserDefaults.standard.string(forKey: "selectedAlertSound") ?? "Funk"
+        currentInterval = UserDefaults.standard.bool(forKey: "isStanding") ? .standing : .sitting
+        remainingTime = UserDefaults.standard.double(forKey: "remainingTime")
         
-        // Load shared state with safe defaults
-        currentInterval = UserDefaults.shared.bool(forKey: "isStanding") ? .standing : .sitting
-        remainingTime = UserDefaults.shared.double(forKey: "remainingTime")
-        isRunning = false  // Always start paused for safety
-        
-        // Initialize with defaults if not set
         if remainingTime == 0 {
-            remainingTime = 30 * 60  // Default to 30 minutes
+            remainingTime = 30 * 60
         }
         
-        // Handle automation settings
         if LaunchAtLogin.isEnabled {
             if UserDefaults.standard.bool(forKey: "startTimerAtLaunch") {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
@@ -105,12 +99,11 @@ class TimerManager: ObservableObject {
     }
     
     private func saveState() {
-        UserDefaults.shared.set(currentInterval == .standing, forKey: "isStanding")
-        UserDefaults.shared.set(remainingTime, forKey: "remainingTime")
-        UserDefaults.shared.set(isRunning, forKey: "isRunning")
+        UserDefaults.standard.set(currentInterval == .standing, forKey: "isStanding")
+        UserDefaults.standard.set(remainingTime, forKey: "remainingTime")
+        UserDefaults.standard.set(isRunning, forKey: "isRunning")
     }
     
-    // System sound for interval changes
     private var switchSound: NSSound? {
         return NSSound(named: selectedSound)
     }
@@ -126,13 +119,13 @@ class TimerManager: ObservableObject {
     }
     
     func initializeWithStoredTimes(sitting: Double, standing: Double) {
-        sittingTime = sitting * 60
-        standingTime = standing * 60
+        sittingTime = round(sitting) * 60
+        standingTime = round(standing) * 60
         remainingTime = sittingTime
     }
-    
+
     func updateIntervalTime(type: IntervalType, time: Double) {
-        let timeInSeconds = time * 60
+        let timeInSeconds = round(time) * 60 // Ensure it's an exact multiple of 60
         switch type {
         case .sitting:
             sittingTime = timeInSeconds
@@ -171,25 +164,41 @@ class TimerManager: ObservableObject {
         }
     }
     
+    private var targetEndTime: Date?
+
     func resumeTimer() {
         updateAppIcon()
         saveState()
         guard !isRunning else { return }
-        
+
         hidePauseNotch()
         isRunning = true
         isPaused = false
         lastHistoryUpdateTime = Date()
+
+        startTime = Date()
+        targetEndTime = Date().addingTimeInterval(remainingTime) // Set the exact end time
+
         setupHistoryTracker()
-        
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
-            guard let self = self else { return }
-            
-            if self.remainingTime > 0 {
-                self.remainingTime -= 1
-            } else {
-                self.switchInterval()
-            }
+
+        timer?.invalidate() // Clear any previous timer
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+            self?.updateRemainingTime()
+        }
+    }
+
+    private func updateRemainingTime() {
+        guard let targetEndTime else { return }
+
+        let newRemainingTime = targetEndTime.timeIntervalSinceNow
+        let roundedTime = ceil(newRemainingTime) // Ensure it only decrements whole seconds
+
+        if roundedTime != remainingTime {
+            remainingTime = max(roundedTime, 0) // Prevent negative values
+        }
+
+        if remainingTime <= 0 {
+            switchInterval()
         }
     }
     
@@ -198,7 +207,7 @@ class TimerManager: ObservableObject {
         showPauseNotch()
     }
     
-    func quietPauseTimer() { // pause without notification
+    func quietPauseTimer() {
         isRunning = false
         isPaused = true
         timer?.invalidate()
@@ -229,18 +238,13 @@ class TimerManager: ObservableObject {
         quietPauseTimer()
         currentInterval = currentInterval == .sitting ? .standing : .sitting
         remainingTime = currentInterval == .sitting ? sittingTime : standingTime
-        
-        // Change app icon based on the current interval
         updateAppIcon()
-        
-        // Play the switch sound
         switchSound?.play()
         
-        // Show dynamic notch notification
         let notch = DynamicNotchInfo(
             icon: Image(systemName: currentInterval == .sitting ? "figure.seated.side.left" : "figure.stand"),
-            title: "\(NSLocalizedString("timeToLabel", comment: "time to")) \(currentInterval == .sitting ? "\(NSLocalizedString("sitLabel", comment: "sit"))" : "\(NSLocalizedString("standLabel", comment: "stand"))")",
-            description: "\(NSLocalizedString("switchItUpContent", comment: "switch it up!"))"
+            title: NSLocalizedString("timeToLabel", comment: "time to") + " " + (currentInterval == .sitting ? NSLocalizedString("sitLabel", comment: "sit") : NSLocalizedString("standLabel", comment: "stand")),
+            description: NSLocalizedString("switchItUpContent", comment: "switch it up!")
         )
         notch.show(for: 3)
         

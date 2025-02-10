@@ -16,10 +16,12 @@ struct NormalModeView: View {
     @Binding var standingTime: Double
     
     var body: some View {
-        HStack {
+        HStack(spacing: 0) {
             if showSidebar {
                 SidebarView(sittingTime: $sittingTime, standingTime: $standingTime)
                     .padding(.top, 2)
+                Divider()
+                    .edgesIgnoringSafeArea(.all)
             }
             DetailView()
                 .toolbar {
@@ -101,11 +103,10 @@ struct DetailView: View {
             HStack(spacing: 15) {
                 Image(systemName: timerManager.currentInterval == .sitting ? "figure.seated.side.right" : "figure.stand")
                     .font(.largeTitle)
-                    .foregroundColor(timerManager.currentInterval == .sitting ? .indigo : .yellow)
                 Text(timerManager.currentInterval == .sitting ? "sittingLabel" : "standingLabel")
                     .font(.title)
-                    .foregroundColor(timerManager.currentInterval == .sitting ? .indigo : .yellow)
             }
+            .foregroundColor(timerManager.currentInterval == .sitting ? .indigo : .yellow)
 
             Text(timeString(from: timerManager.remainingTime))
                 .animation(.easeInOut(duration: 0.1), value: timerManager.remainingTime)
