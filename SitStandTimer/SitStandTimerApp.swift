@@ -7,6 +7,7 @@
 
 import DynamicNotchKit
 import SwiftUI
+import Luminare
 
 @main
 struct SitStandTimerApp: App {
@@ -35,22 +36,11 @@ struct SitStandTimerApp: App {
         
         MenuBarExtra("appName", systemImage: timerManager.currentInterval == .sitting ? "figure.seated.side.right" : "figure.stand") {
             VStack {
-                HStack {
-                    Spacer()
-                    Button(action: { NSApplication.shared.terminate(nil) }) {
-                        Image(systemName: "power")
-                            .imageScale(.medium)
-                    }
-                    .padding(6)
-                    .background(.tertiary)
-                    .cornerRadius(50)
-                }
                 Spacer()
-            
                 Text(timerManager.currentInterval == .sitting ? "sittingLabel" : "standingLabel")
-                    .font(.title2)
+                    .font(.title)
                 Text(formatTime(timerManager.remainingTime))
-                    .font(.system(.title3, design: .monospaced))
+                    .font(.system(.title2, design: .monospaced))
                 Spacer()
                 
                 HStack(spacing: 16) { // Controls
@@ -76,11 +66,20 @@ struct SitStandTimerApp: App {
                         Image(systemName: "repeat")
                     }
                 }
+                .foregroundStyle(.foreground)
+                .imageScale(.large)
+                .buttonStyle(.borderless)
+                
+                Spacer()
+                Button(action: { NSApplication.shared.terminate(nil) }) {
+                    Label("quitApp", systemImage: "power")
+                }
+                .buttonStyle(LuminareCompactButtonStyle())
+                .frame(height: 30)
             }
-            .buttonStyle(.borderless)
-            .imageScale(.large)
             .frame(width: 150, height: 150)
             .padding()
+            .background(timerManager.currentInterval == .sitting ? .indigo.opacity(0.1) : .yellow.opacity(0.1))
         }
         .menuBarExtraStyle(.window)
     }

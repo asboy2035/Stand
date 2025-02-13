@@ -577,6 +577,35 @@
         }
       }
     },
+    "quitApp" : {
+      "comment" : "Button to quit the app in the menu bar.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quit Stand"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salír de Stand"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quitter Stand"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "退出“站立”"
+          }
+        }
+      }
+    },
     "remainingLabel" : {
       "comment" : "Indicates time left.",
       "extractionState" : "manual",
