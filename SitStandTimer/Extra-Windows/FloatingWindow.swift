@@ -102,7 +102,7 @@ struct FloatingWindowView: View {
             .padding(.bottom, 8)
         }
         .frame(width: 150, height: 150)
-        .background(timerManager.currentInterval == .sitting ? .indigo.opacity(0.1) : .yellow.opacity(0.1))
+        .background(timerManager.currentInterval == .sitting ? .indigo.opacity(0.2) : .yellow.opacity(0.2))
         .background(VisualEffectView(material: .hudWindow, blendingMode: .behindWindow).edgesIgnoringSafeArea(.all))
         .overlay(RoundedRectangle(cornerRadius: 18).stroke(.tertiary, lineWidth: 1))
         .mask(RoundedRectangle(cornerRadius: 18))

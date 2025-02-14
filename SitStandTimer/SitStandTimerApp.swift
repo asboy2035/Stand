@@ -39,6 +39,7 @@ struct SitStandTimerApp: App {
                 Spacer()
                 Text(timerManager.currentInterval == .sitting ? "sittingLabel" : "standingLabel")
                     .font(.title)
+                    .foregroundStyle(.secondary)
                 Text(formatTime(timerManager.remainingTime))
                     .font(.system(.title2, design: .monospaced))
                 Spacer()
@@ -79,7 +80,7 @@ struct SitStandTimerApp: App {
             }
             .frame(width: 150, height: 150)
             .padding()
-            .background(timerManager.currentInterval == .sitting ? .indigo.opacity(0.1) : .yellow.opacity(0.1))
+            .background(timerManager.currentInterval == .sitting ? .indigo.opacity(0.2) : .yellow.opacity(0.2))
         }
         .menuBarExtraStyle(.window)
     }

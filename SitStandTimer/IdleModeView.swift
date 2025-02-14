@@ -12,7 +12,6 @@ import Luminare
 struct IdleModeView: View {
     @EnvironmentObject private var timerManager: TimerManager
     let currentTime: Date
-    @Environment(\.colorScheme) var colorScheme // Get the current color scheme
     @State private var currentChallenge: Challenge = challenges.randomElement()!
 
     var body: some View {
@@ -23,10 +22,10 @@ struct IdleModeView: View {
                 HStack(spacing: 15) {
                     Image(systemName: timerManager.currentInterval == .sitting ? "figure.seated.side.left" : "figure.stand")
                         .font(.largeTitle)
-                        .foregroundColor(timerManager.currentInterval == .sitting ? .indigo : .yellow)
+                        .foregroundStyle(timerManager.currentInterval == .sitting ? .indigo : .yellow)
                     Text(timerManager.currentInterval == .sitting ? "sittingLabel" : "standingLabel")
                         .font(.title)
-                        .foregroundColor(timerManager.currentInterval == .sitting ? .indigo : .yellow)
+                        .foregroundStyle(timerManager.currentInterval == .sitting ? .indigo : .yellow)
                 }
             }
             Spacer()
@@ -72,9 +71,10 @@ struct IdleModeView: View {
             ChallengeCard()
             .padding(.top, 25)
         }
+        .preferredColorScheme(.dark)
         .padding(20)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(colorScheme == .dark ? Color.black : Color.white) // Set background color based on color scheme)
+        .background(Color.black)
         .edgesIgnoringSafeArea(.all)
     }
     

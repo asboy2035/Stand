@@ -23,8 +23,8 @@ class AboutWindowController: NSObject {
             let hostingController = NSHostingController(rootView: aboutView)
 
             let window = NSWindow(
-                contentRect: NSRect(x: 0, y: 0, width: 550, height: 450),
-                styleMask: [.titled, .closable, .miniaturizable],
+                contentRect: NSRect(x: 0, y: 0, width: 600, height: 450),
+                styleMask: [.titled, .closable, .fullSizeContentView],
                 backing: .buffered,
                 defer: false
             )
@@ -33,7 +33,7 @@ class AboutWindowController: NSObject {
             window.contentViewController = hostingController
             window.isReleasedWhenClosed = false
             window.titlebarAppearsTransparent = true
-            window.styleMask.insert(.fullSizeContentView)
+            window.isMovableByWindowBackground = true
 
             self.window = window
         }
@@ -53,12 +53,12 @@ struct AboutView: View {
     @State private var selectedView: String = "about"
     
     var body: some View {
-        HStack {
+        HStack(spacing: 0) {
             // Sidebar
             List {
                 LuminareSection {
                     Button("aboutMenuLabel") {
-                        selectedView = "about"
+                        selectedView = ""
                     }
                     .buttonStyle(LuminareButtonStyle())
                     
@@ -67,21 +67,29 @@ struct AboutView: View {
                     }
                     .buttonStyle(LuminareButtonStyle())
                 }
+                
+                Image(systemName: "heart.fill")
+                    .imageScale(.large)
+                    .foregroundStyle(.tertiary)
             }
             .listStyle(.sidebar)
             .scrollContentBackground(.hidden)
-            .frame(minWidth: 200)
+            .frame(width: 200)
+            
+            Divider().ignoresSafeArea(.all)
             
             // Main Content
             VStack {
-                if selectedView == "about" {
-                    AboutContentView(appVersion: appVersion)
-                } else if selectedView == "credits" {
+                switch selectedView {
+                case "credits":
                     CreditsView()
+                default:
+                    AboutContentView(appVersion: appVersion)
                 }
             }
-            .padding(30)
-            .frame(width: 350, height: 350)
+            .layoutPriority(1)
+            .padding()
+            .frame(minWidth: 350, minHeight: 350)
         }
         .toolbar {
             ToolbarItem(placement: .automatic) {
@@ -107,19 +115,21 @@ struct CreditsView: View {
         let name: String
         let url: String
         let license: String
+        let systemImage: String
     }
 
     let dependencies: [Dependency] = [
-        Dependency(name: "SwiftUI", url: "https://developer.apple.com/xcode/swiftui/", license: "Apple License"),
-        Dependency(name: "Luminare", url: "https://github.com/MrKai77/Luminare", license: "BSD 3-Clause License"),
-        Dependency(name: "DynamicNotchKit", url: "https://github.com/MrKai77/DynamicNotchKit", license: "MIT License"),
-        Dependency(name: "LaunchAtLogin", url: "https://github.com/sindresorhus/LaunchAtLogin-Modern", license: "MIT License")
+        Dependency(name: "SwiftUI", url: "https://developer.apple.com/xcode/swiftui/", license: "Apple License", systemImage: "swift"),
+        Dependency(name: "Luminare", url: "https://github.com/MrKai77/Luminare", license: "BSD 3-Clause License", systemImage: "macwindow.and.cursorarrow"),
+        Dependency(name: "DynamicNotchKit", url: "https://github.com/MrKai77/DynamicNotchKit", license: "MIT License", systemImage: "macbook.gen2"),
+        Dependency(name: "LaunchAtLogin", url: "https://github.com/sindresorhus/LaunchAtLogin-Modern", license: "MIT License", systemImage: "bolt.fill"),
+        Dependency(name: "MarkdownUI", url: "https://github.com/gonzalezreal/swift-markdown-ui", license: "MIT License", systemImage: "richtext.page")
     ]
 
     var body: some View {
         VStack {
             VStack {
-                LuminareSection("creditsLabel") {
+                LuminareSection {
                     ForEach(dependencies, id: \.name) { dependency in
                         Button(action: {
                             if let url = URL(string: dependency.url) {
@@ -127,7 +137,7 @@ struct CreditsView: View {
                             }
                         }) {
                             VStack {
-                                Label(dependency.name, systemImage: "shippingbox.fill")
+                                Label(dependency.name, systemImage: dependency.systemImage.isEmpty ? "shippingbox.fill" : dependency.systemImage)
                                 Text(dependency.license)
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
@@ -155,12 +165,10 @@ struct AboutContentView: View {
                 .scaledToFit()
                 .frame(width: 75, height: 75)
             
-            HStack(spacing: 5) {
-                Text("appName")
-                    .font(.title)
-                Text(appVersion)
-                    .foregroundStyle(.secondary)
-            }
+            Text("appName")
+                .font(.title)
+            Text(appVersion)
+                .foregroundStyle(.secondary)
             
             Spacer()
             Button(action: {
@@ -174,10 +182,11 @@ struct AboutContentView: View {
             Text("thanksText")
             Text("madeWithLove")
         }
+        .padding()
         .onAppear() {
             checkForUpdates()
         }
-        .navigationTitle("aboutMenuLabel")
+        .navigationTitle("aboutLabel")
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 Button(action: {
@@ -209,7 +218,9 @@ struct AboutContentView: View {
                         isLatestVersion = false
                         UpdateWindowController.shared.showUpdateView()
                     }
-//                    UpdateWindowController.shared.showUpdateView() // Debug
+                #if DEBUG
+                    UpdateWindowController.shared.showUpdateView() // Debug
+                #endif
                 }
             }
         }

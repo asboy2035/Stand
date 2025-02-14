@@ -30,6 +30,7 @@ struct NormalModeView: View {
                         }
                     }
                 }
+                .background(timerManager.currentInterval == .sitting ? .indigo.opacity(0.2) : .yellow.opacity(0.2))
                 .layoutPriority(1)
         }
         .frame(minWidth: showSidebar ? 635 : 450)
@@ -66,6 +67,18 @@ struct SidebarView: View {
     
     var body: some View {
         List {
+#if DEBUG
+            LuminareSection("DEBUG") {
+                Button(action: {
+                    AboutWindowController.shared.showAboutView()
+                    UpdateWindowController.shared.showUpdateView()
+                    WelcomeWindowController.shared.showWelcomeView()
+                }) {
+                    Label("Show all windows", systemImage: "macwindow.on.rectangle")
+                }
+            }
+#endif
+            
             LuminareSection {
                 Button(action: {
                     timerManager.toggleFloatingWindow()
@@ -77,13 +90,13 @@ struct SidebarView: View {
                     Label("showStatsLabel", systemImage: "chart.bar")
                 }
             }
-            .buttonStyle(LuminareButtonStyle())
             
             LuminareSection("intervalsLabel") {
                 LuminareValueAdjuster("sittingTimeLabel", value: $sittingTime, sliderRange: 5...60, suffix: "minutesAbbr")
                 LuminareValueAdjuster("standingTimeLabel", value: $standingTime, sliderRange: 5...60, suffix: "minutesAbbr")
             }
         }
+        .buttonStyle(LuminareButtonStyle())
         .luminareModal(isPresented: $showStats) {
             StatsView(showStats: $showStats)
                 .environmentObject(timerManager)
@@ -106,7 +119,7 @@ struct DetailView: View {
                 Text(timerManager.currentInterval == .sitting ? "sittingLabel" : "standingLabel")
                     .font(.title)
             }
-            .foregroundColor(timerManager.currentInterval == .sitting ? .indigo : .yellow)
+            .foregroundStyle(.secondary)
 
             Text(timeString(from: timerManager.remainingTime))
                 .animation(.easeInOut(duration: 0.1), value: timerManager.remainingTime)
@@ -217,7 +230,7 @@ struct StatsView: View {
                             .frame(width: 20, height: 20)
                         Text(NSLocalizedString("sittingLabel", comment: "Sitting label"))
                     }
-                    .foregroundColor(.indigo)
+                    .foregroundStyle(.indigo)
                     Text(formatTime(minutes: timerManager.timeHistory.sittingMinutes))
                         .font(.system(.title, design: .monospaced))
                 }
@@ -228,7 +241,7 @@ struct StatsView: View {
                             .frame(width: 20, height: 20)
                         Text(NSLocalizedString("standingLabel", comment: "Standing label"))
                     }
-                    .foregroundColor(.yellow)
+                    .foregroundStyle(.yellow)
                     Text(formatTime(minutes: timerManager.timeHistory.standingMinutes))
                         .font(.system(.title, design: .monospaced))
                 }

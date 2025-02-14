@@ -40,7 +40,10 @@ class TimerManager: ObservableObject {
         DynamicNotchInfo(
             icon: Image(systemName: "pause.circle.fill"),
             title: NSLocalizedString("timerPausedTitle", comment: "timer paused title"),
-            description: NSLocalizedString("timerPausedContent", comment: "timer paused content")
+            description: NSLocalizedString("timerPausedContent", comment: "timer paused content"),
+            iconColor: .accentColor,
+            textColor: .primary,
+            style: .floating
         )
     }()
     
@@ -257,7 +260,10 @@ class TimerManager: ObservableObject {
         let notch = DynamicNotchInfo(
             icon: Image(systemName: currentInterval == .sitting ? "figure.seated.side.left" : "figure.stand"),
             title: NSLocalizedString("timeToLabel", comment: "time to") + " " + (currentInterval == .sitting ? NSLocalizedString("sitLabel", comment: "sit") : NSLocalizedString("standLabel", comment: "stand")),
-            description: NSLocalizedString("switchItUpContent", comment: "switch it up!")
+            description: NSLocalizedString("switchItUpContent", comment: "switch it up!"),
+            iconColor: .accentColor,
+            textColor: .primary,
+            style: .floating
         )
         notch.show(for: 3)
         

@@ -23,6 +23,37 @@
       },
       "shouldTranslate" : false
     },
+    "9:41" : {
+
+    },
+    "aboutLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Acerca"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "À propos"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "关于"
+          }
+        }
+      }
+    },
     "aboutMenuLabel" : {
       "comment" : "The title for the about menu item.",
       "localizations" : {
@@ -41,7 +72,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "À Propos de Stand"
+            "value" : "À propos de Stand"
           }
         },
         "zh-Hans" : {
@@ -81,6 +112,9 @@
         }
       }
     },
+    "App Store" : {
+      "shouldTranslate" : false
+    },
     "appName" : {
       "comment" : "The name/title of the app.",
       "extractionState" : "manual",
@@ -94,19 +128,19 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Stand (🇪🇸)"
+            "value" : "Stand 🇪🇸"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Stand (🇫🇷)"
+            "value" : "Stand 🇫🇷"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Stand (🇨🇳)"
+            "value" : "Stand 🇨🇳"
           }
         }
       }
@@ -227,6 +261,9 @@
         }
       }
     },
+    "DEBUG" : {
+      "shouldTranslate" : false
+    },
     "doneLabel" : {
       "comment" : "Button that says \"done\".",
       "localizations" : {
@@ -284,6 +321,9 @@
           }
         }
       }
+    },
+    "GitHub" : {
+      "shouldTranslate" : false
     },
     "hideNotchLabel" : {
       "comment" : "Toolbar button to hide the pause notch.",
@@ -635,6 +675,9 @@
           }
         }
       }
+    },
+    "Show all windows" : {
+      "shouldTranslate" : false
     },
     "showNotchLabel" : {
       "comment" : "Toolbar button to show the pause notch.",
@@ -1252,35 +1295,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "更新可用"
-          }
-        }
-      }
-    },
-    "updateAvailableVisitButton" : {
-      "comment" : "Button to visit update page.",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Update Page"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pagina de Actualización"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Page de Mise à Jour"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "页面以进行更新"
           }
         }
       }

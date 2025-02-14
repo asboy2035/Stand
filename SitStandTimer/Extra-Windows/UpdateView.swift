@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Luminare
+import MarkdownUI
 
 struct UpdateView: View {
     @State private var updateTag: String = ""
@@ -29,31 +30,44 @@ struct UpdateView: View {
             if !updateBody.isEmpty {
                 ScrollView {
                     LuminareSection("infoTitle") {
-                        Text(updateBody)
+                        Markdown(updateBody)
+                            .padding()
                     }
-                    .padding()
                 }
             }
 
-            if !updateURL.isEmpty {
-                Button(action: {
-                    if let url = URL(string: updateURL) {
-                        NSWorkspace.shared.open(url)
+            VStack {
+                HStack {
+                    if !updateURL.isEmpty {
+                        Button(action: {
+                            if let url = URL(string: updateURL) {
+                                NSWorkspace.shared.open(url)
+                            }
+                        }) {
+                            Label("GitHub", systemImage: "link")
+                                .padding(5)
+                        }
+                    } else {
+                        Text("loadingUpdate")
                     }
-                }) {
-                    Text("updateAvailableVisitButton")
-                        .padding(5)
+                    
+                    Button(action: {
+                        if let url = URL(string: "macappstore://") {
+                            NSWorkspace.shared.open(url)
+                        }
+                    }) {
+                        Label("App Store", systemImage: "applelogo")
+                    }
                 }
-                .buttonStyle(LuminareCompactButtonStyle())
-                .frame(width: 200, height: 35)
-            } else {
-                Text("loadingUpdate")
+                .frame(height: 35)
+                
+                Text("updateAvailableContent")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
             }
-            Text("updateAvailableContent")
-                .font(.caption)
-                .foregroundStyle(.secondary)
+            .buttonStyle(LuminareCompactButtonStyle())
         }
-        .padding(30)
+        .padding(20)
         .frame(width: 400, height: 400)
         .background(VisualEffectView(material: .sidebar, blendingMode: .behindWindow).edgesIgnoringSafeArea(.all))
         .navigationTitle("updateAvailableTitle")
@@ -113,8 +127,8 @@ class UpdateWindowController: NSObject {
             let hostingController = NSHostingController(rootView: updateView)
 
             let window = NSWindow(
-                contentRect: NSRect(x: 0, y: 0, width: 300, height: 200),
-                styleMask: [.titled, .closable, .miniaturizable],
+                contentRect: NSRect(x: 0, y: 0, width: 300, height: 300),
+                styleMask: [.titled, .closable, .fullSizeContentView],
                 backing: .buffered,
                 defer: false
             )
@@ -123,7 +137,7 @@ class UpdateWindowController: NSObject {
             window.contentViewController = hostingController
             window.isReleasedWhenClosed = false
             window.titlebarAppearsTransparent = true
-            window.styleMask.insert(.fullSizeContentView)
+            window.isMovableByWindowBackground = true
 
             self.window = window
         }

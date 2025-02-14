@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		5E0677BD2D3D4DFD00D04ACA /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 5E0677BC2D3D4DFD00D04ACA /* LaunchAtLogin */; };
-		5E500F652D2953CE00635A51 /* DynamicNotchKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5E500F642D2953CE00635A51 /* DynamicNotchKit */; };
+		5E2FAFE82D5F9120007DA20C /* DynamicNotchKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5E2FAFE72D5F9120007DA20C /* DynamicNotchKit */; };
+		5E2FB0132D5F96C0007DA20C /* DynamicNotchKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5E2FB0122D5F96C0007DA20C /* DynamicNotchKit */; };
+		5E2FB0162D5F9A82007DA20C /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5E2FB0152D5F9A82007DA20C /* MarkdownUI */; };
 		5EB03C312D5A440400783251 /* Luminare in Frameworks */ = {isa = PBXBuildFile; productRef = 5EB03C302D5A440400783251 /* Luminare */; };
 /* End PBXBuildFile section */
 
@@ -45,9 +47,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E2FB0132D5F96C0007DA20C /* DynamicNotchKit in Frameworks */,
+				5E2FAFE82D5F9120007DA20C /* DynamicNotchKit in Frameworks */,
 				5E0677BD2D3D4DFD00D04ACA /* LaunchAtLogin in Frameworks */,
 				5EB03C312D5A440400783251 /* Luminare in Frameworks */,
-				5E500F652D2953CE00635A51 /* DynamicNotchKit in Frameworks */,
+				5E2FB0162D5F9A82007DA20C /* MarkdownUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,9 +105,11 @@
 			);
 			name = SitStandTimer;
 			packageProductDependencies = (
-				5E500F642D2953CE00635A51 /* DynamicNotchKit */,
 				5E0677BC2D3D4DFD00D04ACA /* LaunchAtLogin */,
 				5EB03C302D5A440400783251 /* Luminare */,
+				5E2FAFE72D5F9120007DA20C /* DynamicNotchKit */,
+				5E2FB0122D5F96C0007DA20C /* DynamicNotchKit */,
+				5E2FB0152D5F9A82007DA20C /* MarkdownUI */,
 			);
 			productName = SitStandTimer;
 			productReference = 5E3EDEB02D089F7000E83C77 /* Stand.app */;
@@ -137,9 +143,10 @@
 			mainGroup = 5E3EDEA72D089F7000E83C77;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				5E500F632D2953CE00635A51 /* XCRemoteSwiftPackageReference "DynamicNotchKit" */,
 				5E0677BB2D3D4DFD00D04ACA /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */,
 				5EB03C2F2D5A440400783251 /* XCRemoteSwiftPackageReference "Luminare-Safe" */,
+				5E2FB0112D5F96C0007DA20C /* XCRemoteSwiftPackageReference "DynamicNotchKit" */,
+				5E2FB0142D5F9A82007DA20C /* XCRemoteSwiftPackageReference "swift-markdown-ui" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5E3EDEB12D089F7000E83C77 /* Products */;
@@ -315,7 +322,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 28;
+				CURRENT_PROJECT_VERSION = 29;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = "";
@@ -335,7 +342,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.5;
-				MARKETING_VERSION = 3.1;
+				MARKETING_VERSION = 3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = ash.Stand;
 				PRODUCT_NAME = Stand;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -356,7 +363,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 28;
+				CURRENT_PROJECT_VERSION = 29;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = "";
@@ -376,7 +383,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.5;
-				MARKETING_VERSION = 3.1;
+				MARKETING_VERSION = 3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = ash.Stand;
 				PRODUCT_NAME = Stand;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -418,12 +425,20 @@
 				kind = branch;
 			};
 		};
-		5E500F632D2953CE00635A51 /* XCRemoteSwiftPackageReference "DynamicNotchKit" */ = {
+		5E2FB0112D5F96C0007DA20C /* XCRemoteSwiftPackageReference "DynamicNotchKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/MrKai77/DynamicNotchKit";
 			requirement = {
 				branch = main;
 				kind = branch;
+			};
+		};
+		5E2FB0142D5F9A82007DA20C /* XCRemoteSwiftPackageReference "swift-markdown-ui" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/gonzalezreal/swift-markdown-ui";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.4.1;
 			};
 		};
 		5EB03C2F2D5A440400783251 /* XCRemoteSwiftPackageReference "Luminare-Safe" */ = {
@@ -442,10 +457,19 @@
 			package = 5E0677BB2D3D4DFD00D04ACA /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */;
 			productName = LaunchAtLogin;
 		};
-		5E500F642D2953CE00635A51 /* DynamicNotchKit */ = {
+		5E2FAFE72D5F9120007DA20C /* DynamicNotchKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5E500F632D2953CE00635A51 /* XCRemoteSwiftPackageReference "DynamicNotchKit" */;
 			productName = DynamicNotchKit;
+		};
+		5E2FB0122D5F96C0007DA20C /* DynamicNotchKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5E2FB0112D5F96C0007DA20C /* XCRemoteSwiftPackageReference "DynamicNotchKit" */;
+			productName = DynamicNotchKit;
+		};
+		5E2FB0152D5F9A82007DA20C /* MarkdownUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5E2FB0142D5F9A82007DA20C /* XCRemoteSwiftPackageReference "swift-markdown-ui" */;
+			productName = MarkdownUI;
 		};
 		5EB03C302D5A440400783251 /* Luminare */ = {
 			isa = XCSwiftPackageProductDependency;
