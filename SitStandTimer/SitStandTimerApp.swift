@@ -8,6 +8,7 @@
 import DynamicNotchKit
 import SwiftUI
 import Luminare
+import SettingsKit
 
 @main
 struct SitStandTimerApp: App {
@@ -21,6 +22,24 @@ struct SitStandTimerApp: App {
             ContentView()
                 .environmentObject(timerManager)
         }
+        .settings {
+            SettingsTab(.new(title: "generalLabel", icon: .gear), id: "general") {
+                SettingsSubtab(.noSelection, id: "no-selection") {
+                    GeneralSettingsView()
+                        .background(VisualEffectView(material: .sidebar, blendingMode: .behindWindow))
+                }
+            }
+            .frame(width: 350, height: 350)
+            
+            SettingsTab(.new(title: "notificationsLabel", icon: .bellFill), id: "notifications") {
+                SettingsSubtab(.noSelection, id: "no-selection") {
+                    NotificationsSettingsView()
+                        .background(VisualEffectView(material: .sidebar, blendingMode: .behindWindow))
+                        .environmentObject(timerManager)
+                }
+            }
+            .frame(width: 350, height: 200)
+        }
         .commands {
             CommandGroup(replacing: .appInfo) {
                 Button("aboutMenuLabel") {
@@ -29,10 +48,10 @@ struct SitStandTimerApp: App {
             }
         }
         
-        Settings {
-            SettingsView(sittingTime: $sittingTime, standingTime: $standingTime)
-                .environmentObject(timerManager)
-        }
+//        Settings {
+//            SettingsView(sittingTime: $sittingTime, standingTime: $standingTime)
+//                .environmentObject(timerManager)
+//        }
         
         MenuBarExtra("appName", systemImage: timerManager.currentInterval == .sitting ? "figure.seated.side.right" : "figure.stand") {
             VStack {

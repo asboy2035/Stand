@@ -7,6 +7,7 @@
 
 import SwiftUI
 import DynamicNotchKit
+import Luminare
 
 struct ContentView: View {
     @EnvironmentObject private var timerManager: TimerManager
@@ -29,6 +30,26 @@ struct ContentView: View {
             }
         }
         .onAppear() {
+            let supportNoti = DynamicNotch {
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text("likeAppQuestion")
+                        Text("supportCTA")
+                            .foregroundStyle(.secondary)
+                    }
+                    
+                    Button(action: {
+                        AboutWindowController.shared.showAboutView()
+                        AboutWindowController.shared.showSupport()
+                    }) {
+                        Image(systemName: "arrow.up.right")
+                    }
+                    .frame(width: 35, height: 35)
+                    .buttonStyle(LuminareCompactButtonStyle())
+                }
+            }
+            supportNoti.show(for: 3)
+            
             if showWelcome {
                 WelcomeWindowController.shared.showWelcomeView()
             }

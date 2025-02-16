@@ -24,7 +24,7 @@
       "shouldTranslate" : false
     },
     "9:41" : {
-
+      "shouldTranslate" : false
     },
     "aboutLabel" : {
       "localizations" : {
@@ -412,6 +412,9 @@
         }
       }
     },
+    "Ko-Fi" : {
+      "shouldTranslate" : false
+    },
     "launchAtLoginLabel" : {
       "comment" : "Launch at login label",
       "localizations" : {
@@ -467,6 +470,34 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "切换左侧栏"
+          }
+        }
+      }
+    },
+    "likeAppQuestion" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Liking Stand?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Le gusta Stand?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aimer Stand?"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "喜欢 Stand?"
           }
         }
       }
@@ -1004,6 +1035,62 @@
         }
       }
     },
+    "supportCTA" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Support me to help me continue development."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apoyarme para ayudarme a continuar el desarrollo."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Soutenez-moi pour aider à poursuivre le développement."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "支持我帮助我继续发展。"
+          }
+        }
+      }
+    },
+    "supportMeLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Support me"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apoyarme"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Soutenez-moi"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "支持我"
+          }
+        }
+      }
+    },
     "switchItUpContent" : {
       "comment" : "Switch it up notification content.",
       "extractionState" : "manual",
@@ -1062,6 +1149,9 @@
           }
         }
       }
+    },
+    "Throne" : {
+      "shouldTranslate" : false
     },
     "timePresenterPrefix" : {
       "comment" : "Prefix to the time (e.g it's 9:00).",

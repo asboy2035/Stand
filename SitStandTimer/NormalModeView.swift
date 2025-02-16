@@ -26,7 +26,8 @@ struct NormalModeView: View {
             DetailView()
                 .toolbar {
                     ToolbarItem(placement: .navigation) {
-                        Button(action: { showSidebar.toggle() }) {                            Label("sidebarToggleLabel", systemImage: "sidebar.squares.left")
+                        Button(action: { showSidebar.toggle() }) {
+                            Label("sidebarToggleLabel", systemImage: "sidebar.squares.left")
                         }
                     }
                 }
@@ -92,8 +93,18 @@ struct SidebarView: View {
             }
             
             LuminareSection("intervalsLabel") {
-                LuminareValueAdjuster("sittingTimeLabel", value: $sittingTime, sliderRange: 5...60, suffix: "minutesAbbr")
-                LuminareValueAdjuster("standingTimeLabel", value: $standingTime, sliderRange: 5...60, suffix: "minutesAbbr")
+                LuminareValueAdjuster(
+                    "sittingTimeLabel",
+                    value: $sittingTime,
+                    sliderRange: 5...60,
+                    suffix: "minutesAbbr"
+                )
+                LuminareValueAdjuster(
+                    "standingTimeLabel",
+                    value: $standingTime,
+                    sliderRange: 5...60,
+                    suffix: "minutesAbbr"
+                )
             }
         }
         .buttonStyle(LuminareButtonStyle())
@@ -179,7 +190,14 @@ struct DetailView: View {
                             timerManager.showPauseNotch()
                         }
                     }) {
-                        Label(timerManager.isPauseNotchVisible ? "hideNotchLabel" : "showNotchLabel", systemImage: timerManager.isPauseNotchVisible ? "bell.badge.slash.fill" : "bell.badge.fill")
+                        Label(
+                            timerManager.isPauseNotchVisible ?
+                                "hideNotchLabel" :
+                                "showNotchLabel",
+                            systemImage: timerManager.isPauseNotchVisible ?
+                                "bell.badge.slash.fill" :
+                                "bell.badge.fill"
+                        )
                     }
                 }
             }

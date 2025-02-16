@@ -1,6 +1,15 @@
 {
-  "originHash" : "29ba33057d318691aa9a44c629945fd62a8aebe970aea469e4a94196a800a98b",
+  "originHash" : "b12a323f8869948f724a6dceadb25f444922df7ede4193cc5a88d0c3d02cf4d8",
   "pins" : [
+    {
+      "identity" : "colibricomponents-macos",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/david-swift/ColibriComponents-macOS",
+      "state" : {
+        "revision" : "ce8b4accee3361a904831a3c659de0c99369e8bf",
+        "version" : "0.1.11"
+      }
+    },
     {
       "identity" : "dynamicnotchkit",
       "kind" : "remoteSourceControl",
@@ -38,6 +47,24 @@
       }
     },
     {
+      "identity" : "settingskit-macos",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/david-swift/SettingsKit-macOS",
+      "state" : {
+        "revision" : "a4f3b11fb6db32478e040d4e8249fc1bf2d7d5d9",
+        "version" : "0.2.4"
+      }
+    },
+    {
+      "identity" : "sfsafesymbols",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SFSafeSymbols/SFSafeSymbols",
+      "state" : {
+        "revision" : "7cca2d60925876b5953a2cf7341cd80fbeac983c",
+        "version" : "4.1.1"
+      }
+    },
+    {
       "identity" : "swift-cmark",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/swiftlang/swift-cmark",
@@ -53,6 +80,15 @@
       "state" : {
         "revision" : "5f613358148239d0292c0cef674a3c2314737f9e",
         "version" : "2.4.1"
+      }
+    },
+    {
+      "identity" : "swiftlintplugin",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/lukepistrol/SwiftLintPlugin",
+      "state" : {
+        "revision" : "3825ebf8d55bb877c91bc897e8e3d0c001f16fba",
+        "version" : "0.58.2"
       }
     }
   ],

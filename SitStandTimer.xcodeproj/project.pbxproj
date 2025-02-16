@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5E0677BD2D3D4DFD00D04ACA /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 5E0677BC2D3D4DFD00D04ACA /* LaunchAtLogin */; };
+		5E226A9E2D6201880030C44C /* SettingsKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5E226A9D2D6201880030C44C /* SettingsKit */; };
 		5E2FAFE82D5F9120007DA20C /* DynamicNotchKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5E2FAFE72D5F9120007DA20C /* DynamicNotchKit */; };
 		5E2FB0132D5F96C0007DA20C /* DynamicNotchKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5E2FB0122D5F96C0007DA20C /* DynamicNotchKit */; };
 		5E2FB0162D5F9A82007DA20C /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5E2FB0152D5F9A82007DA20C /* MarkdownUI */; };
@@ -51,6 +52,7 @@
 				5E2FAFE82D5F9120007DA20C /* DynamicNotchKit in Frameworks */,
 				5E0677BD2D3D4DFD00D04ACA /* LaunchAtLogin in Frameworks */,
 				5EB03C312D5A440400783251 /* Luminare in Frameworks */,
+				5E226A9E2D6201880030C44C /* SettingsKit in Frameworks */,
 				5E2FB0162D5F9A82007DA20C /* MarkdownUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -110,6 +112,7 @@
 				5E2FAFE72D5F9120007DA20C /* DynamicNotchKit */,
 				5E2FB0122D5F96C0007DA20C /* DynamicNotchKit */,
 				5E2FB0152D5F9A82007DA20C /* MarkdownUI */,
+				5E226A9D2D6201880030C44C /* SettingsKit */,
 			);
 			productName = SitStandTimer;
 			productReference = 5E3EDEB02D089F7000E83C77 /* Stand.app */;
@@ -147,6 +150,7 @@
 				5EB03C2F2D5A440400783251 /* XCRemoteSwiftPackageReference "Luminare-Safe" */,
 				5E2FB0112D5F96C0007DA20C /* XCRemoteSwiftPackageReference "DynamicNotchKit" */,
 				5E2FB0142D5F9A82007DA20C /* XCRemoteSwiftPackageReference "swift-markdown-ui" */,
+				5E226A9C2D6201880030C44C /* XCRemoteSwiftPackageReference "SettingsKit-macOS" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5E3EDEB12D089F7000E83C77 /* Products */;
@@ -425,6 +429,14 @@
 				kind = branch;
 			};
 		};
+		5E226A9C2D6201880030C44C /* XCRemoteSwiftPackageReference "SettingsKit-macOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/david-swift/SettingsKit-macOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.4;
+			};
+		};
 		5E2FB0112D5F96C0007DA20C /* XCRemoteSwiftPackageReference "DynamicNotchKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/MrKai77/DynamicNotchKit";
@@ -456,6 +468,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5E0677BB2D3D4DFD00D04ACA /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */;
 			productName = LaunchAtLogin;
+		};
+		5E226A9D2D6201880030C44C /* SettingsKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5E226A9C2D6201880030C44C /* XCRemoteSwiftPackageReference "SettingsKit-macOS" */;
+			productName = SettingsKit;
 		};
 		5E2FAFE72D5F9120007DA20C /* DynamicNotchKit */ = {
 			isa = XCSwiftPackageProductDependency;

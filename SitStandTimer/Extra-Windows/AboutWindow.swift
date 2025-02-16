@@ -10,6 +10,7 @@ import Luminare
 
 class AboutWindowController: NSObject {
     private var window: NSWindow?
+    @ObservedObject private var viewModel = AboutViewModel()
 
     static let shared = AboutWindowController()
     
@@ -19,7 +20,7 @@ class AboutWindowController: NSObject {
 
     func showAboutView() {
         if window == nil {
-            let aboutView = AboutView()
+            let aboutView = AboutView(viewModel: viewModel)
             let hostingController = NSHostingController(rootView: aboutView)
 
             let window = NSWindow(
@@ -40,9 +41,20 @@ class AboutWindowController: NSObject {
 
         window?.makeKeyAndOrderFront(nil)
     }
+    
+    func showSupport() {
+        viewModel.selectedView = "support"
+        showAboutView()
+    }
+}
+
+class AboutViewModel: ObservableObject {
+    @Published var selectedView: String = "about"
 }
 
 struct AboutView: View {
+    @ObservedObject var viewModel: AboutViewModel
+    
     private var appVersion: String {
         if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
             return version
@@ -50,39 +62,38 @@ struct AboutView: View {
         return "Unknown"
     }
     
-    @State private var selectedView: String = "about"
-    
     var body: some View {
         HStack(spacing: 0) {
-            // Sidebar
             List {
                 LuminareSection {
-                    Button("aboutMenuLabel") {
-                        selectedView = ""
+                    Button(action: { viewModel.selectedView = "" }) {
+                        Label("aboutMenuLabel", systemImage: "info.circle")
                     }
-                    .buttonStyle(LuminareButtonStyle())
-                    
-                    Button("creditsLabel") {
-                        selectedView = "credits"
+                    Button(action: { viewModel.selectedView = "credits" }) {
+                        Label("creditsLabel", systemImage: "shippingbox.fill")
                     }
-                    .buttonStyle(LuminareButtonStyle())
+                    Button(action: { viewModel.selectedView = "support" }) {
+                        Label("supportMeLabel", systemImage: "person.crop.circle")
+                    }
                 }
-                
+                Spacer()
                 Image(systemName: "heart.fill")
                     .imageScale(.large)
                     .foregroundStyle(.tertiary)
             }
+            .buttonStyle(LuminareButtonStyle())
             .listStyle(.sidebar)
             .scrollContentBackground(.hidden)
             .frame(width: 200)
             
             Divider().ignoresSafeArea(.all)
             
-            // Main Content
             VStack {
-                switch selectedView {
+                switch viewModel.selectedView {
                 case "credits":
                     CreditsView()
+                case "support":
+                    SupportView()
                 default:
                     AboutContentView(appVersion: appVersion)
                 }
@@ -119,11 +130,42 @@ struct CreditsView: View {
     }
 
     let dependencies: [Dependency] = [
-        Dependency(name: "SwiftUI", url: "https://developer.apple.com/xcode/swiftui/", license: "Apple License", systemImage: "swift"),
-        Dependency(name: "Luminare", url: "https://github.com/MrKai77/Luminare", license: "BSD 3-Clause License", systemImage: "macwindow.and.cursorarrow"),
-        Dependency(name: "DynamicNotchKit", url: "https://github.com/MrKai77/DynamicNotchKit", license: "MIT License", systemImage: "macbook.gen2"),
-        Dependency(name: "LaunchAtLogin", url: "https://github.com/sindresorhus/LaunchAtLogin-Modern", license: "MIT License", systemImage: "bolt.fill"),
-        Dependency(name: "MarkdownUI", url: "https://github.com/gonzalezreal/swift-markdown-ui", license: "MIT License", systemImage: "richtext.page")
+        Dependency(
+            name: "SwiftUI",
+            url: "https://developer.apple.com/xcode/swiftui/",
+            license: "Apple License",
+            systemImage: "swift"
+        ),
+        Dependency(
+            name: "Luminare",
+            url: "https://github.com/MrKai77/Luminare",
+            license: "BSD 3-Clause License",
+            systemImage: "macwindow.and.cursorarrow"
+        ),
+        Dependency(
+            name: "DynamicNotchKit",
+            url: "https://github.com/MrKai77/DynamicNotchKit",
+            license: "MIT License",
+            systemImage: "macbook.gen2"
+        ),
+        Dependency(
+            name: "LaunchAtLogin",
+            url: "https://github.com/sindresorhus/LaunchAtLogin-Modern",
+            license: "MIT License",
+            systemImage: "bolt.fill"
+        ),
+        Dependency(
+            name: "MarkdownUI",
+            url: "https://github.com/gonzalezreal/swift-markdown-ui",
+            license: "MIT License",
+            systemImage: "richtext.page"
+        ),
+        Dependency(
+            name: "SettingsKit",
+            url: "https://github.com/david-swift/SettingsKit-macOS",
+            license: "MIT License",
+            systemImage: "gear"
+        )
     ]
 
     var body: some View {
@@ -137,7 +179,12 @@ struct CreditsView: View {
                             }
                         }) {
                             VStack {
-                                Label(dependency.name, systemImage: dependency.systemImage.isEmpty ? "shippingbox.fill" : dependency.systemImage)
+                                Label(
+                                    dependency.name,
+                                    systemImage: dependency.systemImage.isEmpty ?
+                                        "shippingbox.fill" :
+                                        dependency.systemImage
+                                )
                                 Text(dependency.license)
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
@@ -150,6 +197,36 @@ struct CreditsView: View {
                 Spacer()
             }
             .navigationTitle("creditsLabel")
+        }
+    }
+}
+
+struct SupportView: View {
+    var body: some View {
+        VStack {
+            LuminareSection {
+                Button(action: {
+                    if let url = URL(string: "https://ko-fi.com/asboy2035") {
+                        NSWorkspace.shared.open(url)
+                    }
+                }) {
+                    Label("Ko-Fi", systemImage: "dollarsign")
+                }
+                .frame(height: 35)
+                
+                Button(action: {
+                    if let url = URL(string: "https://throne.com/asboy2035") {
+                        NSWorkspace.shared.open(url)
+                    }
+                }) {
+                    Label("Throne", systemImage: "gift.fill")
+                }
+                .frame(height: 35)
+            }
+            .navigationTitle("supportMeLabel")
+            .buttonStyle(LuminareButtonStyle())
+            
+            Spacer()
         }
     }
 }
@@ -174,7 +251,10 @@ struct AboutContentView: View {
             Button(action: {
                 checkForUpdates()
             }) {
-                Label(isLatestVersion ? "noUpdatesLabel" : "updateLabel", systemImage: "arrow.triangle.2.circlepath")
+                Label(
+                    isLatestVersion ? "noUpdatesLabel" : "updateLabel",
+                    systemImage: "arrow.triangle.2.circlepath"
+                )
             }
             .disabled(isLatestVersion)
             .buttonStyle(LuminareCompactButtonStyle())
@@ -230,5 +310,6 @@ struct AboutContentView: View {
 }
 
 #Preview {
-    AboutView()
+    
 }
+
