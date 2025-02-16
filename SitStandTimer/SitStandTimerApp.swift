@@ -23,7 +23,7 @@ struct SitStandTimerApp: App {
                 .environmentObject(timerManager)
         }
         .settings {
-            SettingsTab(.new(title: "generalLabel", icon: .gear), id: "general") {
+            SettingsTab(.new(title: NSLocalizedString("generalSettings", comment: "Name for general settings"), icon: .gear), id: "general") {
                 SettingsSubtab(.noSelection, id: "no-selection") {
                     GeneralSettingsView()
                         .background(VisualEffectView(material: .sidebar, blendingMode: .behindWindow))
@@ -31,7 +31,7 @@ struct SitStandTimerApp: App {
             }
             .frame(width: 350, height: 350)
             
-            SettingsTab(.new(title: "notificationsLabel", icon: .bellFill), id: "notifications") {
+            SettingsTab(.new(title: NSLocalizedString("notificationsSettings", comment: "Name for notification settings"), icon: .bellFill), id: "notifications") {
                 SettingsSubtab(.noSelection, id: "no-selection") {
                     NotificationsSettingsView()
                         .background(VisualEffectView(material: .sidebar, blendingMode: .behindWindow))
