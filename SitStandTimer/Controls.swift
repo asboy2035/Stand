@@ -20,6 +20,10 @@ struct ControlButtons: View {
                     .frame(width: 10)
             }
             .frame(width: 20, height: 20)
+            .keyboardShortcut("r", modifiers: [])
+            .help(
+                "\(NSLocalizedString("resetLabel", comment: "Reset button tooltip")) ∙ R"
+            )
             
             Button(action: {
                 if timerManager.isRunning {
@@ -31,6 +35,10 @@ struct ControlButtons: View {
                 Image(systemName: timerManager.isRunning ? "pause.fill" : "play.fill")
             }
             .frame(width: 40, height: 40)
+            .keyboardShortcut(.space, modifiers: [])
+            .help(
+                "\(NSLocalizedString("playPauseLabel", comment: "Play/Pause button tooltip")) ∙ _"
+            )
             
             Button(action: {
                 timerManager.switchInterval()
@@ -39,6 +47,10 @@ struct ControlButtons: View {
                     .frame(width: 10)
             }
             .frame(width: 20, height: 20)
+            .keyboardShortcut(.return, modifiers: [])
+            .help(
+                "\(NSLocalizedString("quickSwitchLabel", comment: "Quick Switch button tooltip")) ∙ ⏎"
+            )
         }
         .frame(width: 110, height: 20)
         .buttonStyle(LuminareCompactButtonStyle())

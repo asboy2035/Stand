@@ -12,6 +12,15 @@
       },
       "shouldTranslate" : false
     },
+    "%@ ∙ _" : {
+      "shouldTranslate" : false
+    },
+    "%@ ∙ ⏎" : {
+      "shouldTranslate" : false
+    },
+    "%@ ∙ R" : {
+      "shouldTranslate" : false
+    },
     "%@: %@!" : {
       "localizations" : {
         "en" : {
@@ -675,6 +684,64 @@
         }
       }
     },
+    "playPauseLabel" : {
+      "comment" : "Play/Pause button tooltip",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Play/Pause"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jugar/Pausa"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jouer / Pause"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "播放/暂停"
+          }
+        }
+      }
+    },
+    "quickSwitchLabel" : {
+      "comment" : "Quick Switch button tooltip",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quick Switch"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Interruptor Rápido"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Interrupteur Rapide"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "快速开关"
+          }
+        }
+      }
+    },
     "quitApp" : {
       "comment" : "Button to quit the app in the menu bar.",
       "localizations" : {
@@ -730,6 +797,35 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "其余"
+          }
+        }
+      }
+    },
+    "resetLabel" : {
+      "comment" : "Reset button tooltip",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reset"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reiniciar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réinitialiser"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重置"
           }
         }
       }
