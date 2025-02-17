@@ -48,11 +48,7 @@ struct SitStandTimerApp: App {
             }
         }
         
-//        Settings {
-//            SettingsView(sittingTime: $sittingTime, standingTime: $standingTime)
-//                .environmentObject(timerManager)
-//        }
-        
+        // -MARK: Menu bar extra
         MenuBarExtra("appName", systemImage: timerManager.currentInterval == .sitting ? "figure.seated.side.right" : "figure.stand") {
             VStack {
                 Spacer()
@@ -63,7 +59,7 @@ struct SitStandTimerApp: App {
                     .font(.system(.title2, design: .monospaced))
                 Spacer()
                 
-                HStack(spacing: 16) { // Controls
+                HStack(spacing: 16) { // Minimal Controls
                     Button(action: {
                         timerManager.resetTimer()
                     }) {

@@ -182,6 +182,21 @@ class TimerManager: ObservableObject {
     
     private var targetEndTime: Date?
 
+    private func updateRemainingTime() {
+        guard let targetEndTime else { return }
+
+        let newRemainingTime = targetEndTime.timeIntervalSinceNow
+        let roundedTime = ceil(newRemainingTime) // Ensure it only decrements whole seconds
+
+        if roundedTime != remainingTime {
+            remainingTime = max(roundedTime, 0) // Prevent negative values
+        }
+
+        if remainingTime <= 0 {
+            switchInterval()
+        }
+    }
+    
     func resumeTimer() {
         updateAppIcon()
         saveState()
@@ -200,21 +215,6 @@ class TimerManager: ObservableObject {
         timer?.invalidate() // Clear any previous timer
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
             self?.updateRemainingTime()
-        }
-    }
-
-    private func updateRemainingTime() {
-        guard let targetEndTime else { return }
-
-        let newRemainingTime = targetEndTime.timeIntervalSinceNow
-        let roundedTime = ceil(newRemainingTime) // Ensure it only decrements whole seconds
-
-        if roundedTime != remainingTime {
-            remainingTime = max(roundedTime, 0) // Prevent negative values
-        }
-
-        if remainingTime <= 0 {
-            switchInterval()
         }
     }
     

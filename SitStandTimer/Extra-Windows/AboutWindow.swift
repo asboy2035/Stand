@@ -8,6 +8,7 @@
 import SwiftUI
 import Luminare
 
+// -MARK: AboutWindowController
 class AboutWindowController: NSObject {
     private var window: NSWindow?
     @ObservedObject private var viewModel = AboutViewModel()
@@ -41,17 +42,13 @@ class AboutWindowController: NSObject {
 
         window?.makeKeyAndOrderFront(nil)
     }
-    
-    func showSupport() {
-        viewModel.selectedView = "support"
-        showAboutView()
-    }
 }
 
 class AboutViewModel: ObservableObject {
     @Published var selectedView: String = "about"
 }
 
+// -MARK: AboutView
 struct AboutView: View {
     @ObservedObject var viewModel: AboutViewModel
     
@@ -72,9 +69,6 @@ struct AboutView: View {
                     Button(action: { viewModel.selectedView = "credits" }) {
                         Label("creditsLabel", systemImage: "shippingbox.fill")
                     }
-                    Button(action: { viewModel.selectedView = "support" }) {
-                        Label("supportMeLabel", systemImage: "person.crop.circle")
-                    }
                 }
                 Spacer()
                 Image(systemName: "heart.fill")
@@ -92,8 +86,6 @@ struct AboutView: View {
                 switch viewModel.selectedView {
                 case "credits":
                     CreditsView()
-                case "support":
-                    SupportView()
                 default:
                     AboutContentView(appVersion: appVersion)
                 }
@@ -117,10 +109,7 @@ struct AboutView: View {
     }
 }
 
-struct GitHubRelease: Codable {
-    var tag_name: String
-}
-
+// -MARK: Credits
 struct CreditsView: View {
     struct Dependency {
         let name: String
@@ -201,36 +190,7 @@ struct CreditsView: View {
     }
 }
 
-struct SupportView: View {
-    var body: some View {
-        VStack {
-            LuminareSection {
-                Button(action: {
-                    if let url = URL(string: "https://ko-fi.com/asboy2035") {
-                        NSWorkspace.shared.open(url)
-                    }
-                }) {
-                    Label("Ko-Fi", systemImage: "dollarsign")
-                }
-                .frame(height: 35)
-                
-                Button(action: {
-                    if let url = URL(string: "https://throne.com/asboy2035") {
-                        NSWorkspace.shared.open(url)
-                    }
-                }) {
-                    Label("Throne", systemImage: "gift.fill")
-                }
-                .frame(height: 35)
-            }
-            .navigationTitle("supportMeLabel")
-            .buttonStyle(LuminareButtonStyle())
-            
-            Spacer()
-        }
-    }
-}
-
+// -MARK: About Content
 struct AboutContentView: View {
     @State private var isLatestVersion: Bool = true
     var appVersion: String
@@ -279,7 +239,9 @@ struct AboutContentView: View {
     }
     
     private func checkForUpdates() {
-        guard let url = URL(string: "https://api.github.com/repos/asboy2035/Stand/releases/latest") else {
+        guard let url = URL(
+            string: "https://api.github.com/repos/asboy2035/Stand/releases/latest"
+        ) else {
             print("Invalid URL")
             return
         }
@@ -299,7 +261,8 @@ struct AboutContentView: View {
                         UpdateWindowController.shared.showUpdateView()
                     }
                 #if DEBUG
-                    UpdateWindowController.shared.showUpdateView() // Debug
+                    UpdateWindowController.shared.showUpdateView()
+                    // Always show update in debug builds
                 #endif
                 }
             }
@@ -307,6 +270,12 @@ struct AboutContentView: View {
 
         task.resume()
     }
+}
+
+
+// -MARK: Misc
+struct GitHubRelease: Codable {
+    var tag_name: String
 }
 
 #Preview {

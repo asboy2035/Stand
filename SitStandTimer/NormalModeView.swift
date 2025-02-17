@@ -36,9 +36,19 @@ struct NormalModeView: View {
         }
         .frame(minWidth: showSidebar ? 635 : 450)
         
-        .background(VisualEffectView(material: .sidebar, blendingMode: .behindWindow).edgesIgnoringSafeArea(.all))
+        .background(
+            VisualEffectView(
+                material: .sidebar,
+                blendingMode: .behindWindow
+            )
+            .edgesIgnoringSafeArea(.all)
+        )
         .onAppear {
-            timerManager.initializeWithStoredTimes(sitting: sittingTime, standing: standingTime)
+            timerManager.initializeWithStoredTimes(
+                sitting: sittingTime,
+                standing: standingTime
+            )
+            
             if let window = NSApplication.shared.windows.first {
                 window.titlebarAppearsTransparent = true
                 window.isOpaque = false
@@ -59,6 +69,7 @@ struct NormalModeView: View {
     }
 }
 
+// -MARK: Sidebar
 struct SidebarView: View {
     @Binding var sittingTime: Double
     @Binding var standingTime: Double
@@ -69,7 +80,7 @@ struct SidebarView: View {
     var body: some View {
         List {
 #if DEBUG
-            LuminareSection("DEBUG") {
+            LuminareSection("DEBUG") { // Debug tools
                 Button(action: {
                     AboutWindowController.shared.showAboutView()
                     UpdateWindowController.shared.showUpdateView()
@@ -108,7 +119,7 @@ struct SidebarView: View {
             }
         }
         .buttonStyle(LuminareButtonStyle())
-        .luminareModal(isPresented: $showStats) {
+        .luminareModal(isPresented: $showStats, closeOnDefocus: true) {
             StatsView(showStats: $showStats)
                 .environmentObject(timerManager)
         }
@@ -118,6 +129,7 @@ struct SidebarView: View {
     }
 }
 
+// -MARK: Detail (timer)
 struct DetailView: View {
     @EnvironmentObject private var timerManager: TimerManager
     @State private var currentChallenge: Challenge = challenges.randomElement()!
@@ -133,39 +145,14 @@ struct DetailView: View {
             .foregroundStyle(.secondary)
 
             Text(timeString(from: timerManager.remainingTime))
-                .animation(.easeInOut(duration: 0.1), value: timerManager.remainingTime)
+                .animation(
+                    .easeInOut(duration: 0.1),
+                    value: timerManager.remainingTime
+                )
                 .font(.system(size: 48, design: .monospaced))
             
-            // Control Buttons
-            HStack(spacing: 15) {
-                Button(action: {
-                    timerManager.resetTimer()
-                }) {
-                    Image(systemName: "arrow.clockwise")
-                        .frame(width: 10, height: 25)
-                }
-                
-                Button(action: {
-                    if timerManager.isRunning {
-                        timerManager.pauseTimer()
-                    } else {
-                        timerManager.resumeTimer()
-                    }
-                }) {
-                    Image(systemName: timerManager.isRunning ? "pause.fill" : "play.fill")
-                        .frame(width: 20, height: 35)
-                }
-                .frame(height: 45)
-                
-                Button(action: {
-                    timerManager.switchInterval()
-                }) {
-                    Image(systemName: "repeat")
-                        .frame(width: 10, height: 25)
-                }
-            }
-            .frame(width: 100, height: 35)
-            .buttonStyle(LuminareCompactButtonStyle())
+            ControlButtons()
+                .environmentObject(timerManager)
             
             ChallengeCard()
             .padding(.top, 20)
@@ -212,6 +199,7 @@ struct DetailView: View {
     }
 }
 
+// -MARK: Stats
 struct StatsView: View {
     @EnvironmentObject private var timerManager: TimerManager
     @Binding var showStats: Bool  // Add the binding to control the modal
@@ -238,8 +226,13 @@ struct StatsView: View {
                             endPoint: .bottomTrailing
                         )
                     )
-                    Text(formatTime(minutes: timerManager.timeHistory.standingMinutes + timerManager.timeHistory.sittingMinutes))
-                        .font(.system(.title, design: .monospaced))
+                    Text(
+                        formatTime(minutes:
+                            timerManager.timeHistory.standingMinutes +
+                            timerManager.timeHistory.sittingMinutes
+                        )
+                    )
+                    .font(.system(.title, design: .monospaced))
                 }
                 
                 VStack(spacing: 4) {
@@ -249,8 +242,11 @@ struct StatsView: View {
                         Text(NSLocalizedString("sittingLabel", comment: "Sitting label"))
                     }
                     .foregroundStyle(.indigo)
-                    Text(formatTime(minutes: timerManager.timeHistory.sittingMinutes))
-                        .font(.system(.title, design: .monospaced))
+                    Text(formatTime(minutes:
+                            timerManager.timeHistory.sittingMinutes
+                       )
+                    )
+                    .font(.system(.title, design: .monospaced))
                 }
                 
                 VStack(spacing: 4) {
@@ -277,6 +273,7 @@ struct StatsView: View {
     }
 }
 
+// -MARK: Misc
 #Preview {
 //    StatsView()
     NormalModeView(sittingTime: .constant(30), standingTime: .constant(30))

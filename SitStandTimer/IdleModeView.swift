@@ -8,7 +8,7 @@
 import SwiftUI
 import Luminare
 
-// Idle mode layout
+// -MARK: Idle mode
 struct IdleModeView: View {
     @EnvironmentObject private var timerManager: TimerManager
     let currentTime: Date
@@ -18,54 +18,35 @@ struct IdleModeView: View {
         VStack {
             Spacer()
             VStack(spacing: 15) {
-                LargeClockView(currentTime: currentTime)
+                ClockView(currentTime: currentTime)
                 HStack(spacing: 15) {
-                    Image(systemName: timerManager.currentInterval == .sitting ? "figure.seated.side.left" : "figure.stand")
-                        .font(.largeTitle)
-                        .foregroundStyle(timerManager.currentInterval == .sitting ? .indigo : .yellow)
-                    Text(timerManager.currentInterval == .sitting ? "sittingLabel" : "standingLabel")
-                        .font(.title)
-                        .foregroundStyle(timerManager.currentInterval == .sitting ? .indigo : .yellow)
+                    Image(systemName:
+                            timerManager.currentInterval == .sitting ?
+                                "figure.seated.side.left" :
+                                "figure.stand"
+                    )
+                    .font(.largeTitle)
+                    
+                    Text(
+                        timerManager.currentInterval == .sitting ?
+                            "sittingLabel" :
+                            "standingLabel"
+                    )
+                    .font(.title)
                 }
+                .foregroundStyle(timerManager.currentInterval == .sitting ? .indigo : .yellow)
             }
             Spacer()
             
+            // Timer view
             VStack(spacing: 15) {
                 // Time Display
                 Text(timeString(from: timerManager.remainingTime))
                     .font(.system(size: 48, design: .monospaced))
                     .fontWeight(.medium)
                 
-                // Control Buttons
-                HStack(spacing: 15) {
-                    Button(action: {
-                        timerManager.resetTimer()
-                    }) {
-                        Image(systemName: "arrow.clockwise")
-                            .frame(width: 10, height: 25)
-                    }
-                    
-                    Button(action: {
-                        if timerManager.isRunning {
-                            timerManager.pauseTimer()
-                        } else {
-                            timerManager.resumeTimer()
-                        }
-                    }) {
-                        Image(systemName: timerManager.isRunning ? "pause.fill" : "play.fill")
-                            .frame(width: 20, height: 35)
-                    }
-                    .frame(height: 45)
-                    
-                    Button(action: {
-                        timerManager.switchInterval()
-                    }) {
-                        Image(systemName: "repeat")
-                            .frame(width: 10, height: 25)
-                    }
-                }
-                .frame(width: 100, height: 35)
-                .buttonStyle(LuminareCompactButtonStyle())
+                ControlButtons()
+                    .environmentObject(timerManager)
             }
             
             ChallengeCard()
@@ -85,19 +66,18 @@ struct IdleModeView: View {
     }
 }
 
-struct LargeClockView: View {
+// -MARK: Clock
+struct ClockView: View {
     let currentTime: Date
     
     var body: some View {
         HStack(spacing: 15) {
             Text(NSLocalizedString("timePresenterPrefix", comment: "time declare label"))
-                .font(.system(size: 56))
-                .fontWeight(.light)
+                .font(.system(size: 56, weight: .light))
                 .foregroundStyle(.secondary)
             
             Text(timeString(from: currentTime))
-                .font(.system(size: 72))
-                .fontWeight(.medium)
+                .font(.system(size: 72, weight: .medium))
         }
     }
     

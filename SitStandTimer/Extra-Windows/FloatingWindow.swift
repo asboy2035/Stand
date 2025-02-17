@@ -67,37 +67,8 @@ struct FloatingWindowView: View {
                 }
                 .padding(.bottom, 8)
                 
-                // Control buttons
-                HStack(spacing: 16) {
-                    Button(action: {
-                        timerManager.resetTimer()
-                    }) {
-                        Image(systemName: "arrow.clockwise")
-                            .frame(width: 10)
-                    }
-                    .frame(width: 20, height: 20)
-                    
-                    Button(action: {
-                        if timerManager.isRunning {
-                            timerManager.pauseTimer()
-                        } else {
-                            timerManager.resumeTimer()
-                        }
-                    }) {
-                        Image(systemName: timerManager.isRunning ? "pause.fill" : "play.fill")
-                    }
-                    .frame(width: 40, height: 40)
-                    
-                    Button(action: {
-                        timerManager.switchInterval()
-                    }) {
-                        Image(systemName: "repeat")
-                            .frame(width: 10)
-                    }
-                    .frame(width: 20, height: 20)
-                }
-                .frame(width: 110, height: 20)
-                .buttonStyle(LuminareCompactButtonStyle())
+                ControlButtons()
+                    .environmentObject(timerManager)
             }
             .padding(.bottom, 8)
         }

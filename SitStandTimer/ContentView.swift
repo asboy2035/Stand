@@ -23,44 +23,31 @@ struct ContentView: View {
         HStack {
             if isFullScreen {
                 IdleModeView(currentTime: currentTime)
-                        .environmentObject(timerManager)
+                    .environmentObject(timerManager)
             } else {
                 NormalModeView(sittingTime: $sittingTime, standingTime: $standingTime)
-                        .environmentObject(timerManager)
+                    .environmentObject(timerManager)
             }
         }
         .onAppear() {
-            let supportNoti = DynamicNotch {
-                HStack {
-                    VStack(alignment: .leading) {
-                        Text("likeAppQuestion")
-                        Text("supportCTA")
-                            .foregroundStyle(.secondary)
-                    }
-                    
-                    Button(action: {
-                        AboutWindowController.shared.showAboutView()
-                        AboutWindowController.shared.showSupport()
-                    }) {
-                        Image(systemName: "arrow.up.right")
-                    }
-                    .frame(width: 35, height: 35)
-                    .buttonStyle(LuminareCompactButtonStyle())
-                }
-            }
-            supportNoti.show(for: 3)
-            
             if showWelcome {
                 WelcomeWindowController.shared.showWelcomeView()
             }
         }
+        
         .onReceive(timer) { input in
             currentTime = input
         }
-        .onReceive(NotificationCenter.default.publisher(for: NSWindow.willEnterFullScreenNotification)) { _ in
+        
+        .onReceive(
+            NotificationCenter.default.publisher(for: NSWindow.willEnterFullScreenNotification)
+        ) { _ in
             isFullScreen = true
         }
-        .onReceive(NotificationCenter.default.publisher(for: NSWindow.willExitFullScreenNotification)) { _ in
+        
+        .onReceive(
+            NotificationCenter.default.publisher(for: NSWindow.willExitFullScreenNotification)
+        ) { _ in
             isFullScreen = false
         }
     }

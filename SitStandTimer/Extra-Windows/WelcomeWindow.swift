@@ -6,10 +6,10 @@
 //
 
 import SwiftUI
-import Combine
 import LaunchAtLogin
 import Luminare
 
+// -MARK: Welcome controller
 class WelcomeWindowController: NSObject {
     private var window: NSWindow?
 
@@ -29,8 +29,8 @@ class WelcomeWindowController: NSObject {
             let hostingController = NSHostingController(rootView: welcomeView)
 
             let window = NSWindow(
-                contentRect: NSRect(x: 0, y: 0, width: 400, height: 350),
-                styleMask: [.titled, .fullSizeContentView],
+                contentRect: NSRect(x: 0, y: 0, width: 400, height: 400),
+                styleMask: [.fullSizeContentView],
                 backing: .buffered,
                 defer: false
             )
@@ -40,6 +40,7 @@ class WelcomeWindowController: NSObject {
             window.isReleasedWhenClosed = false
             window.titlebarAppearsTransparent = true
             window.isMovableByWindowBackground = true
+            window.backgroundColor = .clear
 
             self.window = window
         }
@@ -48,6 +49,7 @@ class WelcomeWindowController: NSObject {
     }
 }
 
+// -MARK: Welcome View
 struct WelcomeView: View {
     @AppStorage("showWelcome") var showWelcome: Bool = true
     @State private var currentSlideIndex = 0
@@ -73,6 +75,10 @@ struct WelcomeView: View {
     
     var body: some View {
         VStack {
+            Text("welcome")
+                .font(.headline)
+                .foregroundStyle(.secondary)
+            
             if currentSlideIndex < slides.count {
                 // Slideshow content
                 VStack {
@@ -80,11 +86,19 @@ struct WelcomeView: View {
                         .frame(height: 100)
                         .padding(.bottom)
                     
-                    Text(NSLocalizedString(slides[currentSlideIndex].titleKey, tableName: "WelcomeLocalizations", comment: "Slide description"))
-                        .font(.title)
+                    Text(NSLocalizedString(
+                        slides[currentSlideIndex].titleKey,
+                        tableName: "WelcomeLocalizations",
+                        comment: "Slide description")
+                    )
+                    .font(.title)
                     
-                    Text(NSLocalizedString(slides[currentSlideIndex].descriptionKey, tableName: "WelcomeLocalizations", comment: "Slide description"))
-                        .foregroundStyle(.secondary)
+                    Text(NSLocalizedString(
+                        slides[currentSlideIndex].descriptionKey,
+                        tableName: "WelcomeLocalizations",
+                        comment: "Slide description")
+                    )
+                    .foregroundStyle(.secondary)
                     Spacer()
                     
                     HStack {
@@ -113,6 +127,8 @@ struct WelcomeView: View {
                     .frame(height: 35)
                 }
                 .multilineTextAlignment(.center)
+                
+            // -MARK: After slides
             } else {
                 // After slideshow, show original content
                 VStack {
@@ -141,7 +157,7 @@ struct WelcomeView: View {
                         }) {
                             Image(systemName: "arrow.left")
                         }
-                        .frame(width: 100)
+                        .frame(width: 75)
                         
                         Button(action: {
                             WelcomeWindowController.shared.close()
@@ -156,7 +172,7 @@ struct WelcomeView: View {
                             }) {
                                 Text("dontShowAgainLabel")
                             }
-                            .buttonStyle(LuminareDestructiveButtonStyle())
+                            .background(Color.red.opacity(0.2))
                             .cornerRadius(8)
                         }
                     }
@@ -166,19 +182,14 @@ struct WelcomeView: View {
                 }
             }
         }
-        .navigationTitle("welcome")
-        .toolbar {
-            ToolbarItem(placement: .automatic) {
-                Button(action: {
-                    AboutWindowController.shared.showAboutView()
-                }) {
-                    Label("aboutMenuLabel", systemImage: "info.circle")
-                }
-            }
-        }
         .padding(20)
-        .background(VisualEffectView(material: .sidebar, blendingMode: .behindWindow).ignoresSafeArea(.all))
-        .frame(width: 400, height: 350)
+        .background(
+            VisualEffectView(material: .hudWindow, blendingMode: .behindWindow)
+                .ignoresSafeArea(.all)
+        )
+        .frame(width: 400, height: 400)
+        .overlay(RoundedRectangle(cornerRadius: 22).stroke(.tertiary, lineWidth: 1))
+        .mask(RoundedRectangle(cornerRadius: 22))
     }
 }
 
@@ -188,6 +199,7 @@ struct Slide {
     let view: AnyView
 }
 
+// -MARK: App Icon
 struct AppIconView: View {
     var body: some View {
         Image(nsImage: NSApplication.shared.applicationIconImage)
@@ -197,6 +209,7 @@ struct AppIconView: View {
     }
 }
 
+// -MARK: Timer demo
 struct TimerDemoView: View {
     var body: some View {
         Text("9:41")
@@ -204,6 +217,7 @@ struct TimerDemoView: View {
     }
 }
 
+// -MARK: Intervals demo
 struct IntervalsDemoView: View {
     var body: some View {
         HStack {
@@ -228,6 +242,7 @@ struct IntervalsDemoView: View {
     }
 }
 
+// -MARK: Notifications demo
 struct NotificationsDemoView: View {
     var body: some View {
         HStack(spacing: 12) {
@@ -235,18 +250,27 @@ struct NotificationsDemoView: View {
                 .imageScale(.large)
             
             VStack(alignment: .leading) {
-                Text(NSLocalizedString("timeToLabel", comment: "time to") + " " + NSLocalizedString("standLabel", comment: "stand"))
+                Text(NSLocalizedString("timeToLabel", comment: "time to") +
+                     " " +
+                     NSLocalizedString("standLabel", comment: "stand")
+                )
                 Text("switchItUpContent")
                     .foregroundStyle(.secondary)
             }
         }
         .padding()
-        .background(VisualEffectView(material: .headerView, blendingMode: .behindWindow))
+        .background(
+            VisualEffectView(
+                material: .fullScreenUI,
+                blendingMode: .behindWindow
+            )
+        )
         .overlay(RoundedRectangle(cornerRadius: 18).stroke(.tertiary.opacity(0.5), lineWidth: 1))
         .cornerRadius(18)
     }
 }
 
+// -MARK: Misc
 #Preview {
     WelcomeView()
 }
