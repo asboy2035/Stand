@@ -37,6 +37,12 @@
     },
     "aboutLabel" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Über"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -66,6 +72,12 @@
     "aboutMenuLabel" : {
       "comment" : "The title for the about menu item.",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Über Stand"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -95,6 +107,12 @@
     "alertSoundSettingLabel" : {
       "comment" : "Label for the setting to change the alert sound.",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Warnton"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -128,6 +146,12 @@
       "comment" : "The name/title of the app.",
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stand"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -157,6 +181,12 @@
     "appOptionsLabel" : {
       "comment" : "App options header in sidebar",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -186,6 +216,12 @@
     "atLaunchOptionsLabel" : {
       "comment" : "At launch header in sidebar",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beim Start"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -215,6 +251,12 @@
     "closeLabel" : {
       "comment" : "Button to close a view.",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schließen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -244,6 +286,12 @@
     "creditsLabel" : {
       "comment" : "Label for \"Credits\" in the about view.",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Danksagungen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -276,6 +324,12 @@
     "doneLabel" : {
       "comment" : "Button that says \"done\".",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fertig"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -305,6 +359,12 @@
     "dontShowAgainLabel" : {
       "comment" : "Button to not show welcome again.",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nicht mehr zeigen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -334,6 +394,12 @@
     "generalSettings" : {
       "comment" : "Name for general settings",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Allgemein"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -366,6 +432,12 @@
     "hideNotchLabel" : {
       "comment" : "Toolbar button to hide the pause notch.",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notch ausblenden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -395,6 +467,12 @@
     "infoTitle" : {
       "comment" : "Title for info section of updater.",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Informationen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -424,6 +502,12 @@
     "intervalsLabel" : {
       "comment" : "Intervals header in sidebar",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zeitabstände"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -453,6 +537,12 @@
     "launchAtLoginLabel" : {
       "comment" : "Launch at login label",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beim Einloggen starten"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -483,6 +573,12 @@
       "comment" : "Tooltip of the sidebar toggle.",
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Linke Seitenleiste umschalten"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -511,6 +607,12 @@
     },
     "loadingUpdate" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Update-Daten laden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -540,6 +642,12 @@
     "madeWithLove" : {
       "comment" : "Made with love (about window)",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Made with <3 by ash."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -570,6 +678,12 @@
       "comment" : "The abbreviated form of minutes.",
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "min"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -599,6 +713,12 @@
     "notificationsSettings" : {
       "comment" : "Name for notification settings",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Benachrichtigungen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -628,6 +748,12 @@
     "noUpdatesLabel" : {
       "comment" : "Label for button when app is up to date.",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Auf dem neuesten Stand"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -658,6 +784,12 @@
       "comment" : "Title for the options sidebar",
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Optionen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -687,6 +819,12 @@
     "playPauseLabel" : {
       "comment" : "Play/Pause button tooltip",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abspielen/Pause"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -716,6 +854,12 @@
     "quickSwitchLabel" : {
       "comment" : "Quick Switch button tooltip",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schneller Wechsel"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -745,6 +889,12 @@
     "quitApp" : {
       "comment" : "Button to quit the app in the menu bar.",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stand verlassen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -775,6 +925,12 @@
       "comment" : "Indicates time left.",
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "verbleibend"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -804,6 +960,12 @@
     "resetLabel" : {
       "comment" : "Reset button tooltip",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zurücksetzen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -865,6 +1027,12 @@
     "showStatsLabel" : {
       "comment" : "Button to show Stand stats.",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zeige Statistiken"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -894,6 +1062,12 @@
     "showWidgetAtLaunchLabel" : {
       "comment" : "Show widget at launch label",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zeige Widget"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -923,6 +1097,12 @@
     "sidebarToggleLabel" : {
       "comment" : "Button to toggle the stand sidebar.",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seitenleiste umschalten "
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -953,6 +1133,12 @@
       "comment" : "Infinitive form of the verb sit.",
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sitzen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -983,6 +1169,12 @@
       "comment" : "Indicates a user should be in the act of sitting down.",
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sitzen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1013,6 +1205,12 @@
       "comment" : "Label for time sitting.",
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sitzdauer"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1043,6 +1241,12 @@
       "comment" : "Indicates a user should be in the act of standing up.",
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stehen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1073,6 +1277,12 @@
       "comment" : "Label for time standing.",
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stehdauer"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1103,6 +1313,12 @@
       "comment" : "Infinitive form of verb stand.",
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stand"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1132,6 +1348,12 @@
     "startTimerAtLaunchLabel" : {
       "comment" : "Start timer at launch label",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Timer starten"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1162,6 +1384,12 @@
       "comment" : "Switch it up notification content.",
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Umschalten"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1191,6 +1419,12 @@
     "thanksText" : {
       "comment" : "Thanks message (about window)",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Danke, dass du Stand nutzt!"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1221,6 +1455,12 @@
       "comment" : "Prefix to the time (e.g it's 9:00).",
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Es ist"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1251,6 +1491,12 @@
       "comment" : "Text content for timer paused notification.",
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vergessen Sie nicht, die Play-Taste zu drücken."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1281,6 +1527,12 @@
       "comment" : "Title for timer paused notification.",
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Timer pausieren"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1311,6 +1563,12 @@
       "comment" : "Time to ___ (Switch it up notification).",
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zeit bis"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1340,6 +1598,12 @@
     "toggleWidgetLabel" : {
       "comment" : "Button to toggle the Stand widget.",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Widget umschalten"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1369,6 +1633,12 @@
     "totalLabel" : {
       "comment" : "Total label",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Insgesamt"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1398,6 +1668,12 @@
     "updateAvailableContent" : {
       "comment" : "Content of update available alert.",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vergessen Sie nicht, diese Version vor der Aktualisierung zu beenden."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1427,6 +1703,12 @@
     "updateAvailableTitle" : {
       "comment" : "Title for update available alert.",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Update verfügbar"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1456,6 +1738,12 @@
     "updateLabel" : {
       "comment" : "Label for update toolbar button.",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Update"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1485,6 +1773,12 @@
     "websiteLabel" : {
       "comment" : "Label for the button to go to website.",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Website"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1514,6 +1808,12 @@
     "welcome" : {
       "comment" : "\"Welcome\" label.",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Willkommen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1543,6 +1843,12 @@
     "welcomeContent" : {
       "comment" : "Welcome text for the welcome window.",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vielen Dank für das Herunterladen. Ich hoffe, das hilft Ihren Stehgewohnheiten!"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1572,6 +1878,12 @@
     "welcomeTitle" : {
       "comment" : "Title for welcome window.",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Willkommen zu Stand!"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
