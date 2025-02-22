@@ -998,6 +998,12 @@
     "showNotchLabel" : {
       "comment" : "Toolbar button to show the pause notch.",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zeige Notch"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
