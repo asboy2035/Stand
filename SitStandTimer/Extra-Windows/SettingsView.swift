@@ -36,19 +36,34 @@ struct GeneralSettingsView: View {
 struct NotificationsSettingsView: View {
     @EnvironmentObject private var timerManager: TimerManager
     let availableSounds = ["Funk", "Ping", "Tink", "Glass", "Basso"]
-
+    
     var body: some View {
         List {
-            LuminareSection("alertSoundSettingLabel") {
+            LuminareSection("notificationsSettings") {
+                // Sound Picker
                 Picker("alertSoundSettingLabel", selection: $timerManager.selectedSound) {
                     ForEach(availableSounds, id: \.self) { sound in
                         Text(sound).tag(sound)
                     }
                 }
                 .padding(8)
-                .pickerStyle(MenuPickerStyle())
                 .onChange(of: timerManager.selectedSound) { _ in
                     timerManager.playSound()
+                }
+                
+                // Notification Type Picker
+                Picker("Notification Type", selection: $timerManager.notificationType) {
+                    ForEach(NotificationType.allCases, id: \.self) { type in
+                        Text(type.localizedString)
+                            .tag(type)
+                    }
+                }
+                .padding(8)
+                .onChange(of: timerManager.notificationType) { newValue in
+                    // Update the pause notch style whenever the notification type changes
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) { // Wait 2 seconds for the setted HUD to show
+                        timerManager.handlePauseNotch(action: .auto)
+                    }
                 }
             }
         }

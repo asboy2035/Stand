@@ -18,7 +18,7 @@ struct SitStandTimerApp: App {
     @AppStorage("showWelcome") private var showWelcome: Bool = true
     
     var body: some Scene {
-        WindowGroup("appName") {
+        Window("appName", id: "Main") {
             ContentView()
                 .environmentObject(timerManager)
         }
@@ -43,7 +43,7 @@ struct SitStandTimerApp: App {
         .commands {
             CommandGroup(replacing: .appInfo) {
                 Button("aboutMenuLabel") {
-                    AboutWindowController.shared.showAboutView()
+                    AboutWindowController.shared.showAboutView(timerManager: timerManager)
                 }
             }
         }

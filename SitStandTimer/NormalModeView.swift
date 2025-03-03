@@ -82,9 +82,9 @@ struct SidebarView: View {
 #if DEBUG
             LuminareSection("DEBUG") { // Debug tools
                 Button(action: {
-                    AboutWindowController.shared.showAboutView()
+                    AboutWindowController.shared.showAboutView(timerManager: timerManager)
                     UpdateWindowController.shared.showUpdateView()
-                    WelcomeWindowController.shared.showWelcomeView()
+                    WelcomeWindowController.shared.showWelcomeView(timerManager: timerManager)
                 }) {
                     Label("Show all windows", systemImage: "macwindow.on.rectangle")
                 }
@@ -162,7 +162,7 @@ struct DetailView: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 Button(action: {
-                    AboutWindowController.shared.showAboutView()
+                    AboutWindowController.shared.showAboutView(timerManager: timerManager)
                 }) {
                     Label("aboutMenuLabel", systemImage: "info.circle")
                 }
@@ -172,9 +172,9 @@ struct DetailView: View {
                 ToolbarItem(placement: .automatic) {
                     Button(action: {
                         if timerManager.isPauseNotchVisible {
-                            timerManager.hidePauseNotch()
+                            timerManager.handlePauseNotch(action: .hide)
                         } else {
-                            timerManager.showPauseNotch()
+                            timerManager.handlePauseNotch(action: .show)
                         }
                     }) {
                         Label(

@@ -11,6 +11,7 @@ import Luminare
 // -MARK: AboutWindowController
 class AboutWindowController: NSObject {
     private var window: NSWindow?
+    @EnvironmentObject private var timerManager: TimerManager
     @ObservedObject private var viewModel = AboutViewModel()
 
     static let shared = AboutWindowController()
@@ -19,9 +20,10 @@ class AboutWindowController: NSObject {
         super.init()
     }
 
-    func showAboutView() {
+    func showAboutView(timerManager: TimerManager) {
         if window == nil {
             let aboutView = AboutView(viewModel: viewModel)
+                .environmentObject(timerManager)
             let hostingController = NSHostingController(rootView: aboutView)
 
             let window = NSWindow(
@@ -50,6 +52,7 @@ class AboutViewModel: ObservableObject {
 
 // -MARK: AboutView
 struct AboutView: View {
+    @EnvironmentObject private var timerManager: TimerManager
     @ObservedObject var viewModel: AboutViewModel
     
     private var appVersion: String {
@@ -88,6 +91,7 @@ struct AboutView: View {
                     CreditsView()
                 default:
                     AboutContentView(appVersion: appVersion)
+                        .environmentObject(timerManager)
                 }
             }
             .layoutPriority(1)
@@ -193,6 +197,7 @@ struct CreditsView: View {
 // -MARK: About Content
 struct AboutContentView: View {
     @State private var isLatestVersion: Bool = true
+    @EnvironmentObject private var timerManager: TimerManager
     var appVersion: String
 
     var body: some View {
@@ -230,7 +235,7 @@ struct AboutContentView: View {
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 Button(action: {
-                    WelcomeWindowController.shared.showWelcomeView()
+                    WelcomeWindowController.shared.showWelcomeView(timerManager: timerManager)
                 }) {
                     Label("welcome", systemImage: "figure.wave")
                 }

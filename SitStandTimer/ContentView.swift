@@ -31,7 +31,7 @@ struct ContentView: View {
         }
         .onAppear() {
             if showWelcome {
-                WelcomeWindowController.shared.showWelcomeView()
+                WelcomeWindowController.shared.showWelcomeView(timerManager: timerManager)
             }
         }
         

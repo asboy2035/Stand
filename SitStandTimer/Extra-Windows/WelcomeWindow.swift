@@ -8,6 +8,7 @@
 import SwiftUI
 import LaunchAtLogin
 import Luminare
+import DynamicNotchKit
 
 // -MARK: Welcome controller
 class WelcomeWindowController: NSObject {
@@ -23,9 +24,10 @@ class WelcomeWindowController: NSObject {
         window?.close()
     }
 
-    func showWelcomeView() {
+    func showWelcomeView(timerManager: TimerManager) {
         if window == nil {
             let welcomeView = WelcomeView()
+                .environmentObject(timerManager)
             let hostingController = NSHostingController(rootView: welcomeView)
 
             let window = NSWindow(
@@ -51,6 +53,7 @@ class WelcomeWindowController: NSObject {
 
 // -MARK: Welcome View
 struct WelcomeView: View {
+    @EnvironmentObject private var timerManager: TimerManager
     @AppStorage("showWelcome") var showWelcome: Bool = true
     @State private var currentSlideIndex = 0
     
@@ -82,9 +85,11 @@ struct WelcomeView: View {
             if currentSlideIndex < slides.count {
                 // Slideshow content
                 VStack {
+                    Spacer()
                     slides[currentSlideIndex].view
-                        .frame(height: 100)
-                        .padding(.bottom)
+                        .environmentObject(timerManager)
+                        .frame(height: 200)
+                    Spacer()
                     
                     Text(NSLocalizedString(
                         slides[currentSlideIndex].titleKey,
@@ -99,7 +104,7 @@ struct WelcomeView: View {
                         comment: "Slide description")
                     )
                     .foregroundStyle(.secondary)
-                    Spacer()
+                    .padding(.bottom)
                     
                     HStack {
                         Button(action: {
@@ -242,31 +247,62 @@ struct IntervalsDemoView: View {
     }
 }
 
-// -MARK: Notifications demo
+// -MARK: Notifications select
 struct NotificationsDemoView: View {
+    @EnvironmentObject var timerManager: TimerManager
+    @AppStorage("notificationType") var notificationType: NotificationType = .banner
+
     var body: some View {
-        HStack(spacing: 12) {
-            Image(systemName: "figure.stand")
-                .imageScale(.large)
+        VStack {
+            Text("chooseNotiStyle")
+                .font(.title3)
             
-            VStack(alignment: .leading) {
-                Text(NSLocalizedString("timeToLabel", comment: "time to") +
-                     " " +
-                     NSLocalizedString("standLabel", comment: "stand")
-                )
-                Text("switchItUpContent")
-                    .foregroundStyle(.secondary)
+            LuminareSection {
+                HStack(spacing: 4) {
+                    Button(action: {
+                        notificationType = .banner
+                    }) {
+                        Label("Banner", systemImage: "bell.badge.fill")
+                    }
+                    
+                    Button(action: {
+                        notificationType = .hud
+                    }) {
+                        Label("HUD", systemImage: "widget.small")
+                    }
+                }
+                .frame(height: 35)
+                .buttonStyle(LuminareCompactButtonStyle())
             }
+            
+            Text("canChangeLater")
+                .font(.caption)
+                .foregroundStyle(.secondary)
         }
-        .padding()
-        .background(
-            VisualEffectView(
-                material: .fullScreenUI,
-                blendingMode: .behindWindow
+        .onAppear() {
+            let HUDNoti = HUD(
+                title: NSLocalizedString("HUD", comment: "HUD Notification style title"),
+                description: NSLocalizedString("thisIsHUD", comment: "Description for HUD notification"),
+                systemImage: "heart.fill",
+                imageColor: .accentColor
             )
-        )
-        .overlay(RoundedRectangle(cornerRadius: 18).stroke(.tertiary.opacity(0.5), lineWidth: 1))
-        .cornerRadius(18)
+            HUDNoti.show(for: 3)
+            
+            let NotchNoti = DynamicNotchInfo(
+                icon: Image(systemName: "heart.fill"),
+                title: NSLocalizedString("Banner", comment: "Banner notification style title"),
+                description: NSLocalizedString("thisIsBanner", comment: "Description for Banner notification"),
+                iconColor: .accentColor,
+                textColor: .primary,
+                style: .floating
+            )
+            NotchNoti.show(for: 3)
+        }
+        .onChange(of: notificationType) { newValue in
+            timerManager.notificationType = newValue
+        }
+        .padding(8)
+        .overlay(RoundedRectangle(cornerRadius: 16).stroke(.tertiary.opacity(0.5), lineWidth: 1))
     }
 }
 

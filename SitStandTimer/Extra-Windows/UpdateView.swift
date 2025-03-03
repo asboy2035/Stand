@@ -71,15 +71,6 @@ struct UpdateView: View {
         .frame(width: 400, height: 400)
         .background(VisualEffectView(material: .sidebar, blendingMode: .behindWindow).edgesIgnoringSafeArea(.all))
         .navigationTitle("updateAvailableTitle")
-        .toolbar {
-            ToolbarItem(placement: .automatic) {
-                Button(action: {
-                    AboutWindowController.shared.showAboutView()
-                }) {
-                    Label("aboutMenuLabel", systemImage: "info.circle")
-                }
-            }
-        }
         .onAppear {
             self.getUpdateData()
         }
