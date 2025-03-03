@@ -72,6 +72,7 @@ class HUDController: NSObject {
 
 struct HUDView: View {
     let hud: HUD
+    @State private var isVisible: Bool = false  // Track visibility
     
     var body: some View {
         VStack {
@@ -88,6 +89,7 @@ struct HUDView: View {
             Text(hud.description)
                 .foregroundStyle(.secondary)
         }
+        .multilineTextAlignment(.center)
         .frame(width: 200, height: 200)
         .background(
             VisualEffectView(
@@ -98,5 +100,11 @@ struct HUDView: View {
         )
         .overlay(RoundedRectangle(cornerRadius: 16).stroke(.tertiary, lineWidth: 1))
         .mask(RoundedRectangle(cornerRadius: 16))
+        .opacity(isVisible ? 1 : 0)
+        .onAppear {
+            withAnimation(.easeIn(duration: 0.1)) {
+                isVisible = true  // Fade in
+            }
+        }
     }
 }
