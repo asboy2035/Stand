@@ -67,7 +67,7 @@ struct FloatingWindowView: View {
                 }
                 .padding(.bottom, 8)
                 
-                ControlButtons()
+                ControlButtons(showTooltips: false)
                     .environmentObject(timerManager)
             }
             .padding(.bottom, 8)

@@ -8,7 +8,6 @@
 import DynamicNotchKit
 import SwiftUI
 import Luminare
-import SettingsKit
 
 @main
 struct SitStandTimerApp: App {
@@ -16,29 +15,12 @@ struct SitStandTimerApp: App {
     @AppStorage("sittingTime") private var sittingTime: Double = 30
     @AppStorage("standingTime") private var standingTime: Double = 10
     @AppStorage("showWelcome") private var showWelcome: Bool = true
+    @State var isSettingsPresented: Bool = false
     
     var body: some Scene {
         Window("appName", id: "Main") {
             ContentView()
                 .environmentObject(timerManager)
-        }
-        .settings {
-            SettingsTab(.new(title: NSLocalizedString("generalSettings", comment: "Name for general settings"), icon: .gear), id: "general") {
-                SettingsSubtab(.noSelection, id: "no-selection") {
-                    GeneralSettingsView()
-                        .background(VisualEffectView(material: .sidebar, blendingMode: .behindWindow))
-                }
-            }
-            .frame(width: 350, height: 350)
-            
-            SettingsTab(.new(title: NSLocalizedString("notificationsSettings", comment: "Name for notification settings"), icon: .bellFill), id: "notifications") {
-                SettingsSubtab(.noSelection, id: "no-selection") {
-                    NotificationsSettingsView()
-                        .background(VisualEffectView(material: .sidebar, blendingMode: .behindWindow))
-                        .environmentObject(timerManager)
-                }
-            }
-            .frame(width: 350, height: 200)
         }
         .commands {
             CommandGroup(replacing: .appInfo) {
@@ -46,6 +28,15 @@ struct SitStandTimerApp: App {
                     AboutWindowController.shared.showAboutView(timerManager: timerManager)
                 }
             }
+            CommandGroup(replacing: .appSettings) {
+                Button("Settings...") {
+                    SettingsWindowController.shared.showSettingsView()
+                }
+                .keyboardShortcut(",", modifiers: .command)  // ⌘,
+            }
+        }
+        Window("Settings", id: "settings") {
+            SettingsView(model: SettingsModel())
         }
         
         // -MARK: Menu bar extra

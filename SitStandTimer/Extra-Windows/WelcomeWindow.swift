@@ -268,7 +268,7 @@ struct NotificationsDemoView: View {
                     Button(action: {
                         notificationType = .hud
                     }) {
-                        Label("HUD", systemImage: "widget.small")
+                        Label("HUD", systemImage: "square.fill")
                     }
                 }
                 .frame(height: 35)
@@ -300,6 +300,14 @@ struct NotificationsDemoView: View {
         }
         .onChange(of: notificationType) { newValue in
             timerManager.notificationType = newValue
+            var settedNoti = AdaptableNotificationType(
+                style: notificationType,
+                title: NSLocalizedString("Notification style set!", comment: "Title for notification style set notification"),
+                description: NSLocalizedString("Notifications will now be in this style.", comment: "Description for notification style set notification"),
+                image: "heart.fill",
+                iconColor: .accentColor
+            )
+            settedNoti.show(for: 2)
         }
         .padding(8)
         .overlay(RoundedRectangle(cornerRadius: 16).stroke(.tertiary.opacity(0.5), lineWidth: 1))

@@ -12,7 +12,6 @@ import Luminare
 class AboutWindowController: NSObject {
     private var window: NSWindow?
     @EnvironmentObject private var timerManager: TimerManager
-    @ObservedObject private var viewModel = AboutViewModel()
 
     static let shared = AboutWindowController()
     
@@ -22,7 +21,7 @@ class AboutWindowController: NSObject {
 
     func showAboutView(timerManager: TimerManager) {
         if window == nil {
-            let aboutView = AboutView(viewModel: viewModel)
+            let aboutView = AboutView()
                 .environmentObject(timerManager)
             let hostingController = NSHostingController(rootView: aboutView)
 
@@ -47,13 +46,15 @@ class AboutWindowController: NSObject {
 }
 
 class AboutViewModel: ObservableObject {
-    @Published var selectedView: String = "about"
+    @Published var currentTab: Tab = .about
+    
+    let aboutSection: [Tab] = Tab.aboutSection
 }
 
 // -MARK: AboutView
 struct AboutView: View {
     @EnvironmentObject private var timerManager: TimerManager
-    @ObservedObject var viewModel: AboutViewModel
+    @ObservedObject var viewModel = AboutViewModel()
     
     private var appVersion: String {
         if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
@@ -63,40 +64,31 @@ struct AboutView: View {
     }
     
     var body: some View {
-        HStack(spacing: 0) {
-            List {
-                LuminareSection {
-                    Button(action: { viewModel.selectedView = "" }) {
-                        Label("aboutMenuLabel", systemImage: "info.circle")
-                    }
-                    Button(action: { viewModel.selectedView = "credits" }) {
-                        Label("creditsLabel", systemImage: "shippingbox.fill")
-                    }
-                }
-                Spacer()
-                Image(systemName: "heart.fill")
-                    .imageScale(.large)
-                    .foregroundStyle(.tertiary)
-            }
-            .buttonStyle(LuminareButtonStyle())
-            .listStyle(.sidebar)
-            .scrollContentBackground(.hidden)
-            .frame(width: 200)
-            
-            Divider().ignoresSafeArea(.all)
-            
+        LuminareDividedStack {
             VStack {
-                switch viewModel.selectedView {
-                case "credits":
-                    CreditsView()
-                default:
-                    AboutContentView(appVersion: appVersion)
-                        .environmentObject(timerManager)
+                LuminareSidebar {
+                    LuminareSidebarSection("aboutLabel", selection: $viewModel.currentTab, items: viewModel.aboutSection)
                 }
+                .padding(.top, 56)
             }
-            .layoutPriority(1)
-            .padding()
-            .frame(minWidth: 350, minHeight: 350)
+            .ignoresSafeArea()
+            .frame(width: 200, height: 400, alignment: .top)
+            
+            LuminarePane {
+                HStack {
+                    viewModel.currentTab.iconView()
+                    
+                    Text(viewModel.currentTab.title)
+                        .font(.title2)
+                    
+                    Spacer()
+                }
+            } content: {
+                viewModel.currentTab.view()
+                    .padding()
+                    .frame(width: 400, height: 400)
+            }
+            .frame(width: 400)
         }
         .toolbar {
             ToolbarItem(placement: .automatic) {
@@ -109,7 +101,7 @@ struct AboutView: View {
                 }
             }
         }
-        .background(VisualEffectView(material: .sidebar, blendingMode: .behindWindow).edgesIgnoringSafeArea(.all))
+        .background(VisualEffectView(material: .menu, blendingMode: .behindWindow).edgesIgnoringSafeArea(.all))
     }
 }
 
@@ -171,25 +163,27 @@ struct CreditsView: View {
                                 NSWorkspace.shared.open(url)
                             }
                         }) {
-                            VStack {
-                                Label(
-                                    dependency.name,
-                                    systemImage: dependency.systemImage.isEmpty ?
-                                        "shippingbox.fill" :
-                                        dependency.systemImage
-                                )
-                                Text(dependency.license)
-                                    .font(.caption)
-                                    .foregroundStyle(.secondary)
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    Text(dependency.name)
+                                    Text(dependency.license)
+                                        .font(.caption)
+                                        .foregroundStyle(.secondary)
+                                }
+                                .padding(.horizontal, 12)
+                                Spacer()
                             }
                         }
-                        .buttonStyle(LuminareButtonStyle())
-                        .frame(height: 45)
+                        .frame(maxHeight: 45)
+                        .buttonStyle(
+                            LuminareCosmeticButtonStyle(
+                                Image(systemName: dependency.systemImage)
+                            )
+                        )
                     }
                 }
                 Spacer()
             }
-            .navigationTitle("creditsLabel")
         }
     }
 }
@@ -231,7 +225,6 @@ struct AboutContentView: View {
         .onAppear() {
             checkForUpdates()
         }
-        .navigationTitle("aboutLabel")
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 Button(action: {
@@ -284,6 +277,6 @@ struct GitHubRelease: Codable {
 }
 
 #Preview {
-    
+    AboutView(viewModel: .init())
 }
 

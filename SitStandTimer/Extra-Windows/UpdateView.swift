@@ -69,11 +69,17 @@ struct UpdateView: View {
         }
         .padding(20)
         .frame(width: 400, height: 400)
-        .background(VisualEffectView(material: .sidebar, blendingMode: .behindWindow).edgesIgnoringSafeArea(.all))
-        .navigationTitle("updateAvailableTitle")
+        .background(
+            VisualEffectView(
+                material: .hudWindow,
+                blendingMode: .behindWindow
+            ).ignoresSafeArea()
+        )
         .onAppear {
             self.getUpdateData()
         }
+        .overlay(RoundedRectangle(cornerRadius: 22).stroke(.tertiary, lineWidth: 1))
+        .mask(RoundedRectangle(cornerRadius: 22))
     }
 
     private func getUpdateData() {
@@ -119,7 +125,7 @@ class UpdateWindowController: NSObject {
 
             let window = NSWindow(
                 contentRect: NSRect(x: 0, y: 0, width: 300, height: 300),
-                styleMask: [.titled, .closable, .fullSizeContentView],
+                styleMask: [.fullSizeContentView],
                 backing: .buffered,
                 defer: false
             )
@@ -127,7 +133,7 @@ class UpdateWindowController: NSObject {
             window.center()
             window.contentViewController = hostingController
             window.isReleasedWhenClosed = false
-            window.titlebarAppearsTransparent = true
+            window.backgroundColor = .clear
             window.isMovableByWindowBackground = true
 
             self.window = window

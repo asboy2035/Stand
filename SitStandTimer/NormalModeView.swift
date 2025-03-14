@@ -16,13 +16,12 @@ struct NormalModeView: View {
     @Binding var standingTime: Double
     
     var body: some View {
-        HStack(spacing: 0) {
+        LuminareDividedStack {
             if showSidebar {
                 SidebarView(sittingTime: $sittingTime, standingTime: $standingTime)
                     .padding(.top, 2)
-                Divider()
-                    .edgesIgnoringSafeArea(.all)
             }
+
             DetailView()
                 .toolbar {
                     ToolbarItem(placement: .navigation) {
@@ -31,17 +30,31 @@ struct NormalModeView: View {
                         }
                     }
                 }
-                .background(timerManager.currentInterval == .sitting ? .indigo.opacity(0.2) : .yellow.opacity(0.2))
+                .background(
+                    RoundedRectangle(cornerRadius: 8)
+                        .padding(4)
+                        .ignoresSafeArea()
+                        .frame(
+                            minWidth: nil,
+                            maxWidth: .infinity,
+                            minHeight: nil,
+                            maxHeight: .infinity
+                        )
+                        .foregroundStyle(
+                            timerManager.currentInterval == .sitting ? .indigo.opacity(0.2) :
+                                .yellow.opacity(0.2)
+                        )
+                )
                 .layoutPriority(1)
         }
         .frame(minWidth: showSidebar ? 635 : 450)
         
         .background(
             VisualEffectView(
-                material: .sidebar,
+                material: .menu,
                 blendingMode: .behindWindow
             )
-            .edgesIgnoringSafeArea(.all)
+            .ignoresSafeArea()
         )
         .onAppear {
             timerManager.initializeWithStoredTimes(
@@ -155,7 +168,8 @@ struct DetailView: View {
                 .environmentObject(timerManager)
             
             ChallengeCard()
-            .padding(.top, 20)
+                .padding(.horizontal)
+                .padding(.top, 20)
 
         }
         .navigationTitle(NSLocalizedString("appName", comment: "App name for main content title"))

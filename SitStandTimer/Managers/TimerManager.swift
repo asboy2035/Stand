@@ -17,6 +17,7 @@ enum IntervalType {
 }
 
 class TimerManager: ObservableObject {
+    var headless: Bool = false
     @Published var currentInterval: IntervalType = .sitting
     @Published var remainingTime: TimeInterval = 0
     @Published var isRunning: Bool = false
@@ -38,7 +39,8 @@ class TimerManager: ObservableObject {
     private var startTime: Date?
     private var pauseNotch: AdaptableNotificationType?
     
-    init() {
+    init(headless: Bool = false) {
+        self.headless = headless
         self.timeHistory = TimeHistory.load()
 
         // Load sitting and standing time from UserDefaults or set to default values if not found
@@ -65,17 +67,19 @@ class TimerManager: ObservableObject {
 
         currentInterval = UserDefaults.standard.bool(forKey: "isStanding") ? .standing : .sitting
 
-        if LaunchAtLogin.isEnabled {
-            if UserDefaults.standard.bool(forKey: "startTimerAtLaunch") {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
-                    self?.resumeTimer()
+        if !headless {
+            if LaunchAtLogin.isEnabled {
+                if UserDefaults.standard.bool(forKey: "startTimerAtLaunch") {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
+                        self?.resumeTimer()
+                    }
                 }
-            }
-
-            if UserDefaults.standard.bool(forKey: "showWidgetAtLaunch") {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
-                    if self?.floatingWindowController == nil {
-                        self?.toggleFloatingWindow()
+                
+                if UserDefaults.standard.bool(forKey: "showWidgetAtLaunch") {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+                        if self?.floatingWindowController == nil {
+                            self?.toggleFloatingWindow()
+                        }
                     }
                 }
             }
@@ -93,14 +97,6 @@ class TimerManager: ObservableObject {
             
             // Save to UserDefaults
             UserDefaults.standard.set(newValue.rawValue, forKey: "notificationType")
-            var settedNoti = AdaptableNotificationType(
-                style: notificationType,
-                title: NSLocalizedString("Notification style set!", comment: "Title for notification style set notification"),
-                description: NSLocalizedString("Notifications will now be in this style.", comment: "Description for notification style set notification"),
-                image: "heart.fill",
-                iconColor: .accentColor
-            )
-            settedNoti.show(for: 2)
         }
     }
     
@@ -166,22 +162,24 @@ class TimerManager: ObservableObject {
     func handlePauseNotch(
         action: NotchAction = .auto
     ) {
-        updatePauseNotch()
-        
-        switch (action) {
-        case .show:
-            pauseNotch?.show()
-            isPauseNotchVisible = true
-        case .hide:
-            pauseNotch?.hide()
-            isPauseNotchVisible = false
-        default:
-            if (!isRunning) {
+        if !headless {
+            updatePauseNotch()
+            
+            switch (action) {
+            case .show:
                 pauseNotch?.show()
                 isPauseNotchVisible = true
-            } else {
+            case .hide:
                 pauseNotch?.hide()
                 isPauseNotchVisible = false
+            default:
+                if (!isRunning) {
+                    pauseNotch?.show()
+                    isPauseNotchVisible = true
+                } else {
+                    pauseNotch?.hide()
+                    isPauseNotchVisible = false
+                }
             }
         }
     }
@@ -233,9 +231,17 @@ class TimerManager: ObservableObject {
         }
     }
     
+    private func reloadNotifcationType() -> NotificationType {
+        if let storedValue = UserDefaults.standard.string(forKey: "notificationType"),
+           let storedType = NotificationType(rawValue: storedValue) {
+            return storedType
+        }
+        return .banner
+    }
+    
     private var targetEndTime: Date?
-
     private func updateRemainingTime() {
+        notificationType = reloadNotifcationType()
         guard let targetEndTime else { return }
 
         let newRemainingTime = targetEndTime.timeIntervalSinceNow
@@ -316,7 +322,7 @@ class TimerManager: ObservableObject {
             title: NSLocalizedString("timeToLabel", comment: "time to") + " " + (currentInterval == .sitting ? NSLocalizedString("sitLabel", comment: "sit") : NSLocalizedString("standLabel", comment: "stand")),
             description: NSLocalizedString("switchItUpContent", comment: "switch it up!"),
             image: currentInterval == .sitting ? "figure.seated.side.left" : "figure.stand",
-            iconColor: .accentColor
+            iconColor: currentInterval == .sitting ? .indigo : .yellow
         )
         notch.show(for: 3)
     }

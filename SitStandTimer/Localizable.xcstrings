@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
     "%@ %@" : {
       "localizations" : {
         "en" : {
@@ -422,7 +425,7 @@
       }
     },
     "DEBUG" : {
-      "shouldTranslate" : false
+
     },
     "doneLabel" : {
       "comment" : "Button that says \"done\".",
@@ -1216,8 +1219,14 @@
         }
       }
     },
+    "Settings" : {
+
+    },
+    "Settings..." : {
+
+    },
     "Show all windows" : {
-      "shouldTranslate" : false
+
     },
     "showNotchLabel" : {
       "comment" : "Toolbar button to show the pause notch.",

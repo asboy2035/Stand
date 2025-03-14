@@ -17,7 +17,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5E3EDEAF2D089F7000E83C77"
                BuildableName = "Stand.app"
-               BlueprintName = "SitStandTimer"
+               BlueprintName = "SitSitStandTimerTimer"
                ReferencedContainer = "container:SitStandTimer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -79,7 +79,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5E3EDEAF2D089F7000E83C77"
             BuildableName = "Stand.app"
-            BlueprintName = "SitStandTimer"
+            BlueprintName = "SitSitStandTimerTimer"
             ReferencedContainer = "container:SitStandTimer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

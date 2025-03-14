@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5E0677BD2D3D4DFD00D04ACA /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 5E0677BC2D3D4DFD00D04ACA /* LaunchAtLogin */; };
-		5E226A9E2D6201880030C44C /* SettingsKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5E226A9D2D6201880030C44C /* SettingsKit */; };
 		5E2FAFE82D5F9120007DA20C /* DynamicNotchKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5E2FAFE72D5F9120007DA20C /* DynamicNotchKit */; };
 		5E2FB0132D5F96C0007DA20C /* DynamicNotchKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5E2FB0122D5F96C0007DA20C /* DynamicNotchKit */; };
 		5E2FB0162D5F9A82007DA20C /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5E2FB0152D5F9A82007DA20C /* MarkdownUI */; };
@@ -16,19 +15,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5E3EDEB02D089F7000E83C77 /* Stand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stand.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E3EDEB02D089F7000E83C77 /* SitStandTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SitStandTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EA878D42D3EB5EE000C2B96 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		5EA878E82D3EB64C000C2B96 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		5EA878EA2D3EB64C000C2B96 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		5EB03C322D5A48F300783251 /* Exceptions for "SitStandTimer" folder in "SitStandTimer" target */ = {
+		5EB03C322D5A48F300783251 /* Exceptions for "SitStandTimer" folder in "SitSitStandTimerTimer" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = 5E3EDEAF2D089F7000E83C77 /* SitStandTimer */;
+			target = 5E3EDEAF2D089F7000E83C77 /* SitSitStandTimerTimer */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -36,7 +35,7 @@
 		5E3EDEB22D089F7000E83C77 /* SitStandTimer */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				5EB03C322D5A48F300783251 /* Exceptions for "SitStandTimer" folder in "SitStandTimer" target */,
+				5EB03C322D5A48F300783251 /* Exceptions for "SitStandTimer" folder in "SitSitStandTimerTimer" target */,
 			);
 			path = SitStandTimer;
 			sourceTree = "<group>";
@@ -52,7 +51,6 @@
 				5E2FAFE82D5F9120007DA20C /* DynamicNotchKit in Frameworks */,
 				5E0677BD2D3D4DFD00D04ACA /* LaunchAtLogin in Frameworks */,
 				5EB03C312D5A440400783251 /* Luminare in Frameworks */,
-				5E226A9E2D6201880030C44C /* SettingsKit in Frameworks */,
 				5E2FB0162D5F9A82007DA20C /* MarkdownUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72,7 +70,7 @@
 		5E3EDEB12D089F7000E83C77 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5E3EDEB02D089F7000E83C77 /* Stand.app */,
+				5E3EDEB02D089F7000E83C77 /* SitStandTimer.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -90,9 +88,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5E3EDEAF2D089F7000E83C77 /* SitStandTimer */ = {
+		5E3EDEAF2D089F7000E83C77 /* SitSitStandTimerTimer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5E3EDED52D089F7100E83C77 /* Build configuration list for PBXNativeTarget "SitStandTimer" */;
+			buildConfigurationList = 5E3EDED52D089F7100E83C77 /* Build configuration list for PBXNativeTarget "SitSitStandTimerTimer" */;
 			buildPhases = (
 				5E3EDEAC2D089F7000E83C77 /* Sources */,
 				5E3EDEAD2D089F7000E83C77 /* Frameworks */,
@@ -105,17 +103,16 @@
 			fileSystemSynchronizedGroups = (
 				5E3EDEB22D089F7000E83C77 /* SitStandTimer */,
 			);
-			name = SitStandTimer;
+			name = SitSitStandTimerTimer;
 			packageProductDependencies = (
 				5E0677BC2D3D4DFD00D04ACA /* LaunchAtLogin */,
 				5EB03C302D5A440400783251 /* Luminare */,
 				5E2FAFE72D5F9120007DA20C /* DynamicNotchKit */,
 				5E2FB0122D5F96C0007DA20C /* DynamicNotchKit */,
 				5E2FB0152D5F9A82007DA20C /* MarkdownUI */,
-				5E226A9D2D6201880030C44C /* SettingsKit */,
 			);
 			productName = SitStandTimer;
-			productReference = 5E3EDEB02D089F7000E83C77 /* Stand.app */;
+			productReference = 5E3EDEB02D089F7000E83C77 /* SitStandTimer.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -151,14 +148,13 @@
 				5EB03C2F2D5A440400783251 /* XCRemoteSwiftPackageReference "Luminare-Safe" */,
 				5E2FB0112D5F96C0007DA20C /* XCRemoteSwiftPackageReference "DynamicNotchKit" */,
 				5E2FB0142D5F9A82007DA20C /* XCRemoteSwiftPackageReference "swift-markdown-ui" */,
-				5E226A9C2D6201880030C44C /* XCRemoteSwiftPackageReference "SettingsKit-macOS" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5E3EDEB12D089F7000E83C77 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5E3EDEAF2D089F7000E83C77 /* SitStandTimer */,
+				5E3EDEAF2D089F7000E83C77 /* SitSitStandTimerTimer */,
 			);
 		};
 /* End PBXProject section */
@@ -349,7 +345,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				MARKETING_VERSION = 3.4;
 				PRODUCT_BUNDLE_IDENTIFIER = ash.Stand;
-				PRODUCT_NAME = Stand;
+				PRODUCT_NAME = SitStandTimer;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -390,7 +386,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				MARKETING_VERSION = 3.4;
 				PRODUCT_BUNDLE_IDENTIFIER = ash.Stand;
-				PRODUCT_NAME = Stand;
+				PRODUCT_NAME = SitStandTimer;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -410,7 +406,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5E3EDED52D089F7100E83C77 /* Build configuration list for PBXNativeTarget "SitStandTimer" */ = {
+		5E3EDED52D089F7100E83C77 /* Build configuration list for PBXNativeTarget "SitSitStandTimerTimer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5E3EDED62D089F7100E83C77 /* Debug */,
@@ -428,14 +424,6 @@
 			requirement = {
 				branch = main;
 				kind = branch;
-			};
-		};
-		5E226A9C2D6201880030C44C /* XCRemoteSwiftPackageReference "SettingsKit-macOS" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/david-swift/SettingsKit-macOS";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.2.4;
 			};
 		};
 		5E2FB0112D5F96C0007DA20C /* XCRemoteSwiftPackageReference "DynamicNotchKit" */ = {
@@ -469,11 +457,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5E0677BB2D3D4DFD00D04ACA /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */;
 			productName = LaunchAtLogin;
-		};
-		5E226A9D2D6201880030C44C /* SettingsKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5E226A9C2D6201880030C44C /* XCRemoteSwiftPackageReference "SettingsKit-macOS" */;
-			productName = SettingsKit;
 		};
 		5E2FAFE72D5F9120007DA20C /* DynamicNotchKit */ = {
 			isa = XCSwiftPackageProductDependency;
