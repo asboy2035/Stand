@@ -1,4 +1,5 @@
-![Stand-Bigpic](https://github.com/user-attachments/assets/452ad58f-6260-4bac-8484-6961d322805c)
+
+![Stand-Bigpic](https://github.com/user-attachments/assets/76a981f6-a1d0-4b4b-9a52-54492e25b8cd)
 
 <img width="2048" alt="SCR-20250122-pzyk" src="https://github.com/user-attachments/assets/96ced490-1eb9-4d4d-afe3-11fd0f96f6da" />
 
