@@ -37,6 +37,9 @@ struct UpdateView: View {
             }
 
             VStack {
+                Text("updateAvailableContent")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
                 HStack {
                     if !updateURL.isEmpty {
                         Button(action: {
@@ -60,10 +63,6 @@ struct UpdateView: View {
                     }
                 }
                 .frame(height: 35)
-                
-                Text("updateAvailableContent")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
             }
             .buttonStyle(LuminareCompactButtonStyle())
         }
