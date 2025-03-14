@@ -10,7 +10,7 @@ import SwiftUI
 import Luminare
 
 @main
-struct SitStandTimerApp: App {
+struct StandApp: App {
     @ObservedObject private var timerManager = TimerManager()
     @AppStorage("sittingTime") private var sittingTime: Double = 30
     @AppStorage("standingTime") private var standingTime: Double = 10

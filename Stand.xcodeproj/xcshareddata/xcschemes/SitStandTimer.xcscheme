@@ -1,25 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
    LastUpgradeVersion = "1620"
-   version = "1.7">
+   version = "2.2">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES"
       buildArchitectures = "Automatic">
       <BuildActionEntries>
          <BuildActionEntry
-            buildForTesting = "YES"
+            buildForTesting = "NO"
             buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5E3EDEAF2D089F7000E83C77"
                BuildableName = "Stand.app"
-               BlueprintName = "SitSitStandTimerTimer"
-               ReferencedContainer = "container:SitStandTimer.xcodeproj">
+               BlueprintName = "SitStandTimer"
+               ReferencedContainer = "container:Stand.xcodeproj">
             </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <AutocreatedTestPlanReference>
+            </AutocreatedTestPlanReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
@@ -29,12 +38,35 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
       shouldAutocreateTestPlan = "YES">
+      <Testables>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5E3EDEC02D089F7100E83C77"
+               BuildableName = "SitStandTimerTests.xctest"
+               BlueprintName = "SitStandTimerTests"
+               ReferencedContainer = "container:Stand.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5E3EDECA2D089F7100E83C77"
+               BuildableName = "SitStandTimerUITests.xctest"
+               BlueprintName = "SitStandTimerUITests"
+               ReferencedContainer = "container:Stand.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = "fr"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -47,8 +79,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5E3EDEAF2D089F7000E83C77"
             BuildableName = "Stand.app"
-            BlueprintName = "SitSitStandTimerTimer"
-            ReferencedContainer = "container:SitStandTimer.xcodeproj">
+            BlueprintName = "SitStandTimer"
+            ReferencedContainer = "container:Stand.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -58,16 +90,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5E3EDEAF2D089F7000E83C77"
-            BuildableName = "Stand.app"
-            BlueprintName = "SitSitStandTimerTimer"
-            ReferencedContainer = "container:SitStandTimer.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

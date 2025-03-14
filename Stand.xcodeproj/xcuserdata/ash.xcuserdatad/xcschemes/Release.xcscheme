@@ -17,8 +17,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5E3EDEAF2D089F7000E83C77"
                BuildableName = "Stand.app"
-               BlueprintName = "SitSitStandTimerTimer"
-               ReferencedContainer = "container:SitStandTimer.xcodeproj">
+               BlueprintName = "SitStandTimer"
+               ReferencedContainer = "container:Stand.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -38,7 +38,7 @@
                BlueprintIdentifier = "5E3EDEC02D089F7100E83C77"
                BuildableName = "SitStandTimerTests.xctest"
                BlueprintName = "SitStandTimerTests"
-               ReferencedContainer = "container:SitStandTimer.xcodeproj">
+               ReferencedContainer = "container:Stand.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -49,7 +49,7 @@
                BlueprintIdentifier = "5E3EDECA2D089F7100E83C77"
                BuildableName = "SitStandTimerUITests.xctest"
                BlueprintName = "SitStandTimerUITests"
-               ReferencedContainer = "container:SitStandTimer.xcodeproj">
+               ReferencedContainer = "container:Stand.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -72,8 +72,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5E3EDEAF2D089F7000E83C77"
             BuildableName = "Stand.app"
-            BlueprintName = "SitSitStandTimerTimer"
-            ReferencedContainer = "container:SitStandTimer.xcodeproj">
+            BlueprintName = "SitStandTimer"
+            ReferencedContainer = "container:Stand.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
