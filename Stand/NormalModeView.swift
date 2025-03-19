@@ -40,10 +40,7 @@ struct NormalModeView: View {
                             minHeight: nil,
                             maxHeight: .infinity
                         )
-                        .foregroundStyle(
-                            timerManager.currentInterval == .sitting ? .indigo.opacity(0.2) :
-                                .yellow.opacity(0.2)
-                        )
+                        .foregroundStyle(timerManager.currentInterval.color.opacity(0.2))
                 )
                 .layoutPriority(1)
         }
@@ -89,17 +86,32 @@ struct SidebarView: View {
     @EnvironmentObject private var timerManager: TimerManager
     let availableSounds = ["Funk", "Ping", "Tink", "Glass", "Basso"]
     @State var showStats = false
+    @AppStorage("showOccasionalReminders") private var showOccasionalReminders = true
     
     var body: some View {
         List {
 #if DEBUG
             LuminareSection("DEBUG") { // Debug tools
+                LuminareToggle("showOccasionalRemindersLabel", isOn: $showOccasionalReminders)
+                
                 Button(action: {
                     AboutWindowController.shared.showAboutView(timerManager: timerManager)
                     UpdateWindowController.shared.showUpdateView()
                     WelcomeWindowController.shared.showWelcomeView(timerManager: timerManager)
+                    SettingsWindowController.shared.showSettingsView()
                 }) {
                     Label("Show all windows", systemImage: "macwindow.on.rectangle")
+                }
+
+                Button("Test Notification") {
+                    var testNotification = AdaptableNotificationType(
+                        style: timerManager.notificationType,
+                        title: "Test Reminder",
+                        description: "This is a debug reminder test.",
+                        image: "bell",
+                        iconColor: .blue
+                    )
+                    testNotification.show(for: 3)
                 }
             }
 #endif
@@ -150,9 +162,9 @@ struct DetailView: View {
     var body: some View {
         VStack(spacing: 20) {
             HStack(spacing: 15) {
-                Image(systemName: timerManager.currentInterval == .sitting ? "figure.seated.side.right" : "figure.stand")
+                Image(systemName: timerManager.currentInterval.systemImage)
                     .font(.largeTitle)
-                Text(timerManager.currentInterval == .sitting ? "sittingLabel" : "standingLabel")
+                Text(timerManager.currentInterval.localizedString)
                     .font(.title)
             }
             .foregroundStyle(.secondary)

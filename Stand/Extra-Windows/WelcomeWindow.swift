@@ -251,6 +251,7 @@ struct IntervalsDemoView: View {
 struct NotificationsDemoView: View {
     @EnvironmentObject var timerManager: TimerManager
     @AppStorage("notificationType") var notificationType: NotificationType = .banner
+    @AppStorage("showOccasionalReminders") private var showOccasionalReminders = true
 
     var body: some View {
         VStack {
@@ -278,6 +279,8 @@ struct NotificationsDemoView: View {
             Text("canChangeLater")
                 .font(.caption)
                 .foregroundStyle(.secondary)
+            
+            LuminareToggle("showOccasionalRemindersLabel", isOn: $showOccasionalReminders)
         }
         .onAppear() {
             let HUDNoti = HUD(

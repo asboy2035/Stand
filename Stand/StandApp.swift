@@ -40,10 +40,10 @@ struct StandApp: App {
         }
         
         // -MARK: Menu bar extra
-        MenuBarExtra("appName", systemImage: timerManager.currentInterval == .sitting ? "figure.seated.side.right" : "figure.stand") {
+        MenuBarExtra("appName", systemImage: timerManager.currentInterval.systemImage) {
             VStack {
                 Spacer()
-                Text(timerManager.currentInterval == .sitting ? "sittingLabel" : "standingLabel")
+                Text(timerManager.currentInterval.localizedString)
                     .font(.title)
                     .foregroundStyle(.secondary)
                 Text(formatTime(timerManager.remainingTime))
@@ -86,7 +86,7 @@ struct StandApp: App {
             }
             .frame(width: 150, height: 150)
             .padding()
-            .background(timerManager.currentInterval == .sitting ? .indigo.opacity(0.2) : .yellow.opacity(0.2))
+            .background(timerManager.currentInterval.color.opacity(0.2))
         }
         .menuBarExtraStyle(.window)
     }
@@ -102,6 +102,39 @@ struct StandApp: App {
             timerManager.pauseTimer()
         } else {
             timerManager.resumeTimer()
+        }
+    }
+}
+
+struct DebugCommands: Commands {
+    @AppStorage("showOccasionalReminders") private var showOccasionalReminders = true
+    @EnvironmentObject var timerManager: TimerManager
+
+    var body: some Commands {
+        CommandGroup(after: .help) {
+            Menu("DEBUG") {
+                Toggle("Show Occasional Reminders", isOn: $showOccasionalReminders)
+
+                Button("Test Notification") {
+                    var testNotification = AdaptableNotificationType(
+                        style: timerManager.notificationType,
+                        title: "Test Reminder",
+                        description: "This is a debug reminder test.",
+                        image: "bell",
+                        iconColor: .blue
+                    )
+                    testNotification.show(for: 3)
+                }
+                
+                Button(action: {
+                    AboutWindowController.shared.showAboutView(timerManager: timerManager)
+                    UpdateWindowController.shared.showUpdateView()
+                    WelcomeWindowController.shared.showWelcomeView(timerManager: timerManager)
+                    SettingsWindowController.shared.showSettingsView()
+                }) {
+                    Label("Show all windows", systemImage: "macwindow.on.rectangle")
+                }
+            }
         }
     }
 }

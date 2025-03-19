@@ -8,12 +8,46 @@
 import Foundation
 import DynamicNotchKit
 import SwiftUI
-import AppKit
 import LaunchAtLogin
 
 enum IntervalType {
     case sitting
     case standing
+    
+    var localizedString: String {
+        switch self {
+        case .sitting: return NSLocalizedString("sittingLabel", comment: "")
+        case .standing: return NSLocalizedString("standingLabel", comment: "")
+        }
+    }
+    
+    var infinitiveLocalizedString: String {
+        switch self {
+        case .sitting: return NSLocalizedString("sitLabel", comment: "")
+        case .standing: return NSLocalizedString("standLabel", comment: "")
+        }
+    }
+    
+    var systemImage: String {
+        switch self {
+        case .sitting: return "figure.seated.side.left"
+        case .standing: return "figure.stand"
+        }
+    }
+    
+    var color: Color {
+        switch self {
+        case .sitting: return .indigo
+        case .standing: return .yellow
+        }
+    }
+    
+    var appIconName: String {
+        switch self {
+        case .sitting: return "SittingIcon"
+        case .standing: return "StandingIcon"
+        }
+    }
 }
 
 class TimerManager: ObservableObject {
@@ -33,6 +67,7 @@ class TimerManager: ObservableObject {
     
     private var timer: Timer?
     private var historyTimer: Timer?
+    private var reminderManager: RandomReminderManager?
     private var sittingTime: TimeInterval = 30 * 60
     private var standingTime: TimeInterval = 10 * 60
     private var lastHistoryUpdateTime: Date = Date()
@@ -68,6 +103,8 @@ class TimerManager: ObservableObject {
         currentInterval = UserDefaults.standard.bool(forKey: "isStanding") ? .standing : .sitting
 
         if !headless {
+            reminderManager = RandomReminderManager(timerManager: self)
+            
             if LaunchAtLogin.isEnabled {
                 if UserDefaults.standard.bool(forKey: "startTimerAtLaunch") {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
@@ -120,7 +157,7 @@ class TimerManager: ObservableObject {
     }
     
     private func updateAppIcon() {
-        let iconName = currentInterval == .sitting ? "SittingIcon" : "StandingIcon"
+        let iconName = currentInterval.appIconName
         if let icon = NSImage(named: iconName) {
             NSApplication.shared.applicationIconImage = icon
         }
@@ -319,10 +356,10 @@ class TimerManager: ObservableObject {
         resumeTimer()
         var notch = AdaptableNotificationType(
             style: notificationType,
-            title: NSLocalizedString("timeToLabel", comment: "time to") + " " + (currentInterval == .sitting ? NSLocalizedString("sitLabel", comment: "sit") : NSLocalizedString("standLabel", comment: "stand")),
+            title: NSLocalizedString("timeToLabel", comment: "time to") + " " + currentInterval.infinitiveLocalizedString,
             description: NSLocalizedString("switchItUpContent", comment: "switch it up!"),
-            image: currentInterval == .sitting ? "figure.seated.side.left" : "figure.stand",
-            iconColor: currentInterval == .sitting ? .indigo : .yellow
+            image: currentInterval.systemImage,
+            iconColor: currentInterval.color
         )
         notch.show(for: 3)
     }

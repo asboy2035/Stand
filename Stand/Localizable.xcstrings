@@ -675,6 +675,41 @@
         }
       }
     },
+    "keepItUpLabel" : {
+      "comment" : "Keep it up label",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Weiter so!"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keep it up!"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Weiter so!"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuez comme ça!"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "继续努力吧！"
+          }
+        }
+      }
+    },
     "launchAtLoginLabel" : {
       "comment" : "Launch at login label",
       "localizations" : {
@@ -860,6 +895,12 @@
             "value" : "Benachrichtigungsstil wurde festgelegt!"
           }
         },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notification style set!"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -886,6 +927,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Benachrichtigungstyp"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notification Type"
           }
         },
         "es" : {
@@ -915,6 +962,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Benachrichtigungen werden jetzt in diesem Stil sein."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notifications will now be in this style."
           }
         },
         "es" : {
@@ -1184,6 +1237,41 @@
         }
       }
     },
+    "Reminder" : {
+      "comment" : "Reminder title",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erinnerung"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reminder"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erinnerung"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rappel"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "提醒"
+          }
+        }
+      }
+    },
     "resetLabel" : {
       "comment" : "Reset button tooltip",
       "localizations" : {
@@ -1227,6 +1315,12 @@
             "value" : "Einstellungen"
           }
         },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1255,6 +1349,12 @@
             "value" : "Einstellungen…"
           }
         },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings…"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1277,6 +1377,9 @@
     },
     "Show all windows" : {
       "shouldTranslate" : false
+    },
+    "Show Occasional Reminders" : {
+
     },
     "showNotchLabel" : {
       "comment" : "Toolbar button to show the pause notch.",
@@ -1309,6 +1412,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "展示槽口"
+          }
+        }
+      }
+    },
+    "showOccasionalRemindersLabel" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gelegentliche Intervall -Erinnerungen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Occasional Interval Reminders"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gelegentliche Intervall -Erinnerungen"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rappels d'intervalle occasionnels"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "偶尔的间隔提醒"
           }
         }
       }
@@ -1704,6 +1841,9 @@
           }
         }
       }
+    },
+    "Test Notification" : {
+
     },
     "thanksText" : {
       "comment" : "Thanks message (about window)",

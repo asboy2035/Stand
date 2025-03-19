@@ -135,6 +135,7 @@ struct NotificationTypePickerData: Hashable, LuminarePickerData {
 struct NotificationsSettingsView: View {
     @EnvironmentObject var timerManager: TimerManager
     @AppStorage("notificationType") private var notificationType: NotificationType = .banner
+    @AppStorage("showOccasionalReminders") private var showOccasionalReminders = true
     let availableSounds = ["Funk", "Ping", "Tink", "Glass", "Basso"]
     
     var body: some View {
@@ -183,6 +184,8 @@ struct NotificationsSettingsView: View {
                         settedNoti.show(for: 2)
                     }
                 }
+                
+                LuminareToggle("showOccasionalRemindersLabel", isOn: $showOccasionalReminders)
             }
             Spacer()
         }

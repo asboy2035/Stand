@@ -20,21 +20,13 @@ struct IdleModeView: View {
             VStack(spacing: 15) {
                 ClockView(currentTime: currentTime)
                 HStack(spacing: 15) {
-                    Image(systemName:
-                            timerManager.currentInterval == .sitting ?
-                                "figure.seated.side.left" :
-                                "figure.stand"
-                    )
+                    Image(systemName: timerManager.currentInterval.systemImage)
                     .font(.largeTitle)
                     
-                    Text(
-                        timerManager.currentInterval == .sitting ?
-                            "sittingLabel" :
-                            "standingLabel"
-                    )
+                    Text(timerManager.currentInterval.localizedString)
                     .font(.title)
                 }
-                .foregroundStyle(timerManager.currentInterval == .sitting ? .indigo : .yellow)
+                .foregroundStyle(timerManager.currentInterval.color)
             }
             Spacer()
             

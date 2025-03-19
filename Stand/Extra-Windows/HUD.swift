@@ -46,6 +46,7 @@ class HUDController: NSObject {
                 defer: false
             )
             
+            window.isOpaque = false
             window.backgroundColor = .clear
             window.level = .floating
             window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]

@@ -144,12 +144,6 @@ struct CreditsView: View {
             url: "https://github.com/gonzalezreal/swift-markdown-ui",
             license: "MIT License",
             systemImage: "richtext.page"
-        ),
-        Dependency(
-            name: "SettingsKit",
-            url: "https://github.com/david-swift/SettingsKit-macOS",
-            license: "MIT License",
-            systemImage: "gear"
         )
     ]
 

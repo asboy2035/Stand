@@ -58,7 +58,7 @@ struct FloatingWindowView: View {
             
             VStack(spacing: 10) {
                 VStack(spacing: 2) {
-                    Text(timerManager.currentInterval == .sitting ? "sittingLabel" : "standingLabel")
+                    Text(timerManager.currentInterval.localizedString)
                         .font(.system(size: 14))
                         .foregroundStyle(.secondary)
                     
@@ -73,8 +73,13 @@ struct FloatingWindowView: View {
             .padding(.bottom, 8)
         }
         .frame(width: 150, height: 150)
-        .background(timerManager.currentInterval == .sitting ? .indigo.opacity(0.2) : .yellow.opacity(0.2))
-        .background(VisualEffectView(material: .hudWindow, blendingMode: .behindWindow).edgesIgnoringSafeArea(.all))
+        .background(timerManager.currentInterval.color.opacity(0.2))
+        .background(
+            VisualEffectView(
+                material: .hudWindow,
+                blendingMode: .behindWindow
+            ).ignoresSafeArea()
+        )
         .overlay(RoundedRectangle(cornerRadius: 18).stroke(.tertiary, lineWidth: 1))
         .mask(RoundedRectangle(cornerRadius: 18))
     }
