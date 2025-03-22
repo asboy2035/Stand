@@ -27,12 +27,15 @@ enum Tab: LuminareTabItem, CaseIterable {
     case about
     case credits
     
+    case experiments
+    
     var title: String {
         switch self {
         case .general: .init(localized: "generalSettings")
         case .notifications: .init(localized: "notificationsSettings")
         case .about: .init(localized: "aboutLabel", defaultValue: "About Stand")
         case .credits: .init(localized: "creditsLabel", defaultValue: "Credits")
+        case .experiments: .init(localized: "experimentsLabel", defaultValue: "Experiments")
         }
     }
     
@@ -42,6 +45,7 @@ enum Tab: LuminareTabItem, CaseIterable {
         case .notifications: Image(systemName: "bell.fill")
         case .about: Image(systemName: "info.circle")
         case .credits: Image(systemName: "shippingbox.fill")
+        case .experiments: Image(systemName: "testtube.2")
         }
     }
     
@@ -57,9 +61,11 @@ enum Tab: LuminareTabItem, CaseIterable {
         case .notifications: NotificationsSettingsView().environmentObject(TimerManager(headless: true))
         case .about: AboutContentView(appVersion: appVersion)
         case .credits: CreditsView()
+        case .experiments: ExperimentsSettingsView()
         }
     }
     
     static let generalSection: [Tab] = [.general, .notifications]
     static let aboutSection: [Tab] = [.about, .credits]
+    static let moreSection: [Tab] = [.experiments]
 }

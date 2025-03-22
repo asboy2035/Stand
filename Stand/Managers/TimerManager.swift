@@ -36,9 +36,13 @@ enum IntervalType {
     }
     
     var color: Color {
+        let usingNewColors = UserDefaults.standard.bool(forKey: "usingNewColors")
+        
         switch self {
-        case .sitting: return .indigo
-        case .standing: return .yellow
+        case .sitting:
+            return .indigo
+        case .standing:
+            return usingNewColors ? .mint : .yellow
         }
     }
     

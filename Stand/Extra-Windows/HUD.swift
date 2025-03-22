@@ -80,18 +80,21 @@ struct HUDView: View {
             Image(systemName: hud.systemImage)
                 .resizable()
                 .scaledToFit()
-                .frame(width: 75, height: 75)
-                .padding()
+                .frame(width: 80, height: 80)
+                .padding(20)
                 .foregroundStyle(hud.imageColor)
+            Spacer()
             
             Text(hud.title)
                 .font(.title3)
-            
             Text(hud.description)
                 .foregroundStyle(.secondary)
         }
         .multilineTextAlignment(.center)
+        .padding(.horizontal, 8)
+        .padding(.vertical)
         .frame(width: 200, height: 200)
+        
         .background(
             VisualEffectView(
                 material: .hudWindow,
@@ -99,8 +102,8 @@ struct HUDView: View {
             )
             .ignoresSafeArea()
         )
-        .overlay(RoundedRectangle(cornerRadius: 16).stroke(.tertiary, lineWidth: 1))
-        .mask(RoundedRectangle(cornerRadius: 16))
+        .overlay(RoundedRectangle(cornerRadius: 22).stroke(.tertiary, lineWidth: 1))
+        .mask(RoundedRectangle(cornerRadius: 22))
         .opacity(isVisible ? 1 : 0)
         .onAppear {
             withAnimation(.easeIn(duration: 0.1)) {

@@ -497,6 +497,41 @@
         }
       }
     },
+    "experimentsLabel" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Experimente"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Experiments"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Experimentos"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Expériences"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "实验"
+          }
+        }
+      }
+    },
     "generalSettings" : {
       "comment" : "Name for general settings",
       "localizations" : {
@@ -882,6 +917,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "分钟"
+          }
+        }
+      }
+    },
+    "moreLabel" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mehr"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "More"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Más"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plus"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更多的"
           }
         }
       }
@@ -1378,9 +1447,6 @@
     "Show all windows" : {
       "shouldTranslate" : false
     },
-    "Show Occasional Reminders" : {
-
-    },
     "showNotchLabel" : {
       "comment" : "Toolbar button to show the pause notch.",
       "localizations" : {
@@ -1843,7 +1909,7 @@
       }
     },
     "Test Notification" : {
-
+      "shouldTranslate" : false
     },
     "thanksText" : {
       "comment" : "Thanks message (about window)",
@@ -2268,6 +2334,9 @@
           }
         }
       }
+    },
+    "usingNewColors" : {
+      "shouldTranslate" : false
     },
     "websiteLabel" : {
       "comment" : "Label for the button to go to website.",

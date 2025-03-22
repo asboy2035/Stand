@@ -43,6 +43,7 @@ class SettingsWindowController: NSObject {
     }
 }
 
+// -MARK: Settings
 class SettingsModel: ObservableObject {
     @Published var selection: Tab = .general
 }
@@ -56,6 +57,7 @@ struct SettingsView: View {
                 LuminareSidebar {
                     LuminareSidebarSection("generalSettings", selection: $model.selection, items: Tab.generalSection)
                     LuminareSidebarSection("aboutLabel", selection: $model.selection, items: Tab.aboutSection)
+                    LuminareSidebarSection("moreLabel", selection: $model.selection, items: Tab.moreSection)
                 }
                 .padding(.top, 56)
             }
@@ -99,6 +101,7 @@ struct SettingsView: View {
     }
 }
 
+// -MARK: General settings
 struct GeneralSettingsView: View {
     @AppStorage("startTimerAtLaunch") private var startTimerAtLaunch = false
     @AppStorage("showWidgetAtLaunch") private var showWidgetAtLaunch = false
@@ -122,6 +125,7 @@ struct GeneralSettingsView: View {
     }
 }
 
+// -MARK: Notification settings
 struct NotificationTypePickerData: Hashable, LuminarePickerData {
     var name: String
     let selectable: Bool = true
@@ -186,6 +190,20 @@ struct NotificationsSettingsView: View {
                 }
                 
                 LuminareToggle("showOccasionalRemindersLabel", isOn: $showOccasionalReminders)
+            }
+            Spacer()
+        }
+    }
+}
+
+// -MARK: Experiments
+struct ExperimentsSettingsView: View {
+    @AppStorage("usingNewColors") private var usingNewColors: Bool = false
+    
+    var body: some View {
+        VStack {
+            LuminareSection("experimentsLabel") {
+                LuminareToggle("usingNewColors", isOn: $usingNewColors)
             }
             Spacer()
         }

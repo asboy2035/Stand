@@ -90,33 +90,7 @@ struct SidebarView: View {
     
     var body: some View {
         List {
-#if DEBUG
-            LuminareSection("DEBUG") { // Debug tools
-                LuminareToggle("showOccasionalRemindersLabel", isOn: $showOccasionalReminders)
-                
-                Button(action: {
-                    AboutWindowController.shared.showAboutView(timerManager: timerManager)
-                    UpdateWindowController.shared.showUpdateView()
-                    WelcomeWindowController.shared.showWelcomeView(timerManager: timerManager)
-                    SettingsWindowController.shared.showSettingsView()
-                }) {
-                    Label("Show all windows", systemImage: "macwindow.on.rectangle")
-                }
-
-                Button("Test Notification") {
-                    var testNotification = AdaptableNotificationType(
-                        style: timerManager.notificationType,
-                        title: "Test Reminder",
-                        description: "This is a debug reminder test.",
-                        image: "bell",
-                        iconColor: .blue
-                    )
-                    testNotification.show(for: 3)
-                }
-            }
-#endif
-            
-            LuminareSection {
+            VStack {
                 Button(action: {
                     timerManager.toggleFloatingWindow()
                 }) {
@@ -142,8 +116,45 @@ struct SidebarView: View {
                     suffix: "minutesAbbr"
                 )
             }
+            
+            Button(action: {
+                SettingsWindowController.shared.showSettingsView()
+            }) {
+                Label("Settings...", systemImage: "gear")
+            }
+            .buttonStyle(.borderless)
+            
+#if DEBUG
+            LuminareSection("DEBUG") { // Debug tools
+                LuminareToggle("showOccasionalRemindersLabel", isOn: $showOccasionalReminders)
+            }
+             
+            VStack {
+                Button(action: {
+                    AboutWindowController.shared.showAboutView(timerManager: timerManager)
+                    UpdateWindowController.shared.showUpdateView()
+                    WelcomeWindowController.shared.showWelcomeView(timerManager: timerManager)
+                    SettingsWindowController.shared.showSettingsView()
+                }) {
+                    Label("Show all windows", systemImage: "macwindow.on.rectangle")
+                }
+
+                Button(action: {
+                    var testNotification = AdaptableNotificationType(
+                        style: timerManager.notificationType,
+                        title: "Test Reminder",
+                        description: "This is a debug reminder test.",
+                        image: "bell",
+                        iconColor: .blue
+                    )
+                    testNotification.show(for: 3)
+                }) {
+                    Label("Test Notification", systemImage: "bell.fill")
+                }
+            }
+#endif
         }
-        .buttonStyle(LuminareButtonStyle())
+        .buttonStyle(LuminareCompactButtonStyle())
         .luminareModal(isPresented: $showStats, closeOnDefocus: true) {
             StatsView(showStats: $showStats)
                 .environmentObject(timerManager)
@@ -222,80 +233,6 @@ struct DetailView: View {
         let minutes = Int(timeInterval) / 60
         let seconds = Int(timeInterval) % 60
         return String(format: "%02d:%02d", minutes, seconds)
-    }
-}
-
-// -MARK: Stats
-struct StatsView: View {
-    @EnvironmentObject private var timerManager: TimerManager
-    @Binding var showStats: Bool  // Add the binding to control the modal
-    
-    private func formatTime(minutes: Int) -> String {
-        let hours = minutes / 60
-        let remainingMinutes = minutes % 60
-        return "\(hours)h \(remainingMinutes)m"
-    }
-    
-    var body: some View {
-        VStack {
-            LuminareSection {
-                VStack(spacing: 4) {
-                    HStack {
-                        Image(systemName: "clock.fill")
-                            .frame(width: 20, height: 20)
-                        Text(NSLocalizedString("totalLabel", comment: "Total label"))
-                    }
-                    .foregroundStyle(
-                        LinearGradient(
-                            gradient: Gradient(colors: [.yellow, .indigo]),
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
-                    )
-                    Text(
-                        formatTime(minutes:
-                            timerManager.timeHistory.standingMinutes +
-                            timerManager.timeHistory.sittingMinutes
-                        )
-                    )
-                    .font(.system(.title, design: .monospaced))
-                }
-                
-                VStack(spacing: 4) {
-                    HStack {
-                        Image(systemName: "figure.seated.side.right")
-                            .frame(width: 20, height: 20)
-                        Text(NSLocalizedString("sittingLabel", comment: "Sitting label"))
-                    }
-                    .foregroundStyle(.indigo)
-                    Text(formatTime(minutes:
-                            timerManager.timeHistory.sittingMinutes
-                       )
-                    )
-                    .font(.system(.title, design: .monospaced))
-                }
-                
-                VStack(spacing: 4) {
-                    HStack {
-                        Image(systemName: "figure.stand")
-                            .frame(width: 20, height: 20)
-                        Text(NSLocalizedString("standingLabel", comment: "Standing label"))
-                    }
-                    .foregroundStyle(.yellow)
-                    Text(formatTime(minutes: timerManager.timeHistory.standingMinutes))
-                        .font(.system(.title, design: .monospaced))
-                }
-            }
-            
-            // Close button to dismiss the modal
-            Button(action: {
-                showStats = false
-            }) {
-                Text("closeLabel")
-            }
-            .buttonStyle(LuminareCompactButtonStyle())
-        }
-        .frame(minWidth: 150)
     }
 }
 

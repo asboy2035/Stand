@@ -105,36 +105,3 @@ struct StandApp: App {
         }
     }
 }
-
-struct DebugCommands: Commands {
-    @AppStorage("showOccasionalReminders") private var showOccasionalReminders = true
-    @EnvironmentObject var timerManager: TimerManager
-
-    var body: some Commands {
-        CommandGroup(after: .help) {
-            Menu("DEBUG") {
-                Toggle("Show Occasional Reminders", isOn: $showOccasionalReminders)
-
-                Button("Test Notification") {
-                    var testNotification = AdaptableNotificationType(
-                        style: timerManager.notificationType,
-                        title: "Test Reminder",
-                        description: "This is a debug reminder test.",
-                        image: "bell",
-                        iconColor: .blue
-                    )
-                    testNotification.show(for: 3)
-                }
-                
-                Button(action: {
-                    AboutWindowController.shared.showAboutView(timerManager: timerManager)
-                    UpdateWindowController.shared.showUpdateView()
-                    WelcomeWindowController.shared.showWelcomeView(timerManager: timerManager)
-                    SettingsWindowController.shared.showSettingsView()
-                }) {
-                    Label("Show all windows", systemImage: "macwindow.on.rectangle")
-                }
-            }
-        }
-    }
-}
