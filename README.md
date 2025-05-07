@@ -5,7 +5,7 @@
 
 UPDATED: Idle mode is great for non-computer desk activities!
 
-You can download the app from the [Mac App Store](https://apps.apple.com/us/app/stand-standing-desk-app/id6741711329?mt=12) or go to the Releases tab.
+You can download the app from the [Mac App Store](https://apps.apple.com/us/app/stand-standing-desk-app/id6741711329?mt=12), use `brew install asboy2035/apps/stand`, or go to the Releases tab.
 
 ### Language Support
 Stand supports multiple languages:
